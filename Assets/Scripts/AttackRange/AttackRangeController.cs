@@ -16,6 +16,11 @@ public class AttackRangeController : MonoBehaviour
     /// </summary>
     public GameObject target;
 
+    private void Start()
+    {
+        target = Instantiate(target, transform.position, Quaternion.identity);
+    }
+
     private void Update()
     {
         Control();
@@ -28,13 +33,15 @@ public class AttackRangeController : MonoBehaviour
             return;
 
         // 공격 범위를 활성화/ 비활성화 시킵니다.
-        if (!target.activeSelf && character.stateType == Character.StateTypes.Idle)
+        if (character.stateType == Character.StateTypes.Idle)
         {
-            target.SetActive(true);
+            if(!target.activeSelf)
+                target.SetActive(true);
 
             target.transform.position = new Vector3(character.transform.position.x, 0, (character.transform.position.z));
         }
-        else if (target.activeSelf && character.stateType == Character.StateTypes.Move)
-            target.SetActive(false);
+        else if (character.stateType == Character.StateTypes.Move)
+            if (target.activeSelf)
+                target.SetActive(false);
     }
 }
