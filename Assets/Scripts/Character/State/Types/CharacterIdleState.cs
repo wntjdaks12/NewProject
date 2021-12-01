@@ -11,6 +11,16 @@ public class CharacterIdleState : CharacterState
     private static CharacterIdleState instance = new CharacterIdleState();
 
     /// <summary>
+    /// 상태는 공격으로 합니다.
+    /// </summary>
+    /// <param name="character">캐릭터 주솟값</param>
+    public void Attack(Character character)
+    {
+        character.State = CharacterAttackState.Instance;
+        character.stateType = Character.StateTypes.Attack;
+    }
+
+    /// <summary>
     /// 상태는 가만히 있는 것으로 합니다.
     /// </summary>
     /// <param name="character">캐릭터 주솟값</param>
@@ -25,7 +35,6 @@ public class CharacterIdleState : CharacterState
     public void Move(Character character)
     {
         character.State = CharacterMoveState.Instance;
-
         character.stateType = Character.StateTypes.Move;
     }
 
