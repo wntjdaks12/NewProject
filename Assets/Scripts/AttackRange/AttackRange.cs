@@ -13,11 +13,6 @@ public class AttackRange : MonoBehaviour
         Radius = 5 * 2;
     }
 
-    private void Update()
-    {
-        Position = new Vector3(transform.position.x, 0, transform.position.z);
-    }
-
     // 포지션 Y 값을 고정시킵니다.
     private Vector3 Position { set { transform.position = value; } }
 
