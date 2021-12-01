@@ -34,4 +34,11 @@ public class PlayerController : MonoBehaviour
         else
             target.Idle();
     }
+
+    // 해당 대상을 공격시킵니다.
+    private void Attack()
+    {
+        if(target)
+            target.Attack();
+    }
 }
