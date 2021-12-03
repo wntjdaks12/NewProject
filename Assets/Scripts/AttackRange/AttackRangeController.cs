@@ -18,6 +18,7 @@ public class AttackRangeController : MonoBehaviour
 
     private void Start()
     {
+        // 최초 한번만 해당 대상을 생성합니다.
         target = Instantiate(target, transform.position, Quaternion.identity);
     }
 
