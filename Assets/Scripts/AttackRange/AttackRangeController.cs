@@ -33,7 +33,7 @@ public class AttackRangeController : MonoBehaviour
             return;
 
         // 공격 범위를 활성화/ 비활성화 시킵니다.
-        if (character.stateType == Character.StateTypes.Idle)
+        if (character.stateType == Character.StateTypes.Idle || character.stateType == Character.StateTypes.Attack)
         {
             if(!target.activeSelf)
                 target.SetActive(true);
