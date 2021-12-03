@@ -11,7 +11,4 @@ public class PlayerController : MonoBehaviour
     /// 해당 플레이어입니다.
     /// </summary>
     public Player target;
-
-    // 공격 여부입니다.
-    protected static bool isAttacking = false;
 }
