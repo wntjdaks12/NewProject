@@ -7,35 +7,11 @@ using UnityEngine;
 /// </summary>
 public class WeaponController : PlayerController
 {
-    private void Awake()
-    {
-        OverlapMonsterCollider.collisionEnterEvent += ActivateAttack;
-        OverlapMonsterCollider.collisionExitEvent += DeactivateAttack;
-    }
-
-    public void Start()
+    private void Start()
     {
         //임시 데이터
         var obj = Instantiate(Resources.Load("Prefabs/Weapons/Pistol"), target.transform) as GameObject;
 
         target.Weapon = obj.GetComponent<Weapon>();
-    }
-
-    // 공격을 활성화시킵니다.
-    private void ActivateAttack()
-    {
-        isAttacking = true;
-    }
-
-    // 공격을 비활성화시킵니다.
-    private void DeactivateAttack()
-    {
-        isAttacking = false;
-    }
-
-    private void OnDisable()
-    {
-        OverlapMonsterCollider.collisionEnterEvent -= ActivateAttack;
-        OverlapMonsterCollider.collisionExitEvent -= DeactivateAttack;
     }
 }
