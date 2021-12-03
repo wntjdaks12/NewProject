@@ -83,7 +83,7 @@ public class Character : MonoBehaviour
     /// <summary>
     /// 현재 무기입니다.
     /// </summary>
-    public Weapon Weapon { set { weapon = value; } }
+    public Weapon Weapon { get { return weapon; } set { weapon = value; } }
 
     /// <summary>
     /// 현재 상태입니다.
