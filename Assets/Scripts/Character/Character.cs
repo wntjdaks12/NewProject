@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
     public StateTypes stateType;
 
     // 현재 무기를 나타냅니다.
-    protected Weapon weapon;
+    public Weapon weapon;
 
     // 물리 제어를 위해 가져옵니다.
     protected Rigidbody rigid;
@@ -35,7 +35,8 @@ public class Character : MonoBehaviour
         // 공격 상태로 변경합니다.
         state.Attack(this);
 
-        weapon?.Attack();
+        if(weapon)
+           weapon.Attack();
     }
 
     /// <summary>
