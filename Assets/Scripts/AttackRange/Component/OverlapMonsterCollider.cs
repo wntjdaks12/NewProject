@@ -36,13 +36,21 @@ public class OverlapMonsterCollider : MonoBehaviour
         // 콜라이더가 몬스터일 경우만 체크합니다.
         if (colls.Length > 0)
         {
+            // 충돌한 몬스터 수입니다
+            var count = 0;
+
             for (int i = 0; i < colls.Length; i++)
             {
+                // 충돌 시 몬스터가 있을 경우 이벤트를 실행합니다.
                 if (colls[i].tag == "Monster")
-                    // 충돌 시작 시 이벤트를 실행합니다.
+                { 
                     collisionEnterEvent?.Invoke();
-                else if (colls.Length - 1 == i)
-                    // 충돌 끝날 시 이벤트를 실행합니다.
+
+                    count++;
+                }
+
+                // 충돌 시 몬스터가 없을 경우 이벤트를 실행합니다.
+                if (colls.Length - 1 == i && count == 0)
                     collisionExitEvent?.Invoke();
             }
         }
