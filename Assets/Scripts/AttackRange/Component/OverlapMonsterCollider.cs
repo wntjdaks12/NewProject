@@ -7,6 +7,20 @@ using UnityEngine;
 /// </summary>
 public class OverlapMonsterCollider : MonoBehaviour
 {
+    /// <summary>
+    /// 충돌 대리자입니다.
+    /// </summary>
+    public delegate void CollisionDelegate();
+
+    /// <summary>
+    /// 충돌 시작 시 이벤트입니다.
+    /// </summary>
+    public static event CollisionDelegate collisionEnterEvent;
+    /// <summary>
+    /// 충돌 끝날 시 이벤트입니다.
+    /// </summary>
+    public static event CollisionDelegate collisionExitEvent;
+
     private void FixedUpdate()
     {
         // 임시데이터
@@ -22,13 +36,20 @@ public class OverlapMonsterCollider : MonoBehaviour
         // 콜라이더가 몬스터일 경우만 체크합니다.
         if (colls.Length > 0)
         {
-            foreach (Collider coll in colls)
+            for (int i = 0; i < colls.Length; i++)
             {
-                if (coll.tag == "Monster")
-                {
-
-                }
+                if (colls[i].tag == "Monster")
+                    // 충돌 시작 시 이벤트를 실행합니다.
+                    collisionEnterEvent?.Invoke();
+                else if (colls.Length - 1 == i)
+                    // 충돌 끝날 시 이벤트를 실행합니다.
+                    collisionExitEvent?.Invoke();
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        collisionExitEvent?.Invoke();
     }
 }
