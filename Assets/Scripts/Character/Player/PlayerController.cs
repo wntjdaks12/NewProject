@@ -20,8 +20,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        target.Weapon = new Pistol();
-
         OverlapMonsterCollider.collisionEnterEvent += ActivateAttack;
         OverlapMonsterCollider.collisionExitEvent += DeactivateAttack;
     }
