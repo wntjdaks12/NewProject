@@ -10,7 +10,7 @@ public class Pistol : Weapon
     // 쿨타임 컴포넌트입니다.
     private CooldownTime cooldownTime;
 
-    public void Awake()
+    private void Awake()
     {
         cooldownTime = GetComponent<CooldownTime>() ?? GetComponent<CooldownTime>();
     }
