@@ -34,10 +34,8 @@ public class CooldownTime : MonoBehaviour
     // 쿨타임 코루틴을 작동합니다.
     private IEnumerator CooldownTimeAsync()
     {
-        Debug.Log("CoolStart2");
         yield return new WaitForSeconds(1f);
         state.None(this);
-        Debug.Log("CollEnd");
     }
 
     /// <summary>
