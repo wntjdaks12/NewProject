@@ -7,9 +7,13 @@ using UnityEngine;
 /// </summary>
 public class CharacterController : PlayerController
 {
+    // 조이스틱 데이터 값입니다.
+    [SerializeField]
+    private JoystickData jStickData;
+
     private void FixedUpdate()
     {
-        Control();
+        Control();Debug.Log(target.stateType);
     }
 
     // 해당 플레이어를 제어합니다.
@@ -17,12 +21,18 @@ public class CharacterController : PlayerController
     {
         if (!target || !jStickData)
             return;
-        
+
         // 조이스틱 클릭 후 드래그 시 해당 플레이어는 움직입니다.
         if (jStickData.IsTouching && jStickData.PointerPosition != Vector2.zero)
             target.Move(jStickData.PointerPosition, 100);
-        // 조건이 없을 경우 해당 플레이어는 가만히 있습니다.
         else
-            target.Idle();
+        {
+            // 공격이 활성화 시 대상은 공격합니다.
+            if (isAttacking)
+                target.Attack();
+            //모든 조건이 충족하지 않을 경우 대상은 가만히 있습니다.
+            else
+                target.Idle();
+        }
     }
 }
