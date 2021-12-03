@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public Player target;
 
-    // 조이스틱 데이터 값입니다.
-    [SerializeField]
-    protected JoystickData jStickData;
+    // 공격 여부입니다.
+    protected static bool isAttacking = false;
 }
