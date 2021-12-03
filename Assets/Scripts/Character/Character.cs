@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
     public StateTypes stateType;
 
     // 현재 무기를 나타냅니다.
-    public Weapon weapon;
+    private Weapon weapon;
 
     // 물리 제어를 위해 가져옵니다.
     protected Rigidbody rigid;
