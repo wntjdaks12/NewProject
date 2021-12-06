@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 쿨링한 상태입니다.
+/// 쿨타임 상태중 쿨링중인 부분입니다.
 /// </summary>
 public class CooldownTimeCoolingState : CooldownTimeState
 {
@@ -24,11 +24,13 @@ public class CooldownTimeCoolingState : CooldownTimeState
     /// <param name="cooldownTime">쿨타임 주솟값</param>
     public void None(CooldownTime cooldownTime)
     {
+        // 상태를 적용 안 된것으로 변경합니다.
+        cooldownTime.stateType = CooldownTime.StateType.None;
         cooldownTime.State = CooldownTimeNoneState.Instance;
     }
 
     /// <summary>
-    /// 자신 인스턴스를 리턴합니다.
+    /// 자신 인스턴스 입니다.
     /// </summary>
     public static CooldownTimeCoolingState Instance { get { return instance; } }
 }

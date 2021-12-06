@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 캐릭터의 스테이트 패턴 중 이동하는 부분입니다.
+/// 캐릭터 상태중 이동하는 부분입니다.
 /// </summary>
 public class CharacterMoveState : CharacterState
 {
@@ -16,6 +16,7 @@ public class CharacterMoveState : CharacterState
     /// <param name="character">캐릭터 주솟값</param>
     public void Attack(Character character)
     {
+        // 상태를 공격으로 변경합니다.
         character.State = CharacterAttackState.Instance;
         character.stateType = Character.StateTypes.Attack;
     }
@@ -26,6 +27,7 @@ public class CharacterMoveState : CharacterState
     /// <param name="character">캐릭터 주솟값</param>
     public void Idle(Character character)
     {
+        // 상태를 가만히 있는 것으로 변경합니다.
         character.State = CharacterIdleState.Instance;
         character.stateType = Character.StateTypes.Idle;
     }
@@ -39,7 +41,7 @@ public class CharacterMoveState : CharacterState
     }
 
     /// <summary>
-    /// 자신 인스턴스를 리턴합니다.
+    /// 자신 인스턴스 입니다.
     /// </summary>
     public static CharacterMoveState Instance { get { return instance; } }
 }

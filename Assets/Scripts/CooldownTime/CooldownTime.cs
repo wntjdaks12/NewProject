@@ -7,11 +7,19 @@ using UnityEngine;
 /// </summary>
 public class CooldownTime : MonoBehaviour
 {
+    public enum StateType {None, Cooling}
+    /// <summary>
+    /// 현재 상태입니다.
+    /// </summary>
+    public StateType stateType;
+
     // 현재 상태입니다.
     private CooldownTimeState state;
 
     public void Awake()
     {
+        stateType = StateType.None;
+
         state = CooldownTimeNoneState.Instance;
     }
 
@@ -34,8 +42,9 @@ public class CooldownTime : MonoBehaviour
     // 쿨타임 코루틴을 작동합니다.
     private IEnumerator CooldownTimeAsync()
     {
+        Debug.Log("a");
         yield return new WaitForSeconds(1f);
-        state.None(this);
+        state.None(this); Debug.Log("b");
     }
 
     /// <summary>

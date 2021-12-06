@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 캐릭터입니다.
+/// 모든 캐릭터의 최상위입니다.
 /// </summary>
 public class Character : MonoBehaviour
 {
@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
     }
 
     /// <summary>
-    /// 공격을 합니다.
+    /// 플레이어를 공격하게 합니다.
     /// </summary>
     public void Attack()
     {

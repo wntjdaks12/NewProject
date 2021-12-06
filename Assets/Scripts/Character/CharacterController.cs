@@ -27,10 +27,17 @@ public class CharacterController : PlayerController
             target.Move(jStickData.PointerPosition, 100);
         else
         {
-            // 공격이 활성화 시 대상은 공격합니다.
-            if (target.Weapon.IsAttacking)
-                target.Attack();
-            //모든 조건이 충족하지 않을 경우 대상은 가만히 있습니다.
+            if (target.Weapon)
+                if (target.Weapon.AttackRange)
+                {
+                    // 공격이 활성화 시 대상은 공격합니다.
+                    if (target.Weapon.AttackRange.OverlapBehaviour.Colliders.Count != 0)
+                        target.Attack();
+                    //모든 조건이 충족하지 않을 경우 대상은 가만히 있습니다.
+                    else
+                        target.Idle();
+                }else
+                    target.Idle();
             else
                 target.Idle();
         }

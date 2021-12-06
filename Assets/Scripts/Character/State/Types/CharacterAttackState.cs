@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 캐릭터 상태중 공격하는 부분입니다.
+/// </summary>
 public class CharacterAttackState : CharacterState
 {
     // 자신 인스턴스 입니다.
@@ -21,6 +24,7 @@ public class CharacterAttackState : CharacterState
     /// <param name="character">캐릭터 주솟값</param>
     public void Idle(Character character)
     {
+        // 상태를 가만히 있는 것으로 변경합니다.
         character.State = CharacterIdleState.Instance;
         character.stateType = Character.StateTypes.Idle;
     }
@@ -31,12 +35,13 @@ public class CharacterAttackState : CharacterState
     /// <param name="character">캐릭터 주솟값</param>
     public void Move(Character character)
     {
+        // 상태를 이동으로 변경합니다.
         character.State = CharacterMoveState.Instance;
         character.stateType = Character.StateTypes.Move;
     }
 
     /// <summary>
-    /// 자신 인스턴스를 리턴합니다.
+    /// 자신 인스턴스 입니다.
     /// </summary>
     public static CharacterAttackState Instance { get { return instance; } }
 }

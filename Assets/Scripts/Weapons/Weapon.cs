@@ -3,42 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 모든 무기는 Weapon을 상속받습니다.
+/// 모든 무기의 최상위입니다.
 /// </summary>
 public abstract class Weapon : MonoBehaviour
 {
+    // 해당 무기의 쿨타임입니다.
+    protected CooldownTime cooldownTime;
 
-    // 공격 여부입니다.
-    private bool isAttacking = false;
+    // 해당 무기의 공격 범위 오브젝트입니다.
+    [SerializeField]
+    private GameObject attackRangeObject;
+    // 해당 무기의 공격 범위입니다.
+    private AttackRange attackRange;
 
     /// <summary>
     /// 공격합니다.
     /// </summary>
     public abstract void Attack();
 
-    protected void OnEnable()
+    protected void Awake()
     {
-        OverlapMonsterCollider.collisionEnterEvent += ActivateAttack;
-        OverlapMonsterCollider.collisionExitEvent += DeactivateAttack;
+        cooldownTime = GetComponent<CooldownTime>() ?? GetComponent<CooldownTime>();
     }
 
-    // 공격을 활성화시킵니다.
-    private void ActivateAttack()
+    protected void Start()
     {
-        isAttacking = true;
+        Setup();
     }
 
-    // 공격을 비활성화시킵니다.
-    private void DeactivateAttack()
+    /// <summary>
+    /// 해당 무기를 셋업을 합니다.
+    /// </summary>
+    public void Setup()
     {
-        isAttacking = false;
+        if (!attackRangeObject)
+            return;
+
+        // 공격 범위를 활성화시킵니다.------------------------------------------------------------------------------------
+        attackRangeObject = Instantiate(attackRangeObject);
+        attackRange = attackRangeObject.GetComponent<AttackRange>() ?? attackRangeObject.GetComponent<AttackRange>();
+        attackRange?.Active(transform.root.gameObject, 10);
+        //---------------------------------------------------------------------------------------------------------------
     }
 
-    private void OnDisable()
-    {
-        OverlapMonsterCollider.collisionEnterEvent -= ActivateAttack;
-        OverlapMonsterCollider.collisionExitEvent -= DeactivateAttack;
-    }
-
-    public bool IsAttacking { get { return isAttacking; } }
+    /// <summary>
+    /// 해당 무기의 공격 범위입니다.
+    /// </summary>
+    public AttackRange AttackRange { get { return attackRange; } }
 }
