@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5076410268306122226}
   - component: {fileID: 5076410268306122227}
   - component: {fileID: 5076410268306122236}
+  - component: {fileID: 1804206568711155908}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -44,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa5573dcb43701a40ad02017fe7aa9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRangeObject: {fileID: 6242308198439775371, guid: bfafc726bcf82cc4ca8a9f22af8d33d2, type: 3}
+  pool: {fileID: 1804206568711155908}
 --- !u!114 &5076410268306122236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,3 +59,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c4886e9d2079740aa86eb88926789d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateType: 0
+--- !u!114 &1804206568711155908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5076410268306122237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f836d1a106d284ebef850437310757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1232216067860104657, guid: afcc1e688d63b124681f5bd43cbac06d, type: 3}
+  poolCount: 5
