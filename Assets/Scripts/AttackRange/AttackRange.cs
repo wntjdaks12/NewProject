@@ -10,12 +10,17 @@ public class AttackRange : MonoBehaviour
     // 여러방식의 콜라이더 추출을 위해 유연하게 변경하는 행위자입니다.
     private OverlapColliderBehaviour overlapColliderBehaviour;
 
+    //  콜라이더들의 순서를 유연하게 재배치하기 위한 행위자입니다.
+    private ColliderSortBehaviour colliderSortBehaviour;
+
     // 공격 범위를 나타내는 주체입니다. 
     private GameObject target;
 
     private void Awake()
     {
         overlapColliderBehaviour = new OverlapMonsterCollider();
+
+        colliderSortBehaviour = new ColliderSortClosestToFurthest();
     }
 
     /// <summary>
@@ -74,4 +79,9 @@ public class AttackRange : MonoBehaviour
     /// 공격 범위의 행위자입니다.
     /// </summary>
     public OverlapColliderBehaviour OverlapBehaviour { get { return overlapColliderBehaviour; } }
+
+    /// <summary>
+    /// 공격 범위 안의 콜라이더들을 재배치해 주는 행위자입니다.
+    /// </summary>
+    public ColliderSortBehaviour ColliderSortBehaviour { get { return colliderSortBehaviour; } }
 }
