@@ -18,7 +18,20 @@ public class Pistol : RangedWeapon
     public override void Attack()
     {
         if (pool && cooldownTime.stateType == CooldownTime.StateType.None)
-            pool.DeQueue();
+        {
+            // 풀링 된 오브젝트를 활성화시키고 위치값을 초기화시킵니다. -------------------------------
+            var obj = pool.DeQueue();
+
+            if (!obj)
+                return;
+
+            obj.transform.position = transform.root.position;
+            // ------------------------------------------------------------------------------------
+
+            if (obj.GetComponent<Projectile>())
+                // 충돌한 콜라이더들을 재배치를 하여 활성화된 투사체에게 대상을 알려줍니다.  
+                obj.GetComponent<Projectile>().target = attackRange.ColliderSortBehaviour.Sort(transform.root.position, attackRange.OverlapBehaviour.Colliders)[0].gameObject;
+        }
 
         // 쿨타임을 적용합니다.
         cooldownTime?.StartCooldownTime();
