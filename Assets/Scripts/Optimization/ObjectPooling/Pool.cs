@@ -37,7 +37,7 @@ public class Pool : MonoBehaviour
         for (int i = 0; i < poolCount; i++)
         {
             // 풀링할 오브젝트를 생성합니다.
-            var target = Instantiate(this.target, transform);
+            var target = Instantiate(this.target);
 
             // 대상이 해당 컴포넌트를 소유를 하지 않을 경우 풀링을 하지 않습니다.
             if (!target.GetComponent<PoolableObject>())
@@ -48,7 +48,8 @@ public class Pool : MonoBehaviour
             }
 
             // 연관관계로 자신의 인스턴스를 넘겨줍니다.
-            target.GetComponent<PoolableObject>().Pool = this;
+            if(target.GetComponent<PoolableObject>())
+                target.GetComponent<PoolableObject>().Pool = this;
 
             // 대상을 비활성화 시킵니다.
             EnQueue(target);
