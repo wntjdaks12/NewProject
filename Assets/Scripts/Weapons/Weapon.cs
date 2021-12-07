@@ -14,7 +14,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField]
     private GameObject attackRangeObject;
     // 해당 무기의 공격 범위입니다.
-    private AttackRange attackRange;
+    protected AttackRange attackRange;
 
     /// <summary>
     /// 공격합니다.
