@@ -11,6 +11,7 @@ public class WeaponController : PlayerController
     {
         //임시 데이터
         var obj = Instantiate(Resources.Load("Prefabs/Weapons/Pistol"), target.transform) as GameObject;
+        obj.transform.localPosition = new Vector3(0, 0, 0);
 
         target.Weapon = obj.GetComponent<Weapon>();
     }
