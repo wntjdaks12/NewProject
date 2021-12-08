@@ -42,7 +42,7 @@ public abstract class Weapon : MonoBehaviour
         // 공격 범위를 활성화시킵니다.------------------------------------------------------------------------------------
         attackRangeObject = Instantiate(attackRangeObject);
         attackRange = attackRangeObject.GetComponent<AttackRange>() ?? attackRangeObject.GetComponent<AttackRange>();
-        attackRange?.Active(transform.root.gameObject, 10);
+        attackRange?.Active(transform.root.gameObject, 15);
         //---------------------------------------------------------------------------------------------------------------
     }
 
