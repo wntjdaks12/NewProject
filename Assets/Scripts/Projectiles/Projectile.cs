@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
     /// <summary>
     /// 충돌 시 이벤트입니다.
     /// </summary>
-    public UnityEvent triggerEvent;
+    public UnityEvent<Collider> triggerEvent;
 
     private void Awake()
     {
@@ -60,7 +60,7 @@ public class Projectile : MonoBehaviour
         // 충돌 대상이 추적하는 대상과 같으면 인큐를 하여 비활성화시킵니다. --------
         target = null;
 
-        triggerEvent?.Invoke();
+        triggerEvent?.Invoke(other);
 
         poolableObject?.EnQueue();
         // ---------------------------------------------------------------------
