@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// 모든 투사체의 최상위입니다.
@@ -18,6 +19,11 @@ public class Projectile : MonoBehaviour
     // 풀링할 오브젝트입니다.
     private PoolableObject poolableObject;
 
+    /// <summary>
+    /// 충돌 시 이벤트입니다.
+    /// </summary>
+    public UnityEvent triggerEvent;
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>() ?? GetComponent<Rigidbody>();
@@ -27,7 +33,7 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Trace(500);
+        Trace(1500);
     }
 
     /// <summary>
@@ -53,6 +59,8 @@ public class Projectile : MonoBehaviour
 
         // 충돌 대상이 추적하는 대상과 같으면 인큐를 하여 비활성화시킵니다. --------
         target = null;
+
+        triggerEvent?.Invoke();
 
         poolableObject?.EnQueue();
         // ---------------------------------------------------------------------
