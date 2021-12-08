@@ -25,11 +25,11 @@ public class ColliderSortClosestToFurthest : ColliderSortBehaviour
                 // ---------------------------------------------------------------------------
 
                 // 가까운 곳부터 먼 곳까지의 순서로 정렬합니다. -------------------
-                if (val1 < val2)
+                if (val1 > val2)
                 {
                     var temp = colliders[i];
                     colliders[i] = colliders[j];
-                    colliders[j] = colliders[i];
+                    colliders[j] = temp;
                 }
                 // -------------------------------------------------------------
             }
