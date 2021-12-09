@@ -32,12 +32,14 @@ public class Character : MonoBehaviour
     /// </summary>
     public void Attack()
     {
+        // 무기가 없으면 공격을 안합니다.
         if (!weapon)
             return;
 
         // 공격 상태로 변경합니다.
         state.Attack(this);
-        
+
+        // 공격합니다.
         weapon.Attack();
     }
 
