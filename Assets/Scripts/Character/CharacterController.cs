@@ -25,21 +25,11 @@ public class CharacterController : PlayerController
         // 조이스틱 클릭 후 드래그 시 해당 플레이어는 움직입니다.
         if (jStickData.IsTouching && jStickData.PointerPosition != Vector2.zero)
             target.Move(jStickData.PointerPosition, 100);
+        // 플레이어는 공격이 가능할 시 공격합니다.
+        else if (target.CheckAttack())
+            target.Attack(true);
+        // 모든 조건이 만족하지 않을 경우 가만히 있습니다.
         else
-        {
-            if (target.Weapon)
-                if (target.Weapon.AttackRange)
-                {
-                    // 공격이 활성화 시 대상은 공격합니다.
-                    if (target.Weapon.AttackRange.OverlapBehaviour.Colliders.Count != 0)
-                        target.Attack();
-                    //모든 조건이 충족하지 않을 경우 대상은 가만히 있습니다.
-                    else
-                        target.Idle();
-                }else
-                    target.Idle();
-            else
-                target.Idle();
-        }
+            target.Idle();
     }
 }
