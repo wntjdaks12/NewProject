@@ -28,12 +28,24 @@ public class Character : MonoBehaviour
     }
 
     /// <summary>
+    /// 플레이어의 공격 여부를 판단합니다.
+    /// </summary>
+    /// <returns>공격 여부를 리턴합니다.</returns>
+    public bool CheckAttack()
+    {
+        // 무기가 없거나, 공격 범위가 없거나, 범위 내 콜라이더가 없을 경우 공격을 하지 않습니다.
+        if (!weapon || !weapon.AttackRange || !weapon.AttackRange.CheckColliders())
+            return false;
+
+        return true;
+    }
+
+    /// <summary>   
     /// 플레이어를 공격하게 합니다.
     /// </summary>
-    public void Attack()
+    public void Attack(bool isAttacking)
     {
-        // 무기가 없으면 공격을 안합니다.
-        if (!weapon)
+        if (!isAttacking)
             return;
 
         // 공격 상태로 변경합니다.
