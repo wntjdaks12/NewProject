@@ -24,6 +24,19 @@ public class AttackRange : MonoBehaviour
     }
 
     /// <summary>
+    /// 범위 내 콜라이더의 존재 여부를 판단합니다.
+    /// </summary>
+    /// <returns>존재 여부를 리턴합니다.</returns>
+    public bool CheckColliders()
+    {
+        // 범위 내 콜라이더가 0개일 경우 콜라이더는 없습니다.
+        if (overlapColliderBehaviour.Colliders.Count == 0)
+            return false;
+
+        return true;
+    }
+
+    /// <summary>
     /// 공격 범위를 활성화시킵니다.
     /// </summary>
     /// <param name="target">공격 범위의 주체</param>
@@ -60,6 +73,18 @@ public class AttackRange : MonoBehaviour
         transform.position = new Vector3(target.transform.position.x, 0, target.transform.position.z);
     }
 
+    /// <summary>
+    /// 충돌된 콜라이더들입니다.
+    /// </summary>
+    /// <returns>충돌된 콜라이더들을 리턴합니다.</returns>
+    public List<Collider> GetColliders()
+    {
+        // 충돌된 콜라이더들의 순서를 재배치합니다.
+        colliderSortBehaviour.Sort(transform.position, overlapColliderBehaviour.Colliders);
+
+        return overlapColliderBehaviour.Colliders;
+    }
+
     private void FixedUpdate()
     {
         Operate();
@@ -78,10 +103,10 @@ public class AttackRange : MonoBehaviour
     /// <summary>
     /// 공격 범위의 행위자입니다.
     /// </summary>
-    public OverlapColliderBehaviour OverlapBehaviour { get { return overlapColliderBehaviour; } }
+    public OverlapColliderBehaviour OverlapColliderBehaviour { set { overlapColliderBehaviour = value; } }
 
     /// <summary>
     /// 공격 범위 안의 콜라이더들을 재배치해 주는 행위자입니다.
     /// </summary>
-    public ColliderSortBehaviour ColliderSortBehaviour { get { return colliderSortBehaviour; } }
+    public ColliderSortBehaviour ColliderSortBehaviour { set { colliderSortBehaviour = value; } }
 }
