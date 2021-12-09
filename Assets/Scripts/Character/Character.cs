@@ -34,7 +34,7 @@ public class Character : MonoBehaviour
     public bool CheckAttack()
     {
         // 무기가 없거나, 공격 범위가 없거나, 범위 내 콜라이더가 없을 경우 공격을 하지 않습니다.
-        if (!weapon || !weapon.AttackRange || !weapon.AttackRange.CheckColliders())
+        if ((!weapon || !weapon.AttackRange) || !weapon.AttackRange.CheckColliders())
             return false;
 
         return true;
