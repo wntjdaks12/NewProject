@@ -16,6 +16,15 @@ public class CharacterAttackState : CharacterState
     /// <param name="character">캐릭터 주솟값</param>
     public void Attack(Character character)
     {
+        // 무기 공격 범위에 접한 콜라이더들을 가져옵니다. ----------------------------
+        var colls = character.Weapon.AttackRange.OverlapBehaviour.Colliders;
+
+        // 대상을 향해 바라봅니다. -------------------------------
+        var targetPos = colls[0].transform.position;
+
+        var vec3 = targetPos - character.transform.position;
+        character.transform.rotation = Quaternion.LookRotation(vec3);
+        // ---------------------------------------------------
     }
 
     /// <summary>
