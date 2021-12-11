@@ -17,6 +17,9 @@ public class Pistol : RangedWeapon
     /// </summary>
     public override void Attack()
     {
+        if (weaponInfo == null)
+            return;
+
         if (pool && cooldownTime.stateType == CooldownTime.StateType.None)
         {
             // 풀링 된 오브젝트를 활성화시키고 위치값을 초기화시킵니다. -------------------------------
@@ -34,6 +37,6 @@ public class Pistol : RangedWeapon
         }
 
         // 쿨타임을 적용합니다.
-        cooldownTime?.StartCooldownTime();
+        cooldownTime?.StartCooldownTime(weaponInfo.cooldownTime);
     }
 }

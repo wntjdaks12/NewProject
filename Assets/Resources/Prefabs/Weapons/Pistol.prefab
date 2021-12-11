@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa5573dcb43701a40ad02017fe7aa9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 05a30dc3bb0bebe4da8972a4f082bc73, type: 2}
   attackRangeObject: {fileID: 6242308198439775371, guid: bfafc726bcf82cc4ca8a9f22af8d33d2, type: 3}
   pool: {fileID: 1804206568711155908}
 --- !u!114 &5076410268306122236

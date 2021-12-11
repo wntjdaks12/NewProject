@@ -7,13 +7,22 @@ using UnityEngine;
 /// </summary>
 public abstract class Weapon : MonoBehaviour
 {
-    // 해당 무기의 쿨타임입니다.
+    /// <summary>
+    /// 무기 데이터 정보입니다.
+    /// </summary>
+    protected WeaponInfo weaponInfo;
+
+    /// <summary>
+    /// 해당 무기의 쿨타임입니다.
+    /// </summary>
     protected CooldownTime cooldownTime;
 
     // 해당 무기의 공격 범위 오브젝트입니다.
     [SerializeField]
     private GameObject attackRangeObject;
-    // 해당 무기의 공격 범위입니다.
+    /// <summary>
+    /// 해당 무기의 공격 범위입니다.
+    /// </summary>
     protected AttackRange attackRange;
 
     /// <summary>
@@ -50,4 +59,9 @@ public abstract class Weapon : MonoBehaviour
     /// 해당 무기의 공격 범위입니다.
     /// </summary>
     public AttackRange AttackRange { get { return attackRange; } }
+
+    /// <summary>
+    /// 해당 무기 데이터 정보입니다.
+    /// </summary>
+    public WeaponInfo WeaponInfo{ set { weaponInfo = value; } }
 }

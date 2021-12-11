@@ -16,8 +16,13 @@ public class CooldownTime : MonoBehaviour
     // 현재 상태입니다.
     private CooldownTimeState state;
 
+    // 쿨타임 값입니다.
+    private float coolVal;
+
     public void Awake()
     {
+        coolVal = 0;
+
         stateType = StateType.None;
 
         state = CooldownTimeNoneState.Instance;
@@ -26,8 +31,11 @@ public class CooldownTime : MonoBehaviour
     /// <summary>
     /// 쿨타임을 시작합니다.
     /// </summary>
-    public void StartCooldownTime()
+    /// <param name="cooldownTime">쿨타임 값</param>
+    public void StartCooldownTime(float cooldownTime)
     {
+        coolVal = cooldownTime;
+
         state.Cooling(this);
     }
 
@@ -42,7 +50,7 @@ public class CooldownTime : MonoBehaviour
     // 쿨타임 코루틴을 작동합니다.
     private IEnumerator CooldownTimeAsync()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(coolVal);
         state.None(this);
     }
 
@@ -50,4 +58,6 @@ public class CooldownTime : MonoBehaviour
     /// 쿨타임 상태입니다.
     /// </summary>
     public CooldownTimeState State { set { state = value; } }
+
+    public float CoolVal { set { coolVal = value; } }
 }

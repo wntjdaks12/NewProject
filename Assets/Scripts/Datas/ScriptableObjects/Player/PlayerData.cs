@@ -8,10 +8,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player Data")]
 public class PlayerData : ScriptableObject
 {
+    [SerializeField]
     private float speed;
+    [SerializeField]
+    private WeaponData weaponData;
 
-    /// <summary>
-    /// 이동 속도 값입니다.
-    /// </summary>
     public float Speed { get { return speed; } set { speed = value; } }
+    public WeaponData WeaponData { get { return weaponData; } set { weaponData = value; } }
 }
