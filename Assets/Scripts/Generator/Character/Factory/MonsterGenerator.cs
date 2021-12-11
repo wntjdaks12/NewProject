@@ -5,12 +5,10 @@ using UnityEngine;
 /// <summary>
 /// 몬스터의 생성자입니다.
 /// </summary>
-public class MonsterGenerator : ICharacterGenerator
+public abstract class MonsterGenerator : ICharacterGenerator
 {
     /// <summary>
     /// 생성합니다.
     /// </summary>
-    public void Generate()
-    {
-    }
+    public abstract void Generate();
 }
