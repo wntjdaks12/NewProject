@@ -28,8 +28,16 @@ public class PlayerController : MonoBehaviour
     // 해당 플레이어를 제어합니다.
     private void Control()
     {
-        if ((!target || !jStickData) || !playerData)
+        // 널체크 -----------------------------------------------------
+
+        // 대상에 대한 널 체크를 합니다.
+        if (!target)
             return;
+
+        // 조이스틱, 플레이어 데이터 값에 대한 널 체크를 합니다.
+        if (!jStickData || !playerData)
+            return;
+        // ------------------------------------------------------------
 
         // 조이스틱 클릭 후 드래그 시 해당 플레이어는 움직입니다.
         if (jStickData.IsTouching && jStickData.PointerPosition != Vector2.zero)
