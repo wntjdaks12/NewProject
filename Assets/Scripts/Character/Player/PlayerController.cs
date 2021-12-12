@@ -20,6 +20,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private JoystickData jStickData;
 
+    private void Start()
+    {
+        // 데이터를 읽습니다.
+        DataLoad();
+    }
+
+    // 데이터를 읽습니다.
+    private void DataLoad()
+    {
+        var data = PlayerDatabase.SearchData(target.Id);
+
+        playerData.CharacterInfo = data;
+    }
+
     private void FixedUpdate()
     {
         Control();
@@ -41,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
         // 조이스틱 클릭 후 드래그 시 해당 플레이어는 움직입니다.
         if (jStickData.IsTouching && jStickData.PointerPosition != Vector2.zero)
-            target.Move(jStickData.PointerPosition, playerData.Speed);
+            target.Move(jStickData.PointerPosition, playerData.CharacterInfo.speed);
         // 플레이어는 공격이 가능할 시 공격합니다.
         else if (target.CheckAttack())
             target.Attack(true);

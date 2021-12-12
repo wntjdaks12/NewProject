@@ -7,9 +7,14 @@ using UnityEngine;
 /// </summary>
 public class Character : MonoBehaviour
 {
+    /// <summary>
+    /// id값입니다.
+    /// </summary>
+    protected string id;
+
     // 현재 상태를 나타냅니다.
     protected CharacterState state;
-    public enum StateTypes {Idle, Move, Attack}
+    public enum StateTypes { Idle, Move, Attack }
     [HideInInspector]
     public StateTypes stateType;
 
@@ -19,7 +24,7 @@ public class Character : MonoBehaviour
     // 물리 제어를 위해 가져옵니다.
     protected Rigidbody rigid;
 
-    private void Awake()
+    protected void Awake()
     {
         state = CharacterIdleState.Instance;
         stateType = StateTypes.Idle;
@@ -93,6 +98,11 @@ public class Character : MonoBehaviour
         if (rigid)
             rigid.velocity = transform.forward * speed * Time.deltaTime;
     }
+
+    /// <summary>
+    /// id값입니다.
+    /// </summary>
+    public string Id { get { return id; } }
 
     /// <summary>
     /// 현재 무기입니다.

@@ -9,24 +9,19 @@ using System.IO;
 [System.Serializable]
 public class PlayerInfo
 {
-    public float speed;
-    public WeaponInfo weaponInfo;
+    public CharacterInfo characterInfo;
 
-    public PlayerInfo(float speed, WeaponInfo weaponInfo)
+    public PlayerInfo(CharacterInfo characterInfo)
     {
-        this.speed = speed;
-        this.weaponInfo = weaponInfo;
+        this.characterInfo = characterInfo;
     }
 }
 
 /// <summary>
 /// 플레이어 데이터베이스입니다.
 /// </summary>
-public class PlayerDatabase : MonoBehaviour
+public class PlayerDatabase : CharacterDatabase
 {
-    // 플레이어 데이터입니다.
-    private PlayerInfo data;
-
     // 플레이어 스크립터블 데이터입니다.
     [SerializeField]
     private PlayerData playerData;
@@ -46,11 +41,7 @@ public class PlayerDatabase : MonoBehaviour
             
         // 해당 경로의 제이슨 데이터를 읽고 오브젝트형으로 변환합니다. ---------------------------------------
         var dataStr = File.ReadAllText(Application.dataPath + "/Datas/Jsons/Player/Player.json");
-        data = JsonUtility.FromJson<PlayerInfo>(dataStr);
+        datas = JsonUtility.FromJson<CharacterInfos>(dataStr);
         // ------------------------------------------------------------------------------------------------
-
-        // 스크립터블 데이터에 저장합니다. -----------------------------
-        playerData.Speed = data.speed;
-        // ------------------------------------------------------------
     }
 }

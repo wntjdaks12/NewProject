@@ -9,10 +9,7 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     [SerializeField]
-    private float speed;
-    [SerializeField]
-    private WeaponData weaponData;
+    private CharacterInfo characterInfo;
 
-    public float Speed { get { return speed; } set { speed = value; } }
-    public WeaponData WeaponData { get { return weaponData; } set { weaponData = value; } }
+    public CharacterInfo CharacterInfo { get { return characterInfo; } set { characterInfo = value; } }
 }

@@ -9,7 +9,9 @@ using System.IO;
 [System.Serializable]
 public class WeaponInfo
 {
+    [HideInInspector]
     public string id;
+    [HideInInspector]
     public string keyName;
     public float cooldownTime;
 

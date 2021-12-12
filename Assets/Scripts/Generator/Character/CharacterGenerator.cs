@@ -13,6 +13,7 @@ public class CharacterGenerator : MonoBehaviour
 
     private void Start()
     {
+        // 해당 캐릭터를 생성합니다.
         Create();
     }
 

@@ -22,7 +22,7 @@ public class CharacterGeneratorFactory
         // 생성하려는 개체와 맞는 인스턴스를 리턴합니다. ------------------------
         switch (type)
         {
-            case Types.Player: return new PlayerGenerator();
+            case Types.Player: return new Player1Generator();
             case Types.UnName1: return new UnName1Generator();
         }
 
