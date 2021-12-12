@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 05a30dc3bb0bebe4da8972a4f082bc73, type: 2}
-  target: {fileID: 332124445606842386}
+  target: {fileID: 1732807020621059671}
 --- !u!1 &332124445606842389
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,10 +149,10 @@ GameObject:
   - component: {fileID: 332124445606842385}
   - component: {fileID: 332124445606842384}
   - component: {fileID: 332124445606842387}
-  - component: {fileID: 332124445606842386}
   - component: {fileID: 1649712210207636168}
+  - component: {fileID: 1732807020621059671}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,19 +204,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &332124445606842386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332124445606842389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36ee25fcb7b3d4c4680cdeeef150835e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateType: 0
 --- !u!114 &1649712210207636168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,9 +216,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80d6742c58f549459015b7ab9ff53fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 332124445606842386}
+  target: {fileID: 1732807020621059671}
   playerData: {fileID: 11400000, guid: 799cd774ac93f7240884c79fda475c7f, type: 2}
   jStickData: {fileID: 11400000, guid: d17af1802618f5a43ab4a9357256fbdd, type: 2}
+--- !u!114 &1732807020621059671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332124445606842389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41cbd4aa41fa9241936e7fa2f791512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateType: 0
 --- !u!1 &332124445698378853
 GameObject:
   m_ObjectHideFlags: 0
