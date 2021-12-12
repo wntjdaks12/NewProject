@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd1c5361639738488044bf8bf9c3aaf, type: 3}
   m_Name: Player Data
   m_EditorClassIdentifier: 
-  speed: 100
-  weaponData: {fileID: 11400000, guid: 05a30dc3bb0bebe4da8972a4f082bc73, type: 2}
+  characterInfo:
+    id: player_001
+    keyName: unName1
+    speed: 100
+    hp: 1
+    maxHp: 1
+    weaponInfo:
+      id: 
+      keyName: 
+      cooldownTime: 1
