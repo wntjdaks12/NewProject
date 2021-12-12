@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7888534458300821305}
   - component: {fileID: 8973352893694351180}
+  - component: {fileID: 8278461453919939279}
   m_Layer: 0
-  m_Name: UnName1(ObjectPoolingl)
+  m_Name: UnName1(ObjectPooling)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,3 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 6691616620417679969, guid: d80d6807b8dcb154299eb2d21e05ed7a, type: 3}
   poolCount: 1
+--- !u!114 &8278461453919939279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085485745131965198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de9232a74ebd7d459a7c38449a78fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool: {fileID: 8973352893694351180}
