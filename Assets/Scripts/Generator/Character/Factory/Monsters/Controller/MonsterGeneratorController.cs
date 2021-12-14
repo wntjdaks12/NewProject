@@ -31,7 +31,7 @@ public class MonsterGeneratorController : MonoBehaviour
     private void Start()
     {
         // 모든 대상을 활성화 시킵니다.
-        for(int i = 0; i < pool.poolCount; i++)
+        for (int i = 0; i < pool.poolCount; i++)
             pool.DeQueue();
 
         // 월드상에 존재하는 몬스터 수는 전체수에서 풀링에 담아논 개수에 뺀 결과와 같습니다.
