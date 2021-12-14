@@ -36,8 +36,11 @@ public class MonsterController : MonoBehaviour, IHealth
 
     private void FixedUpdate()
     {
-        // 해당 대상을 제어합니다.
-        Control();
+        if (data.hp == 0)
+            target.Die();
+        else
+            // 해당 대상을 제어합니다.
+            Control();
     }
 
     /// <summary>
