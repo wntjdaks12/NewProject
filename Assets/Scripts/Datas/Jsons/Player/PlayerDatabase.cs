@@ -22,6 +22,10 @@ public class PlayerInfo
 /// </summary>
 public class PlayerDatabase : CharacterDatabase
 {
+    // 캐릭터 데이터 리스트입니다.
+    public static CharacterInfos datas;
+
+
     // 플레이어 스크립터블 데이터입니다.
     [SerializeField]
     private PlayerData playerData;
@@ -35,7 +39,7 @@ public class PlayerDatabase : CharacterDatabase
     // 데이터를 읽습니다.
     private void LoadData()
     {
-        // // 해당 경로에 있는 제이슨 데이터를 체크합니다.
+        // 해당 경로에 있는 제이슨 데이터를 체크합니다.
         if (!new FileInfo(Application.dataPath + "/Datas/Jsons/Player/Player.json").Exists)
             return;
             
@@ -43,5 +47,22 @@ public class PlayerDatabase : CharacterDatabase
         var dataStr = File.ReadAllText(Application.dataPath + "/Datas/Jsons/Player/Player.json");
         datas = JsonUtility.FromJson<CharacterInfos>(dataStr);
         // ------------------------------------------------------------------------------------------------
+    }
+
+    /// <summary>
+    /// 데이터를 찾습니다.
+    /// </summary>
+    /// <param name="id">해당 데이터 id 값</param>
+    /// <returns>캐릭터 데이터를 리턴합니다.</returns>
+    public static CharacterInfo SearchData(string id)
+    {
+        foreach (CharacterInfo data in datas.characterInfos)
+        {
+            Debug.Log(id + ", " + data.id);
+            if (id == data.id)
+                return data;
+        }
+
+        return null;
     }
 }
