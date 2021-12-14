@@ -1,4 +1,4 @@
 {"characterInfos":[
-{"id":"unName_001", "keyName":"unName1", "speed":100, "hp":1, "maxHp":1, "weaponInfo":{"cooldownTime":1}}, 
-{"id":"unName_002", "keyName":"unName2", "speed":100, "hp":1, "maxHp":1, "weaponInfo":{"cooldownTime":1}}
+{"id":"unName_001", "keyName":"unName1", "speed":200, "hp":2, "maxHp":2, "weaponInfo":{"cooldownTime":1}}, 
+{"id":"unName_002", "keyName":"unName2", "speed":200, "hp":2, "maxHp":2, "weaponInfo":{"cooldownTime":1}}
 ]}
