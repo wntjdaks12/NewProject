@@ -41,6 +41,16 @@ public class CharacterIdleState : CharacterState
     }
 
     /// <summary>
+    /// 상태는 사망으로 합니다.
+    /// </summary>
+    /// <param name="character">캐릭터 주솟값</param>
+    public void Die(Character character)
+    {
+        // 상태를 사망으로 변경합니다.
+        character.State = CharacterDieState.Instance;
+    }
+
+    /// <summary>
     /// 자신 인스턴스 입니다.
     /// </summary>
     public static CharacterIdleState Instance { get { return instance; } }
