@@ -13,10 +13,10 @@ public class Character : MonoBehaviour
     protected string id;
 
     // 현재 상태를 나타냅니다.
-    protected CharacterState state;
+    protected CharacterState state = CharacterIdleState.Instance;
     public enum StateTypes { Idle, Move, Attack }
     [HideInInspector]
-    public StateTypes stateType;
+    public StateTypes stateType = StateTypes.Idle;
 
     // 현재 무기를 나타냅니다.
     private Weapon weapon;
@@ -24,12 +24,14 @@ public class Character : MonoBehaviour
     // 물리 제어를 위해 가져옵니다.
     protected Rigidbody rigid;
 
+    // 풀링할 오브젝트입니다.
+    private PoolableObject poolableObject;
+
     protected void Awake()
     {
-        state = CharacterIdleState.Instance;
-        stateType = StateTypes.Idle;
-
         rigid = GetComponent<Rigidbody>() ?? GetComponent<Rigidbody>();
+
+        poolableObject = GetComponent<PoolableObject>() ?? GetComponent<PoolableObject>();
     }
 
     /// <summary>
@@ -100,6 +102,15 @@ public class Character : MonoBehaviour
     }
 
     /// <summary>
+    /// 사망합니다.
+    /// </summary>
+    public void Die()
+    {
+        // 사망으로 변경합니다.
+        state.Die(this);
+    }
+
+    /// <summary>
     /// id값입니다.
     /// </summary>
     public string Id { get { return id; } }
@@ -113,4 +124,7 @@ public class Character : MonoBehaviour
     /// 현재 상태입니다.
     /// </summary>
     public CharacterState State { set { state = value; } }
+
+    //
+    public PoolableObject PoolableObject { get { return poolableObject; } }
 }
