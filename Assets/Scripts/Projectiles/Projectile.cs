@@ -73,6 +73,6 @@ public class Projectile : MonoBehaviour
     private void Hit(Collider other)
     {
         // 헬스 인터페이스가 구현된 대상일 경우만 적용합니다.
-        other.GetComponent<IHealth>()?.Damage(5);
+        other.GetComponent<IHealth>()?.Damage(1);
     }
 }
