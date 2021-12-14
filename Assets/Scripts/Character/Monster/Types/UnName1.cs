@@ -9,6 +9,8 @@ public class UnName1 : Monster
 {
     private new void Awake()
     {
+        base.Awake();
+
         id = "unName_001";
     }
 }
