@@ -58,7 +58,6 @@ public class PlayerDatabase : CharacterDatabase
     {
         foreach (CharacterInfo data in datas.characterInfos)
         {
-            Debug.Log(id + ", " + data.id);
             if (id == data.id)
                 return data;
         }
