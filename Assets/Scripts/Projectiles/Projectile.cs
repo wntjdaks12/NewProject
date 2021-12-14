@@ -57,6 +57,9 @@ public class Projectile : MonoBehaviour
         if (other.tag != target.tag)
             return;
 
+        // 대상에게 데미지를 입힙니다.
+        Hit(other);
+
         // 충돌 대상이 추적하는 대상과 같으면 인큐를 하여 비활성화시킵니다. --------
         target = null;
 
@@ -64,5 +67,12 @@ public class Projectile : MonoBehaviour
 
         poolableObject?.EnQueue();
         // ---------------------------------------------------------------------
+    }
+
+    // 데미지를 입힙니다.
+    private void Hit(Collider other)
+    {
+        // 헬스 인터페이스가 구현된 대상일 경우만 적용합니다.
+        other.GetComponent<IHealth>()?.Damage(5);
     }
 }
