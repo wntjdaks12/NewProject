@@ -31,5 +31,21 @@ public class CharacterInfos
 /// </summary>
 public class CharacterDatabase : MonoBehaviour
 {
+    protected static CharacterInfo DeepCopy(CharacterInfo data)
+    {
+        CharacterInfo characterInfo = new CharacterInfo();
 
+        characterInfo.hp = data.hp;
+        characterInfo.id = data.id;
+        characterInfo.keyName = data.keyName;
+        characterInfo.maxHp = data.maxHp;
+        characterInfo.speed = data.speed;
+        characterInfo.weaponInfo = new WeaponInfo(
+            data.weaponInfo.id,
+            data.weaponInfo.keyName,
+            data.weaponInfo.cooldownTime
+       );
+
+        return characterInfo;
+    }
 }
