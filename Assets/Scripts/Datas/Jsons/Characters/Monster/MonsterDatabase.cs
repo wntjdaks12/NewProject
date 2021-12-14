@@ -40,7 +40,7 @@ public class MonsterDatabase : CharacterDatabase
         foreach (CharacterInfo data in datas.characterInfos)
         {
             if (id == data.id)
-                return data;
+                return DeepCopy(data);
         }
 
         return null;
