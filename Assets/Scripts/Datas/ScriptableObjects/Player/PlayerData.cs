@@ -9,7 +9,7 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     [SerializeField]
-    private CharacterInfo characterInfo;
+    private CharacterInfo characterInfo = new CharacterInfo();
 
     public CharacterInfo CharacterInfo { get { return characterInfo; } set { characterInfo = value; } }
 }
