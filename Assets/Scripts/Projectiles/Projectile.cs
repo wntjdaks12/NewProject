@@ -34,6 +34,12 @@ public class Projectile : MonoBehaviour
     private void FixedUpdate()
     {
         Trace(1500);
+
+        // 대상한테 접근할 시 비활성화 상태이면 스스로 없어집니다. ------------------------------
+        if ((target.transform.position - transform.position).sqrMagnitude < 0.1f)
+            if(!target.activeSelf)
+                Destroy();
+        // -----------------------------------------------------------------------------------
     }
 
     /// <summary>
@@ -44,7 +50,7 @@ public class Projectile : MonoBehaviour
     {
         if (!target || !rigid)
             return;
-
+        
         // 대상을 바라봅니다.
         transform.LookAt(target.transform);
 
@@ -54,16 +60,25 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // 충돌 대상이 추적하고 있는 대상인지 판단합니다.
         if (other.tag != target.tag)
             return;
 
         // 대상에게 데미지를 입힙니다.
         Hit(other);
 
-        // 충돌 대상이 추적하는 대상과 같으면 인큐를 하여 비활성화시킵니다. --------
-        target = null;
-
+        // 풀링 개체이므로 비활성화시킵니다.
         triggerEvent?.Invoke(other);
+
+        // 삭제합니다. (풀링 비활성화)
+        Destroy();
+    }
+
+    // 삭제합니다. (풀링 비활성화)
+    private void Destroy()
+    {
+        // 풀링 개체이므로 비활성화시킵니다. ---------------------------------------------------
+        target = null;
 
         poolableObject?.EnQueue();
         // ---------------------------------------------------------------------
