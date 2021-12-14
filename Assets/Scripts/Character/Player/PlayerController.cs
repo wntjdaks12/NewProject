@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 플레이어의 캐릭터를 제어하는 컨트롤러입니다.
 /// </summary>
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IHealth
 {
     /// <summary>
     /// 해당 플레이어입니다.
@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
     // 데이터를 읽습니다.
     private void DataLoad()
     {
+        if (!target)
+            return;
+
         var data = PlayerDatabase.SearchData(target.Id);
 
         playerData.CharacterInfo = data;
@@ -62,5 +65,15 @@ public class PlayerController : MonoBehaviour
         // 모든 조건이 만족하지 않을 경우 가만히 있습니다.
         else
             target.Idle();
+    }
+
+    /// <summary>
+    /// 데미지를 입습니다.
+    /// </summary>
+    /// <param name="damage">데미지 값</param>
+    public void Damage(int damage)
+    {
+        if (playerData)
+            playerData.CharacterInfo.hp = HealthSystem.Damage(playerData.CharacterInfo.hp, playerData.CharacterInfo.maxHp, damage);
     }
 }
