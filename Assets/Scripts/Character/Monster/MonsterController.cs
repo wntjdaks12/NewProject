@@ -16,7 +16,7 @@ public class MonsterController : MonoBehaviour, IHealth
     [SerializeField]
     private CharacterInfo data;
 
-    private void Start()
+    private void OnEnable()
     {
         // 데이터를 읽습니다.
         DataLoad();
