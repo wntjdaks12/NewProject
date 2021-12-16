@@ -37,7 +37,8 @@ public class MonsterController : MonoBehaviour, IHealth
         if (!objectMoveAi)
             return;
 
-        target.transform.LookAt(objectMoveAi.Points[objectMoveAi.CurPartIndex]);
+        var p = objectMoveAi.Points[objectMoveAi.CurPartIndex];
+        target.transform.LookAt(new Vector3(p.x, target.transform.position.y, p.z));
         target.Move(data.speed);
     }
 
