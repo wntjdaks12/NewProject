@@ -16,6 +16,8 @@ public class MonsterController : MonoBehaviour, IHealth
     [SerializeField]
     private CharacterInfo data;
 
+    [SerializeField]
+    private ObjectMoveAI objectMoveAi;
     private void OnEnable()
     {
         // 데이터를 읽습니다.
@@ -32,6 +34,11 @@ public class MonsterController : MonoBehaviour, IHealth
     // 해당 플레이어를 제어합니다.
     private void Control()
     {
+        if (!objectMoveAi)
+            return;
+
+        target.transform.LookAt(objectMoveAi.Points[objectMoveAi.CurPartIndex]);
+        target.Move(data.speed);
     }
 
     private void FixedUpdate()
