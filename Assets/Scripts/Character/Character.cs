@@ -83,7 +83,7 @@ public class Character : MonoBehaviour
 
         // 퍼사드 패턴
         Direction(rotation);
-        ForwardMove(speed);
+        Move(speed);
     }
 
     // 이동 방향을 정해줍니다.
@@ -94,8 +94,11 @@ public class Character : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, -Mathf.Atan2(vec3.y, vec3.x) * Mathf.Rad2Deg + 90, 0);
     }
 
-    // 직선 이동을 합니다.
-    private void ForwardMove(float speed)
+    /// <summary>
+    /// 직선 이동을 합니다.
+    /// </summary>
+    /// <param name="speed">속도</param>
+    public void Move(float speed)
     {
         if (rigid)
             rigid.velocity = transform.forward * speed * Time.deltaTime;
