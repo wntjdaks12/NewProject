@@ -22,7 +22,7 @@ public class CharacterAttackState : CharacterState
         // 대상을 향해 바라봅니다. -------------------------------
         var targetPos = colls[0].transform.position;
 
-        var vec3 = targetPos - character.transform.position;
+        var vec3 = targetPos - character.transform.position; vec3.y = 0;
         character.transform.rotation = Quaternion.LookRotation(vec3);
         // ---------------------------------------------------
     }
