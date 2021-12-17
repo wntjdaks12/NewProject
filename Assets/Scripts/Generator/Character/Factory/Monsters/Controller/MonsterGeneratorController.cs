@@ -43,7 +43,7 @@ public class MonsterGeneratorController : MonoBehaviour
         curPoolCount = 0;
         resurveCount = 0;
 
-        generateBehaviour = new RectGenerate();
+        generateBehaviour = new SquareGenerate();
     }
 
     private void Start()
