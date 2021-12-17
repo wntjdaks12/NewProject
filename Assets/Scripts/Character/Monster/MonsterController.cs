@@ -37,9 +37,17 @@ public class MonsterController : MonoBehaviour, IHealth
         if (!objectMoveAi)
             return;
 
-        var p = objectMoveAi.Points[objectMoveAi.CurPartIndex];
-        target.transform.LookAt(new Vector3(p.x, target.transform.position.y, p.z));
-        target.Move(data.speed);
+        //정점이 있을 경우 이동을 합니다. ------------------------------
+        if (objectMoveAi.Points != null)
+        {
+            // 이동할 정점과 현재 정점을 이용하여 방향을 구합니다.
+            var p = objectMoveAi.Points[objectMoveAi.CurPartIndex];
+            var dir = p - target.transform.position; dir.y = 0f;
+
+            //이동합니다.
+            target.Move(dir, data.speed);
+        }
+        // --------------------------------------------------------------------
     }
 
     private void FixedUpdate()
