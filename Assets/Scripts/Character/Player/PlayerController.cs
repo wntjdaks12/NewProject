@@ -37,6 +37,20 @@ public class PlayerController : MonoBehaviour, IHealth
         playerData.CharacterInfo = data;
     }
 
+    private void Update()
+    {
+        // 조이스틱 클릭 시 모든 조건은 실행하지 않습니다.
+        if (jStickData.IsTouching)
+            return;
+
+        // 플레이어는 공격이 가능할 시 공격합니다.
+        if (target.CheckAttack())
+            target.Attack(true);
+        // 모든 조건이 만족하지 않을 경우 가만히 있습니다.
+        else
+            target.Idle();
+    }
+
     private void FixedUpdate()
     {
         Control();
@@ -59,12 +73,6 @@ public class PlayerController : MonoBehaviour, IHealth
         // 조이스틱 클릭 후 드래그 시 해당 플레이어는 움직입니다.
         if (jStickData.IsTouching && jStickData.PointerPosition != Vector2.zero)
             target.Move(new Vector3(jStickData.PointerPosition.x, 0, jStickData.PointerPosition.y), playerData.CharacterInfo.speed);
-        // 플레이어는 공격이 가능할 시 공격합니다.
-        else if (target.CheckAttack())
-            target.Attack(true);
-        // 모든 조건이 만족하지 않을 경우 가만히 있습니다.
-        else
-            target.Idle();
     }
 
     /// <summary>
