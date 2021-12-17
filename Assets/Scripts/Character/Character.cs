@@ -76,7 +76,7 @@ public class Character : MonoBehaviour
     /// </summary>
     /// <param name="pos">이동 </param>
     /// <param name="spd">플레이어 속도</param>
-    public void Move(Vector2 rotation, float speed)
+    public void Move(Vector3 rotation, float speed)
     {
         // 이동 상태로 변경합니다.
         state.Move(this);
@@ -87,11 +87,9 @@ public class Character : MonoBehaviour
     }
 
     // 이동 방향을 정해줍니다.
-    private void Direction(Vector2 rotation)
+    private void Direction(Vector3 dir)
     {
-        var vec3 = new Vector3(rotation.x, rotation.y, 0) - Vector3.forward;
-
-        transform.rotation = Quaternion.Euler(0, -Mathf.Atan2(vec3.y, vec3.x) * Mathf.Rad2Deg + 90, 0);
+        transform.rotation = Quaternion.LookRotation(dir);
     }
 
     /// <summary>
@@ -100,8 +98,12 @@ public class Character : MonoBehaviour
     /// <param name="speed">속도</param>
     public void Move(float speed)
     {
-        if (rigid)
-            rigid.velocity = transform.forward * speed * Time.deltaTime;
+        if (!rigid)
+            return;
+
+        var vec3 = transform.forward * speed * Time.deltaTime;
+        vec3.y = rigid.velocity.y;
+        rigid.velocity = vec3;
     }
 
     /// <summary>
