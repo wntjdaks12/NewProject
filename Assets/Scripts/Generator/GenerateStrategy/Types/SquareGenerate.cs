@@ -22,7 +22,7 @@ public class SquareGenerate : GenerateBehaviour
         var p3 = new Vector3(-size, 0, -size);
 
         var rand1 = Random.Range(p0.x, p1.x);
-        var rand2 = Random.Range(p1.y, p2.y);
+        var rand2 = Random.Range(p1.z, p2.z);
 
         return new Vector3(vec3.x + rand1, vec3.y, vec3.z + rand2);
     }
