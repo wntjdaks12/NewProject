@@ -2,6 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class GeneratorInfo
+{
+    // 리스폰 시간입니다.
+    public float respawnTime;
+
+    // 리스폰 기준점입니다.
+    public Vector3 position;
+
+    // 리스폰 사이즈입니다.
+    public float size;
+}
+
 /// <summary>
 /// 몬스터 생성을 제어하는 컨트롤러입니다.
 /// </summary>
@@ -18,21 +31,30 @@ public class MonsterGeneratorController : MonoBehaviour
     // 예약된 풀링 개수입니다. (곧 생성되는 몬스터 개수)
     private int resurveCount;
 
-    [SerializeField]
-    private float respawnTime;
+    // 생성자 정보입니다.
+    public GeneratorInfo generatorInfo;
+
+    // 생성 방법을 다양하게 해줄 행위자입니다.
+    private GenerateBehaviour generateBehaviour;
 
     private void Awake()
     {
         keepPoolCount = pool.poolCount;
         curPoolCount = 0;
         resurveCount = 0;
+
+        generateBehaviour = new RectGenerate();
     }
 
     private void Start()
     {
-        // 모든 대상을 활성화 시킵니다.
+        // 스폰 위치에 모든 대상을 활성화 시킵니다. ------------------------------------------
         for (int i = 0; i < pool.poolCount; i++)
-            pool.DeQueue();
+        {
+            var obj = pool.DeQueue();
+            obj.transform.position = generateBehaviour.getGenerate(generatorInfo.position, generatorInfo.size);
+        }
+        // -----------------------------------------------------------------------------------
 
         // 월드상에 존재하는 몬스터 수는 전체수에서 풀링에 담아논 개수에 뺀 결과와 같습니다.
         curPoolCount = keepPoolCount - pool.ObjectPool.Count;
@@ -56,12 +78,15 @@ public class MonsterGeneratorController : MonoBehaviour
         resurveCount++;
 
         // 해당 시간만큼 지연합니다.
-        yield return new WaitForSeconds(respawnTime);
+        yield return new WaitForSeconds(generatorInfo.respawnTime);
 
         // 풀링을 활성화시킵니다.
-        pool.DeQueue();
+        var obj = pool.DeQueue();
+        obj.transform.position = generateBehaviour.getGenerate(generatorInfo.position, generatorInfo.size);
 
         // 예약 몬스터 개수 감소
         resurveCount--;
     }
+
+    public GenerateBehaviour GenerateBehaviour { set { generateBehaviour = value; } }
 }
