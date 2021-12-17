@@ -179,4 +179,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   min: -3
   max: 3
-  parts: 20
+  parts: 30
