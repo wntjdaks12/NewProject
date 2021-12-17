@@ -28,12 +28,17 @@ public class Pistol : RangedWeapon
             if (!obj)
                 return;
 
-            obj.transform.position = transform.root.position;
-            // ------------------------------------------------------------------------------------
-
             if (obj.GetComponent<Projectile>())
+            {
                 // 충돌한 콜라이더들을 투사체에게 대상을 알려줍니다.  
                 obj.GetComponent<Projectile>().target = attackRange.GetColliders()[0].gameObject;
+
+                obj.transform.position = transform.root.position;
+                obj.transform.rotation = transform.root.rotation;
+            }
+            // ------------------------------------------------------------------------------------
+
+
         }
 
         // 쿨타임을 적용합니다.
