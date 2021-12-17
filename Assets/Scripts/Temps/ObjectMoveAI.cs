@@ -27,6 +27,11 @@ public class ObjectMoveAI : MonoBehaviour
 
     private Transform ts;
 
+    private void OnEnable()
+    {
+        Init();
+    }
+
     private void Awake()
     {
         curPartIndex = 0;
@@ -42,12 +47,23 @@ public class ObjectMoveAI : MonoBehaviour
 
     private void Update()
     {
-        // 베지어 곡선을 반복해서 그립니다.
-        Repeat();
+        if (points.Count == 0)
+            // 베지어 곡선을 반복해서 그립니다.
+            DrawCurve();
+
+        CheckPoint();
+    }
+
+    // 초기화시킵니다.
+    private void Init()
+    {
+        curPartIndex = 0;
+
+        points.Clear();
     }
 
     // 베지어 곡선을 반복해서 그립니다.
-    private void Repeat()
+    private void CheckPoint()
     {
         // 트렌스폼이 없을 경우 실행하지 않습니다. ---------------
         if (!ts)
@@ -55,17 +71,16 @@ public class ObjectMoveAI : MonoBehaviour
         // -------------------------------------------------------
 
         // 현재 위치 값이 해당 정점까지 근접할 경우 다음 정점으로 변경합니다. -----------
-        if ((Points[curPartIndex] - ts.position).sqrMagnitude < 0.1f)
+        var val1 = Points[curPartIndex]; val1.y = 0;
+        var val2 = ts.position; val2.y = 0;
+
+        if ((val1 - val2).sqrMagnitude < 0.1f)
             curPartIndex++;
         // -------------------------------------------------------------------------
 
-        // 다음 정점이 없을 경우 베지어 곡선을 새롭게 그립니다. -------------
+        // 다음 정점이 없을 경우 초기화시킵니다. -------------
         if (curPartIndex >= points.Count)
-        {
-            curPartIndex = 0;
-
-            DrawCurve();
-        }
+            Init();
         // ---------------------------------------------------------------
     }
 
@@ -93,9 +108,6 @@ public class ObjectMoveAI : MonoBehaviour
     // 보다 부드러운 이동을 위해 베지어 곡선을 분할합니다.
     private void DivSection(float tStart, float tEnd)
     {
-        // 분할한 정점을 초기화합니다.
-        points.Clear();
-
         // 나눈 개수만큼의 시간에 대한 정점 값을 가져옵니다. -----------------
         float tDelta = (tEnd - tStart) / parts;
 
@@ -113,7 +125,7 @@ public class ObjectMoveAI : MonoBehaviour
     /// <summary>
     /// 베지어 곡선을 나눈 정점입니다.
     /// </summary>
-    public List<Vector3> Points { get { return points; } }
+    public List<Vector3> Points { get { if (points.Count == 0) return null; return points; } }
 
     /// <summary>
     /// 나눈 정점의 현재 인덱스입니다.
