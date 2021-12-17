@@ -59,4 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 8973352893694351180}
-  respawnTime: 1
+  generatorInfo:
+    respawnTime: 1
+    position: {x: 0, y: 0.5, z: 5}
+    size: 2
