@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 332124443840889266}
   - component: {fileID: 332124443840889269}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 332124445453234335}
   - component: {fileID: 332124445453234332}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 332124445606842387}
   - component: {fileID: 1649712210207636168}
   - component: {fileID: 1732807020621059671}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 332124445698379679}
   - component: {fileID: 332124445698379678}
   - component: {fileID: 332124445698378849}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
