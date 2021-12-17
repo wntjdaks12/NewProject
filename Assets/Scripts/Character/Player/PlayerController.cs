@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour, IHealth
 
         // 조이스틱 클릭 후 드래그 시 해당 플레이어는 움직입니다.
         if (jStickData.IsTouching && jStickData.PointerPosition != Vector2.zero)
-            target.Move(jStickData.PointerPosition, playerData.CharacterInfo.speed);
+            target.Move(new Vector3(jStickData.PointerPosition.x, 0, jStickData.PointerPosition.y), playerData.CharacterInfo.speed);
         // 플레이어는 공격이 가능할 시 공격합니다.
         else if (target.CheckAttack())
             target.Attack(true);
