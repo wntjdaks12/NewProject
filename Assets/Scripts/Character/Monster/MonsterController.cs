@@ -37,16 +37,10 @@ public class MonsterController : MonoBehaviour, IDamageable
         if (!objectAI)
             return;
 
-        //정점이 있을 경우 이동을 합니다. ------------------------------
-        if (objectAI.Points != null)
-        {
-            // 이동할 위치과 현재 위치을 이용하여 방향을 구합니다.
-            var dir = objectAI.DirectionBehaviour.getDirection(transform.position); dir.y = 0f;
+        // 이동할 위치과 현재 위치을 이용하여 방향을 구하고 이동을 시킵니다.
+        var dir = objectAI.DirectionBehaviour.getDirection(transform.position); dir.y = 0f;
+        target.Move(dir, data.speed);
 
-            //이동합니다.
-            target.Move(dir, data.speed);
-        }
-        // --------------------------------------------------------------------
     }
 
     private void FixedUpdate()
