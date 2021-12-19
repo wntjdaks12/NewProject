@@ -43,13 +43,17 @@ public class MonsterController : MonoBehaviour, IDamageable
 
     }
 
+    private void Update()
+    {
+        if (data.hp <= 0)
+            target.Die();
+    }
+
     private void FixedUpdate()
     {
-        if (data.hp == 0)
-            target.Die();
-        else
-            // 해당 대상을 제어합니다.
-            Control();
+
+        // 해당 대상을 제어합니다.
+        Control();
     }
 
     /// <summary>
