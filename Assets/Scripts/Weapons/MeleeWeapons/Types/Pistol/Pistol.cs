@@ -30,8 +30,12 @@ public class Pistol : RangedWeapon
 
             if (obj.GetComponent<Projectile>())
             {
-                // 충돌한 콜라이더들을 투사체에게 대상을 알려줍니다.  
-                obj.GetComponent<Projectile>().target = attackRange.GetColliders()[0].gameObject;
+                // 충돌한 콜라이더들을 투사체에게 대상과 소유자를 알려줍니다. -----------------
+                var projectile = obj.GetComponent<Projectile>();
+
+                projectile.Owner = transform.root.gameObject;
+                projectile.target = attackRange.GetColliders()[0].gameObject;
+                // -------------------------------------------------------------------------
 
                 obj.transform.position = transform.root.position;
                 obj.transform.rotation = transform.root.rotation;

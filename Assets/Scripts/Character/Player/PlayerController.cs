@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 플레이어의 캐릭터를 제어하는 컨트롤러입니다.
 /// </summary>
-public class PlayerController : MonoBehaviour, IHealth
+public class PlayerController : MonoBehaviour, IDamageable
 {
     /// <summary>
     /// 해당 플레이어입니다.
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour, IHealth
     /// 데미지를 입습니다.
     /// </summary>
     /// <param name="damage">데미지 값</param>
-    public void Damage(int damage)
+    public void Damage(GameObject other, int damage)
     {
         if (playerData)
             playerData.CharacterInfo.hp = HealthSystem.Damage(playerData.CharacterInfo.hp, playerData.CharacterInfo.maxHp, damage);

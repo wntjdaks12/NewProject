@@ -15,6 +15,10 @@ public class Projectile : MonoBehaviour
     /// 투사체가 향하는 대상입니다.
     /// </summary>
     public GameObject target;
+    /// <summary>
+    /// 투사체를 사용한 소유자입니다.
+    /// </summary>
+    private GameObject owner;
 
     // 풀링할 오브젝트입니다.
     private PoolableObject poolableObject;
@@ -88,6 +92,11 @@ public class Projectile : MonoBehaviour
     private void Hit(Collider other)
     {
         // 헬스 인터페이스가 구현된 대상일 경우만 적용합니다.
-        other.GetComponent<IHealth>()?.Damage(1);
+        other.GetComponent<IDamageable>()?.Damage(owner, 1);
     }
+
+    /// <summary>
+    /// 투사체를 사용한 소유자입니다.
+    /// </summary>
+    public GameObject Owner { set { owner = value; } }
 }
