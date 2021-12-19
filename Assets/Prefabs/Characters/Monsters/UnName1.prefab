@@ -164,7 +164,7 @@ MonoBehaviour:
       id: 
       keyName: 
       cooldownTime: 0
-  objectMoveAi: {fileID: 2173878622706765964}
+  objectAI: {fileID: 2173878622706765964}
 --- !u!114 &2173878622706765964
 MonoBehaviour:
   m_ObjectHideFlags: 0
