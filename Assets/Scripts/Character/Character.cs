@@ -13,7 +13,7 @@ public class Character : MonoBehaviour
     protected string id;
 
     // 현재 상태를 나타냅니다.
-    protected CharacterState state = CharacterIdleState.Instance;
+    protected CharacterState state;
     public enum StateTypes { Idle, Move, Attack }
     [HideInInspector]
     public StateTypes stateType = StateTypes.Idle;
@@ -32,6 +32,11 @@ public class Character : MonoBehaviour
         rigid = GetComponent<Rigidbody>() ?? GetComponent<Rigidbody>();
 
         poolableObject = GetComponent<PoolableObject>() ?? GetComponent<PoolableObject>();
+    }
+
+    private void OnEnable()
+    {
+        state = CharacterIdleState.Instance;
     }
 
     /// <summary>
