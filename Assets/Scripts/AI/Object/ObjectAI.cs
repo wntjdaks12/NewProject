@@ -66,7 +66,7 @@ public class ObjectAI : MonoBehaviour
 
         points.Clear();
 
-        // 방향을 정해주는 행위자입니다.
+        // 방향을 정해주는 행위자입니다. 
         directionBehaviour = new ObjectAIBezierCurveDirection(this);
     }
 
