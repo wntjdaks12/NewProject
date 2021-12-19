@@ -57,6 +57,9 @@ public class CharacterAttackState : CharacterState
     {
         // 상태를 사망으로 변경합니다.
         character.State = CharacterDieState.Instance;
+
+        // 풀링 개체이므로 비활성화 시킵니다.
+        character.PoolableObject?.EnQueue();
     }
 
     /// <summary>
