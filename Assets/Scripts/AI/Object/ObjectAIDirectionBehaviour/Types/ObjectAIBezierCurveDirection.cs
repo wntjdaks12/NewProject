@@ -24,7 +24,8 @@ public class ObjectAIBezierCurveDirection : ObjectAIDirectionBehaviour
     {
         // 이동할 위치과 기준 위치을 이용하여 방향을 구합니다. -------------------------
         if(objectAI)
-            return objectAI.Points[objectAI.CurPartIndex] - position;
+            if (objectAI.Points != null)
+                return objectAI.Points[objectAI.CurPartIndex] - position;
         // --------------------------------------------------------------------------
 
         return Vector3.zero;
