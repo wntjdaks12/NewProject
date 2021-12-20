@@ -34,6 +34,9 @@ public class MonsterController : MonoBehaviour, IDamageable
     // 해당 플레이어를 제어합니다.
     private void Control()
     {
+        if (data == null)
+            return;
+
         if (!objectAI)
             return;
 
@@ -45,6 +48,9 @@ public class MonsterController : MonoBehaviour, IDamageable
 
     private void Update()
     {
+        if (data == null)
+            return;
+
         if (data.hp <= 0)
             target.Die();
     }
