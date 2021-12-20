@@ -31,8 +31,14 @@ public class WeaponController : MonoBehaviour
     /// </summary>
     public void EquipWeapon()
     {
-        // 자신 무기 데이터에서 해당 아이디의 무기를 찾습니다.
-        weaponData.weaponInfo = MyWeaponDatabase.SearchData("weapon_001");
+        // 자신 무기 데이터에서 해당 아이디의 무기를 찾습니다. ---------------
+        var data =  MyWeaponDatabase.SearchData("weapon_001");
+
+        if (data == null)
+            return;
+
+        weaponData.weaponInfo = data;
+        // ----------------------------------------------------------------
 
         // 해당 무기를 생성하고 위치를 초기화시킵니다. -----------------------------------------------------------------------------------------
         var obj = Instantiate(Resources.Load("Prefabs/Weapons/" + weaponData.weaponInfo.keyName), target.transform) as GameObject;
