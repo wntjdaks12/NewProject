@@ -60,6 +60,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pool: {fileID: 8973352893694351180}
   generatorInfo:
-    respawnTime: 1
+    respawnTime: 3
     position: {x: 0, y: 0.5, z: 5}
     size: 2
