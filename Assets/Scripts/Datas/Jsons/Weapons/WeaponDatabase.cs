@@ -13,12 +13,15 @@ public class WeaponInfo
     public string id;
     [HideInInspector]
     public string keyName;
+    [HideInInspector]
+    public string basicAttackImg;
     public float cooldownTime;
 
-    public WeaponInfo(string id, string keyName, float cooldownTime)
+    public WeaponInfo(string id, string keyName,string basicAttackImg,  float cooldownTime)
     {
         this.id = id;
         this.keyName = keyName;
+        this.basicAttackImg = basicAttackImg;
         this.cooldownTime = cooldownTime;
     }
 }
@@ -60,6 +63,9 @@ public class WeaponDatabase : MonoBehaviour
     // 데이터를 찾습니다.
     public static WeaponInfo SearchData(string id)
     {
+        if (datas == null)
+            return null;
+
         foreach (WeaponInfo data in datas.weaponInfos)
         {
             if (id == data.id)
@@ -67,5 +73,16 @@ public class WeaponDatabase : MonoBehaviour
         }
 
         return null;
+    }
+
+    public static WeaponInfo DeepCopy(WeaponInfo data)
+    {
+        WeaponInfo weaponInfo = new WeaponInfo(
+            data.id,
+            data.keyName,
+            data.basicAttackImg,
+            data.cooldownTime
+        );
+        return weaponInfo;
     }
 }
