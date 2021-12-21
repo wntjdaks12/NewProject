@@ -40,11 +40,7 @@ public class CharacterDatabase : MonoBehaviour
         characterInfo.keyName = data.keyName;
         characterInfo.maxHp = data.maxHp;
         characterInfo.speed = data.speed;
-        characterInfo.weaponInfo = new WeaponInfo(
-            data.weaponInfo.id,
-            data.weaponInfo.keyName,
-            data.weaponInfo.cooldownTime
-       );
+        characterInfo.weaponInfo = WeaponDatabase.DeepCopy(data.weaponInfo);
 
         return characterInfo;
     }
