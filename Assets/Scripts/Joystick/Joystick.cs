@@ -50,7 +50,7 @@ public class Joystick : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, I
         var rectTsWidthHalf = rectTs.sizeDelta.x * 0.5f;
 
         // 단위 벡터로 만듭니다.
-        jStickData.PointerPosition = (eventData.position - rectTs.anchoredPosition) / (rectTsWidthHalf);
+        jStickData.PointerPosition = (new Vector2(eventData.position.x * 1080 / Screen.width, eventData.position.y * 1920 / Screen.height) - rectTs.anchoredPosition) / (rectTsWidthHalf);
 
         // 핸들이 움직이는 범위((-1, -1) ~ (1, 1))를 지정하기 합니다.
         if (jStickData.PointerPosition.magnitude > 1)

@@ -39,7 +39,7 @@ public class JoystickActivePanel : MonoBehaviour, IPointerUpHandler, IPointerDow
             return;
 
         // 해당 조이스틱을 클릭한 위치로 잡아줍니다.
-        targetRectTs.anchoredPosition = eventData.position;
+        targetRectTs.anchoredPosition = new Vector2(eventData.position.x * 1080 / Screen.width, eventData.position.y * 1920 / Screen.height);
 
         // 해당 조이스틱을 활성화시킵니다.
         target.SetActive(true);
