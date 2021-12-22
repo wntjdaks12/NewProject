@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &642351462382739648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8679958383149239400}
+  - component: {fileID: 6978424163769599484}
+  m_Layer: 6
+  m_Name: InfoContentsController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8679958383149239400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642351462382739648}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6691616620417679975}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6978424163769599484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642351462382739648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb07dcc56d6b8b4bb9e6b2a90fad6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterinfoContents: {fileID: 7580261881370675850, guid: 7db2340ec17e1c041b2ebe01f1c817b5, type: 3}
+  targetTs: {fileID: 8679958383149239400}
+  monsterData: {fileID: 5402199422743617640}
 --- !u!1 &6691616620417679969
 GameObject:
   m_ObjectHideFlags: 0
@@ -17,6 +63,7 @@ GameObject:
   - component: {fileID: 5603543885200775842}
   - component: {fileID: 1788681946553452044}
   - component: {fileID: 2173878622706765964}
+  - component: {fileID: 5402199422743617640}
   m_Layer: 6
   m_Name: UnName1
   m_TagString: Monster
@@ -34,7 +81,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.381, z: 7.29}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 8679958383149239400}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -154,16 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 5603543885200775842}
-  data:
-    id: 
-    keyName: 
-    speed: 0
-    hp: 0
-    maxHp: 0
-    weaponInfo:
-      id: 
-      keyName: 
-      cooldownTime: 0
+  data: {fileID: 5402199422743617640}
   objectAI: {fileID: 2173878622706765964}
 --- !u!114 &2173878622706765964
 MonoBehaviour:
@@ -180,3 +219,15 @@ MonoBehaviour:
   min: -3
   max: 3
   parts: 30
+--- !u!114 &5402199422743617640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6691616620417679969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca8cc3fd9fd4013478001425abe27c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
