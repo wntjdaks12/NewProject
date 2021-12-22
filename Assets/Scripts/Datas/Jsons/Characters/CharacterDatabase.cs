@@ -15,6 +15,7 @@ public class CharacterInfo
     public float speed;
     public int hp;
     public int maxHp;
+    public int lv;
     public WeaponInfo weaponInfo;
 }
 
@@ -40,8 +41,9 @@ public class CharacterDatabase : MonoBehaviour
         characterInfo.keyName = data.keyName;
         characterInfo.maxHp = data.maxHp;
         characterInfo.speed = data.speed;
+        characterInfo.lv = data.lv;
         characterInfo.weaponInfo = WeaponDatabase.DeepCopy(data.weaponInfo);
-
+   
         return characterInfo;
     }
 }
