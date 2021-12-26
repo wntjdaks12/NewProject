@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 1495800373996428685}
   - component: {fileID: 1495800373996428686}
   - component: {fileID: 1495800373996428687}
-  - component: {fileID: 1495800373996428684}
+  - component: {fileID: 7481091864262897916}
   m_Layer: 5
   m_Name: BasicAttackBtn
   m_TagString: Untagged
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
---- !u!114 &1495800373996428684
+--- !u!114 &7481091864262897916
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -265,8 +265,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1495800373996428673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69e5fcaa0f80c3a46a020aa19669ac54, type: 3}
+  m_Script: {fileID: 11500000, guid: c9b0f815b590dca4986b7e2f3f6886ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 05a30dc3bb0bebe4da8972a4f082bc73, type: 2}
   basicAttackImg: {fileID: 1495800373529220587}
