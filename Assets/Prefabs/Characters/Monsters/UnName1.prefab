@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8679958383149239400}
   - component: {fileID: 6978424163769599484}
   m_Layer: 6
-  m_Name: InfoContentsController
+  m_Name: ObjectHeadBarController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb07dcc56d6b8b4bb9e6b2a90fad6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterinfoContents: {fileID: 7580261881370675850, guid: 7db2340ec17e1c041b2ebe01f1c817b5, type: 3}
+  objectHeadBarView: {fileID: 2559609405103404452, guid: 7db2340ec17e1c041b2ebe01f1c817b5, type: 3}
   targetTs: {fileID: 8679958383149239400}
   monsterData: {fileID: 5402199422743617640}
 --- !u!1 &6691616620417679969

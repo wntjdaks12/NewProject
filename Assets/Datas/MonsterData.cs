@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 몬스터 데이터입니다.
+/// 오브젝트 상단에 몬스터 데이터를 보여주는 부분입니다.
 /// </summary>
 public class MonsterData : MonoBehaviour
 {
@@ -18,5 +18,5 @@ public class MonsterData : MonoBehaviour
         data = MonsterDatabase.SearchData(id);
     }
 
-    public CharacterInfo Data { get { return data; } }
+    public CharacterInfo Data { get => data; }
 }
