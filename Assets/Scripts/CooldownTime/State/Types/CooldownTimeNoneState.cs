@@ -16,12 +16,9 @@ public class CooldownTimeNoneState : CooldownTimeState
     /// <param name="cooldownTime">쿨타임 주솟값</param>
     public void Cooling(CooldownTime cooldownTime)
     {
-        // 쿨타임 코루틴을 시작합니다.
-        cooldownTime.CoroutineCooldownTime();
-
-        // 상태를 쿨링으로 변경합니다.
-        cooldownTime.stateType = CooldownTime.StateType.Cooling;
         cooldownTime.State = CooldownTimeCoolingState.Instance;
+
+        cooldownTime.IsOperating = true;
     }
 
     /// <summary>
