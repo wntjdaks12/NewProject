@@ -51,7 +51,7 @@ public class WeaponController : MonoBehaviour
         // 무기 데이터 정보를 넘겨주고 대상의 무기를 교체합니다. -------------
         var weapon = obj.GetComponent<Weapon>();
 
-        weapon.WeaponInfo = weaponData.weaponInfo;
+        weapon.WeaponData = weaponData;
         target.Weapon = weapon;
 
         if(weapon.CooldownTime != null)
