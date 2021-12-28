@@ -64,4 +64,9 @@ public abstract class Weapon : MonoBehaviour
     /// 해당 무기 데이터 정보입니다.
     /// </summary>
     public WeaponInfo WeaponInfo{ set { weaponInfo = value; } }
+
+    /// <summary>
+    /// 해당 무기의 쿨타임 부분입니다.
+    /// </summary>
+    public CooldownTime CooldownTime { get => cooldownTime; }
 }
