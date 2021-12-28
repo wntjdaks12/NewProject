@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class CooldownTimeView : MonoBehaviour
 {
     [SerializeField]
-    private Image slotImg;
+    private GameObject cooldownTimePnl;
 
     [SerializeField]
     private Image fillImg;
+
+    [SerializeField]
+    private Text cooldownTimeNumText;
 
     private CooldownTimePresenter presenter;
 
@@ -18,17 +21,46 @@ public class CooldownTimeView : MonoBehaviour
         presenter = new CooldownTimePresenter(this, new WeaponCooldownTimeModel());
     }
 
-    public void StartCool()
+    private void Update()
     {
-        slotImg.gameObject.SetActive(true);
+        if (cooldownTimeNumText != null)
+            ChangeCooldownTimeNumText();
 
-        StartCoroutine(CoolAsync());
+        if (fillImg != null)
+            ChangeFillImage();
+
+        if (cooldownTimePnl != null)
+            ChangeSlotImage();
     }
 
-    private IEnumerator CoolAsync()
+    private void ChangeSlotImage()
     {
-        yield return new WaitForSeconds(presenter.cooldownTime);
+        if (presenter.CurCooldownTime > 0f)
+            cooldownTimePnl.gameObject.SetActive(true);
+        else
+            cooldownTimePnl.gameObject.SetActive(false);
+    }
 
-        slotImg.gameObject.SetActive(false);
+    private void ChangeFillImage()
+    {
+        if (presenter.CurCooldownTime > 0f)
+            fillImg.fillAmount = 1 - presenter.CurCooldownTime / presenter.CooldownTime;
+    }
+
+    private void ChangeCooldownTimeNumText()
+    {
+        var tempText = "";
+
+        var cool = presenter.CooldownTime - presenter.CurCooldownTime;
+
+        if (presenter.CurCooldownTime != 0)
+        {
+            if (cool > 1f)
+                tempText = Mathf.Floor(cool).ToString();
+            else if (cool > 0f)
+                tempText = (Mathf.Floor((cool) * 10) * 0.1f).ToString();
+        }
+
+        cooldownTimeNumText.text = tempText;
     }
 }
