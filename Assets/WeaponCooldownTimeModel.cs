@@ -2,14 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponCooldownTimeModel : ICooldownTimeView
+public class WeaponCooldownTimeModel : ICooldownTimeModel
 {
-    private CooldownTime cooldownTime;
+    private CooldownTimeData cooldownTimeData;
+
+    public WeaponCooldownTimeModel()
+    {
+        cooldownTimeData = (CooldownTimeData) Resources.Load("Datas/ScriptableObjects/CooldownTime/CooldownTime Data");
+    }
 
     public float getCooldownTIme()
     {
-        return cooldownTime.CurCoolVal;
+        return cooldownTimeData.CooldownTimeInfo.cooldownTime;
     }
 
-    public CooldownTime CooldownTime { set => cooldownTime = value; }
+    public float getCurCooldownTIme()
+    {
+        return cooldownTimeData.CooldownTimeInfo.curCooldownTime;
+    }
 }
