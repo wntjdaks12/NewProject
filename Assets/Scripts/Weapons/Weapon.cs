@@ -8,7 +8,7 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     /// <summary>
-    /// 무기 데이터 정보입니다.
+    /// 무기 데이터입니다.
     /// </summary>
     protected WeaponData weaponData;
 
