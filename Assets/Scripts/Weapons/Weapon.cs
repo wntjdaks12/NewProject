@@ -10,7 +10,7 @@ public abstract class Weapon : MonoBehaviour
     /// <summary>
     /// 무기 데이터 정보입니다.
     /// </summary>
-    protected WeaponInfo weaponInfo;
+    protected WeaponData weaponData;
 
     /// <summary>
     /// 해당 무기의 쿨타임입니다.
@@ -63,7 +63,7 @@ public abstract class Weapon : MonoBehaviour
     /// <summary>
     /// 해당 무기 데이터 정보입니다.
     /// </summary>
-    public WeaponInfo WeaponInfo{ set { weaponInfo = value; } }
+    public WeaponData WeaponData { set { weaponData = value; } }
 
     /// <summary>
     /// 해당 무기의 쿨타임 부분입니다.
