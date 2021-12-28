@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CooldownTimeDaata : MonoBehaviour
+[System.Serializable]
+public class CooldownTimeInfo
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float cooldownTime;
+    public float curCooldownTime;
 
-    // Update is called once per frame
-    void Update()
+    public CooldownTimeInfo(float cooldownTime, float curCooldownTime)
     {
-        
+        this.cooldownTime = cooldownTime;
+        this.curCooldownTime = curCooldownTime;
     }
+}
+
+[CreateAssetMenu(fileName = "CooldownTime Data")]
+public class CooldownTimeData : ScriptableObject
+{
+    [SerializeField]
+    private CooldownTimeInfo cooldownTimeInfo;
+
+    public CooldownTimeInfo CooldownTimeInfo { get => cooldownTimeInfo; set => cooldownTimeInfo = value; }
 }
