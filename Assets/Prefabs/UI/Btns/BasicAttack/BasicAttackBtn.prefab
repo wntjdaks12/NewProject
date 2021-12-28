@@ -511,7 +511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 963496092704579428}
   - component: {fileID: 6341517929021348683}
-  - component: {fileID: 8448564244129994053}
+  - component: {fileID: 7916777587787707234}
   m_Layer: 5
   m_Name: CooldownTimePnl
   m_TagString: Untagged
@@ -547,7 +547,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7708998766570366929}
   m_CullTransparentMesh: 1
---- !u!114 &8448564244129994053
+--- !u!114 &7916777587787707234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7708998766570366929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 782478ce3dd31db419acd0d29a5adb71, type: 3}
+  m_Script: {fileID: 11500000, guid: 880bef49d7709134a8fc5c96a811c5aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTimePnl: {fileID: 2595414349071549726}
