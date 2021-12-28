@@ -5,13 +5,14 @@ using UnityEngine;
 public class CooldownTimePresenter
 {
     private CooldownTimeView view;
-    private WeaponCooldownTimeModel model;
+    private ICooldownTimeModel model;
 
-    public CooldownTimePresenter(CooldownTimeView view, WeaponCooldownTimeModel model)
+    public CooldownTimePresenter(CooldownTimeView view, ICooldownTimeModel model)
     {
         this.view = view;
         this.model = model;
     }
 
-    public float cooldownTime { get => model.getCooldownTIme(); }
+    public float CurCooldownTime { get => model.getCurCooldownTIme(); }
+    public float CooldownTime { get => model.getCooldownTIme(); }
 }
