@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CooldownTimeView : MonoBehaviour
+public class WeaponCooldownTimeView : MonoBehaviour, ICooldownTimeView
 {
     [SerializeField]
     private GameObject cooldownTimePnl;
@@ -33,7 +33,7 @@ public class CooldownTimeView : MonoBehaviour
             ChangeSlotImage();
     }
 
-    private void ChangeSlotImage()
+    public void ChangeSlotImage()
     {
         if (presenter.CurCooldownTime > 0f)
             cooldownTimePnl.gameObject.SetActive(true);
@@ -41,13 +41,13 @@ public class CooldownTimeView : MonoBehaviour
             cooldownTimePnl.gameObject.SetActive(false);
     }
 
-    private void ChangeFillImage()
+    public void ChangeFillImage()
     {
         if (presenter.CurCooldownTime > 0f)
             fillImg.fillAmount = 1 - presenter.CurCooldownTime / presenter.CooldownTime;
     }
 
-    private void ChangeCooldownTimeNumText()
+    public void ChangeCooldownTimeNumText()
     {
         var tempText = "";
 
