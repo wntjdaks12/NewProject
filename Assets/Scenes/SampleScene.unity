@@ -1276,6 +1276,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicAttackBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 2595414349071549726, guid: 7205c520926257c4d96f677209970d1d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7205c520926257c4d96f677209970d1d, type: 3}
 --- !u!1001 &4024214088632769062
