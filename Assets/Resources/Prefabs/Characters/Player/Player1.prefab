@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 05a30dc3bb0bebe4da8972a4f082bc73, type: 2}
+  cooldownTimeData: {fileID: 11400000, guid: d32342d451aefd74cbbc1136b2e8be71, type: 2}
   target: {fileID: 1732807020621059671}
 --- !u!1 &332124445606842389
 GameObject:
