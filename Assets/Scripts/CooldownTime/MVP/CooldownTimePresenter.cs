@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CooldownTimePresenter
 {
-    private CooldownTimeView view;
+    private ICooldownTimeView view;
     private ICooldownTimeModel model;
 
-    public CooldownTimePresenter(CooldownTimeView view, ICooldownTimeModel model)
+    public CooldownTimePresenter(ICooldownTimeView view, ICooldownTimeModel model)
     {
         this.view = view;
         this.model = model;
