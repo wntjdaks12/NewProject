@@ -17,7 +17,7 @@ public class Pistol : RangedWeapon
     /// </summary>
     public override void Attack()
     {
-        if (weaponInfo == null)
+        if (weaponData.weaponInfo == null)
             return;
 
         if (pool && !cooldownTime.IsOperating)
@@ -46,6 +46,6 @@ public class Pistol : RangedWeapon
         }
 
         // 쿨타임을 적용합니다.
-        cooldownTime?.StartCooldownTime(weaponInfo.cooldownTime);
+        cooldownTime?.StartCooldownTime(weaponData.weaponInfo.cooldownTime);
     }
 }
