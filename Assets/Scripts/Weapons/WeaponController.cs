@@ -11,6 +11,9 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     private WeaponData weaponData;
 
+    [SerializeField]
+    private CooldownTimeData cooldownTimeData;
+
     /// <summary>
     /// 해당 플레이어입니다.
     /// </summary>
@@ -50,6 +53,9 @@ public class WeaponController : MonoBehaviour
 
         weapon.WeaponInfo = weaponData.weaponInfo;
         target.Weapon = weapon;
+
+        if(weapon.CooldownTime != null)
+            cooldownTimeData.CooldownTimeInfo = weapon.CooldownTime.CooldownTimeInfo;
         // ---------------------------------------------------------------
     }
 }
