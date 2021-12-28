@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             return;
 
         // 조이스틱, 플레이어 데이터 값에 대한 널 체크를 합니다.
-        if (!jStickData || !playerData)
+        if (!jStickData || (!playerData || playerData.CharacterInfo == null))
             return;
         // ------------------------------------------------------------
 
