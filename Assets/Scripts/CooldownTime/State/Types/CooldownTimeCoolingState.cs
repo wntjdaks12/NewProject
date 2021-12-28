@@ -24,9 +24,9 @@ public class CooldownTimeCoolingState : CooldownTimeState
     /// <param name="cooldownTime">쿨타임 주솟값</param>
     public void None(CooldownTime cooldownTime)
     {
-        // 상태를 적용 안 된것으로 변경합니다.
-        cooldownTime.stateType = CooldownTime.StateType.None;
         cooldownTime.State = CooldownTimeNoneState.Instance;
+
+        cooldownTime.IsOperating = false;
     }
 
     /// <summary>
