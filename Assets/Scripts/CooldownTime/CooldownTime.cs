@@ -7,26 +7,26 @@ using UnityEngine;
 /// </summary>
 public class CooldownTime : MonoBehaviour
 {
-    public enum StateType {None, Cooling}
-    /// <summary>
-    /// 현재 상태입니다.
-    /// </summary>
-    public StateType stateType;
+    private bool isOperating;
 
     // 현재 상태입니다.
     private CooldownTimeState state;
 
+    [SerializeField]
     // 쿨타임 값입니다.
-    private float coolVal, curCoolVal;
+    private CooldownTimeInfo cooldownTimeInfo;
 
-    public void Awake()
+    private void Awake()
     {
-        coolVal = 0;
-        curCoolVal = coolVal;
-
-        stateType = StateType.None;
+        cooldownTimeInfo = new CooldownTimeInfo(0, 0);
 
         state = CooldownTimeNoneState.Instance;
+    }
+
+    private void Update()
+    {
+        if (isOperating)
+            CheckCool();
     }
 
     /// <summary>
@@ -35,38 +35,26 @@ public class CooldownTime : MonoBehaviour
     /// <param name="cooldownTime">쿨타임 값</param>
     public void StartCooldownTime(float cooldownTime)
     {
-        coolVal = cooldownTime;
-        curCoolVal = coolVal;
+        cooldownTimeInfo.cooldownTime = cooldownTime;
 
         state.Cooling(this);
     }
 
-    /// <summary>
-    /// 쿨타임 코루틴을 시작합니다.
-    /// </summary>
-    public void CoroutineCooldownTime()
+    private void CheckCool() 
     {
-        StartCoroutine(CooldownTimeAsync());
-    }
+        cooldownTimeInfo.curCooldownTime += Time.deltaTime;
 
-    // 쿨타임 코루틴을 작동합니다.
-    private IEnumerator CooldownTimeAsync()
-    {
-        if (curCoolVal > 1)
+        if (cooldownTimeInfo.curCooldownTime >= cooldownTimeInfo.cooldownTime)
         {
-            yield return new WaitForSeconds(1f);
-            curCoolVal--;
-        }
+            cooldownTimeInfo.curCooldownTime = 0;
 
-        yield return new WaitForSeconds(1f);
-        state.None(this);
+            state.None(this);
+        }
     }
 
-    /// <summary>
-    /// 쿨타임 상태입니다.
-    /// </summary>
+    public CooldownTimeInfo CooldownTimeInfo { get => cooldownTimeInfo;}
+
     public CooldownTimeState State { set { state = value; } }
 
-    public float CoolVal { set { coolVal = value; } }
-    public float CurCoolVal { get => curCoolVal; }
+    public bool IsOperating { get => isOperating; set => isOperating = value; }
 }
