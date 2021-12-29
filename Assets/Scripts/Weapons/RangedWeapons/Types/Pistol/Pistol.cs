@@ -50,22 +50,4 @@ public class Pistol : RangedWeapon
             // --------------------------------------------------------------------------
         }
     }
-
-    /// <summary>
-    /// 널 체크합니다.
-    /// </summary>
-    /// <returns>널이 있으면 True 없으면 False를 리턴합니다.</returns>
-    private bool CheckEmpty()
-    {
-        if (weaponData == null || weaponData.weaponInfo == null)
-            return true;
-
-        if (CooldownTime == null || AttackRange == null)
-            return true;
-
-        if (pool != null)
-            return false;
-
-        return true;
-    }
 }
