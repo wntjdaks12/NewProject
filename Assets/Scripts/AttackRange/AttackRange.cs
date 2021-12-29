@@ -29,6 +29,9 @@ public class AttackRange : MonoBehaviour
     /// <returns>존재 여부를 리턴합니다.</returns>
     public bool CheckColliders()
     {
+        if (overlapColliderBehaviour == null)
+            return false;
+
         // 범위 내 콜라이더가 0개일 경우 콜라이더는 없습니다.
         if (overlapColliderBehaviour.Colliders.Count == 0)
             return false;

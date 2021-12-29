@@ -7,11 +7,6 @@ using UnityEngine;
 /// </summary>
 public class Pistol : RangedWeapon
 {
-    public new void Awake()
-    {
-        base.Awake();
-    }
-
     /// <summary>
     /// 공격합니다.
     /// </summary>
@@ -20,7 +15,10 @@ public class Pistol : RangedWeapon
         if (weaponData.weaponInfo == null)
             return;
 
-        if (pool && !cooldownTime.IsOperating)
+        if (CooldownTime == null)
+            return;
+
+        if (pool && !CooldownTime.IsOperating)
         {
             // 풀링 된 오브젝트를 활성화시키고 위치값을 초기화시킵니다. -------------------------------
             var obj = pool.DeQueue();
@@ -34,7 +32,7 @@ public class Pistol : RangedWeapon
                 var projectile = obj.GetComponent<Projectile>();
 
                 projectile.Owner = transform.root.gameObject;
-                projectile.target = attackRange.GetColliders()[0].gameObject;
+                projectile.target = AttackRange.GetColliders()[0].gameObject;
                 // -------------------------------------------------------------------------
 
                 obj.transform.position = transform.root.position;
@@ -46,6 +44,6 @@ public class Pistol : RangedWeapon
         }
 
         // 쿨타임을 적용합니다.
-        cooldownTime?.StartCooldownTime(weaponData.weaponInfo.cooldownTime);
+        CooldownTime?.StartCooldownTime(weaponData.weaponInfo.cooldownTime);
     }
 }
