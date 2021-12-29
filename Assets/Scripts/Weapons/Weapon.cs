@@ -12,18 +12,22 @@ public abstract class Weapon : MonoBehaviour
     /// </summary>
     protected WeaponData weaponData;
 
+    /// <summary>
+    /// 해당 무기의 시스템을 하나로 구조화시킵니다.
+    /// </summary>
     [SerializeField]
     private WeaponFacade facade;
+
+    protected void Start()
+    {
+        // 해당 무기를 셋업을 합니다.
+        facade.Setup(transform.root.gameObject);
+    }
 
     /// <summary>
     /// 공격합니다.
     /// </summary>
     public abstract void Attack();
-
-    protected void Start()
-    {
-        facade.Setup(transform.root.gameObject);
-    }
 
     /// <summary>
     /// 해당 무기 데이터 정보입니다.
