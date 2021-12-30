@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6938460547570171646}
   - component: {fileID: 5719847643351726800}
   - component: {fileID: 4251319205901080969}
+  - component: {fileID: 6773699639355690538}
   m_Layer: 5
   m_Name: DamagePopupView
   m_TagString: Untagged
@@ -160,3 +161,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36060458777dbb44b866f59fe66b7185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &6773699639355690538
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620423929554264510}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 41189d5331055f74d8a64faa57a2af99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
