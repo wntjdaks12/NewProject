@@ -72,6 +72,8 @@ public class MonsterController : MonoBehaviour, IDamageable
 
         if (objectAI)
             objectAI.DirectionBehaviour = new ObjectAITraceDirection(other);
+
+        DamagePopup.Popup(damage, Camera.main.WorldToScreenPoint(target.transform.position));
     }
 
     public MonsterData Data { get { return data; } }
