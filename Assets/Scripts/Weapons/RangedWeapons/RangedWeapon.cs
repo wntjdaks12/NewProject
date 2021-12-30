@@ -11,6 +11,14 @@ public abstract class RangedWeapon : Weapon
     [SerializeField]
     protected Pool pool;
 
+    private new void Start()
+    {
+        base.Start();
+
+        if (pool != null)
+            pool.Init();
+    }
+
     /// <summary>
     /// 널 체크합니다.
     /// </summary>
