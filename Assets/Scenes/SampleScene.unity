@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 783389301}
   - component: {fileID: 783389300}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: DamagePopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 620423929554264510, guid: 3b5f3a251c415b844b2cc071d77c4ab8, type: 3}
-  poolCount: 50
+  poolCount: 15
 --- !u!1 &851369900
 GameObject:
   m_ObjectHideFlags: 0
