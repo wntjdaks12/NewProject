@@ -1,0 +1,10 @@
+{"ownerInfos":[
+	{"id":"monster001","lootInfos":[
+		{"id":"money001","probability":100},
+		{"id":"item001","probability":50}
+	]},
+	{"id":"monster002","lootInfos":[
+		{"id":"money001","probability":100},
+		{"id":"item001","probability":50}
+	]}
+}
