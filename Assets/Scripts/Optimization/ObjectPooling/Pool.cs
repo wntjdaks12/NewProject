@@ -28,8 +28,10 @@ public class Pool : MonoBehaviour
     /// <summary>
     /// 풀링을 초기화 시킵니다.
     /// </summary>
-    public void OnEnable()
+    public void Init(Transform ts)
     {
+        objectPool.Clear();
+
         if (!target)
             return;
 
@@ -37,7 +39,7 @@ public class Pool : MonoBehaviour
         for (int i = 0; i < poolCount; i++)
         {
             // 풀링할 오브젝트를 생성합니다.
-            var target = Instantiate(this.target);
+            var target = Instantiate(this.target, ts);
 
             // 대상이 해당 컴포넌트를 소유를 하지 않을 경우 풀링을 하지 않습니다.
             if (!target.GetComponent<PoolableObject>())
@@ -54,6 +56,14 @@ public class Pool : MonoBehaviour
             // 대상을 비활성화 시킵니다.
             EnQueue(target);
         }
+    }
+
+    /// <summary>
+    /// 풀링을 초기화 시킵니다.
+    /// </summary>
+    public void Init()
+    {
+        Init(null);
     }
 
     /// <summary>
