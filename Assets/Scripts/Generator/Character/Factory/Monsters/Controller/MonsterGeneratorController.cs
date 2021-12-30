@@ -48,6 +48,11 @@ public class MonsterGeneratorController : MonoBehaviour
 
     private void Start()
     {
+        if (pool == null)
+            return;
+
+        pool.Init();
+
         // 스폰 위치에 모든 대상을 활성화 시킵니다. ------------------------------------------
         for (int i = 0; i < pool.poolCount; i++)
         {
