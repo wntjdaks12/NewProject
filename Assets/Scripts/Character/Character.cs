@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// 모든 캐릭터의 최상위입니다.
 /// </summary>
 public class Character : MonoBehaviour
 {
+    public UnityEvent DieEvent;
+
     /// <summary>
     /// id값입니다.
     /// </summary>
