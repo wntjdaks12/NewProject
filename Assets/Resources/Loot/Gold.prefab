@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2443583658844514366}
   - component: {fileID: 2322313699869518697}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 6957728749498381954}
   - component: {fileID: 6926889526368871278}
   - component: {fileID: 7423218178690371678}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
