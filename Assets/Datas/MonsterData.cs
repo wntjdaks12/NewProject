@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 오브젝트 상단에 몬스터 데이터를 보여주는 부분입니다.
+/// 몬스터 데이터입니다.
 /// </summary>
 public class MonsterData : MonoBehaviour
 {
