@@ -22,7 +22,7 @@ public class LootBox : MonoBehaviour
             var rand = Random.Range(1, 101);
 
             if (rand <= data.probability)
-                Debug.Log(data.id);
+                Instantiate(Resources.Load("Loot/" + data.keyName), transform.transform.position, Quaternion.identity);
         }
     }
 }
