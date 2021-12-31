@@ -9,6 +9,7 @@ using System.IO;
 [System.Serializable]
 public class LootInfo
 {
+    [HideInInspector]
     public string id;
     public int probability;
 }
@@ -19,6 +20,7 @@ public class LootInfo
 [System.Serializable]
 public class OwnerInfo
 {
+    [HideInInspector]
     public string id;
     public List<LootInfo> lootInfos;
 }
@@ -26,7 +28,6 @@ public class OwnerInfo
 /// <summary>
 /// 전리품 리스트입니다.
 /// </summary>
-[System.Serializable]
 public class LootInfos
 {
     public List<OwnerInfo> ownerInfos;
@@ -59,15 +60,15 @@ public class LootDatabase : MonoBehaviour
     }
 
     // 데이터를 찾습니다.
-    public static List<OwnerInfo> SearchData(string id)
+    public static OwnerInfo SearchData(string id)
     {
         if (datas == null)
             return null;
 
-        for (int i = 0; i < datas.ownerInfos.Count; i++)
+        foreach (OwnerInfo data in datas.ownerInfos)
         {
-            if (id == datas.ownerInfos[i].id)
-                return datas.ownerInfos;
+            if (id == data.id)
+                return data;
         }
 
         return null;
