@@ -11,6 +11,8 @@ public class LootInfo
 {
     [HideInInspector]
     public string id;
+    [HideInInspector]
+    public string keyName;
     public int probability;
 }
 
