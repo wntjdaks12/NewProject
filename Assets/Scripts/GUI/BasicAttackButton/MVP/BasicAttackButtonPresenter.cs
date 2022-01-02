@@ -1,17 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UniRx;
 
-public class BasicAttackButtonPresenter
+public class BasicAttackButtonPresenter : MonoBehaviour
 {
-    private BasicAttackButtonView view;
+    [SerializeField]
+    private Image basicAttackImg;
+
     private BasicAttackButtonModel model;
 
-    public BasicAttackButtonPresenter(BasicAttackButtonView view, BasicAttackButtonModel model)
+    private void Awake()
     {
-        this.view = view;
-        this.model = model;
+        model = new BasicAttackButtonModel();
     }
 
-    public string basicAttackImage { get => model.BasicAttackImage; }
+    private void Start()
+    {
+        if (basicAttackImg == null) return;
+
+        if (model == null) return;
+
+        model.basicAttackImageRP.Subscribe(imgName => basicAttackImg.sprite = Resources.Load<Sprite>("Images/BasicAttacks/" + imgName));
+
+        model.basicAttackImageRP.Value = model.BasicAttackImage;
+    }
 }
