@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UniRx;
 
 /// <summary>
-/// 기본 공격 슬롯의 UGUI와 데이터를 연결 해주는 매개자입니다. 
+/// 기본 공격 슬롯의 UGUI와 데이터를 연결해 주는 매개자입니다. 
 /// </summary>
 public class BasicAttackButtonPresenter : MonoBehaviour
 {
