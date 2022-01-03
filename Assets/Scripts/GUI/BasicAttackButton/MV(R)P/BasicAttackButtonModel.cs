@@ -14,10 +14,7 @@ public class BasicAttackButtonModel
     // 무기 데이터입니다.
     private WeaponData weaponData;
 
-    public BasicAttackButtonModel()
-    {
-        weaponData = (WeaponData)Resources.Load("Datas/ScriptableObjects/Weapon/Weapon Data");
-    }
+    public BasicAttackButtonModel() => weaponData = (WeaponData)Resources.Load("Datas/ScriptableObjects/Weapon/Weapon Data");
 
     // 무기의 기본 공격 이미지를 리턴합니다.
     public string BasicAttackImage { get => weaponData.weaponInfo.basicAttackImg; }
