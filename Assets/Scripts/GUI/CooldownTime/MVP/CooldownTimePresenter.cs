@@ -1,18 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UniRx;
 
-public class CooldownTimePresenter
+public class CooldownTimePresenter : MonoBehaviour
 {
-    private ICooldownTimeView view;
-    private ICooldownTimeModel model;
+    [SerializeField]
+    private Text cooldownTimeNumText;
 
-    public CooldownTimePresenter(ICooldownTimeView view, ICooldownTimeModel model)
+    [SerializeField]
+    private Image fillImg;
+
+    private CooldownTimeModel model;
+
+    private void Awake()
     {
-        this.view = view;
-        this.model = model;
+        model = new CooldownTimeModel();
     }
 
-    public float CurCooldownTime { get => model.getCurCooldownTIme(); }
-    public float CooldownTime { get => model.getCooldownTIme(); }
+    private void Start()
+    {
+        if (cooldownTimeNumText == null) return;
+
+        model.ObserveEveryValueChanged(model => model.CurCooldownTIme)
+            .Where(curCool => curCool <= 0)
+            .Subscribe(curCool => cooldownTimeNumText.text = "");
+
+        model
+            .ObserveEveryValueChanged(model => model.CurCooldownTIme)
+            .Where(curCool => 0 < curCool && model.CooldownTIme - curCool >= 1)
+            .Select(curcool => model.CooldownTIme - curcool)
+            .Subscribe(curCool => cooldownTimeNumText.text = Mathf.Floor(curCool).ToString());
+
+        model
+            .ObserveEveryValueChanged(model => model.CurCooldownTIme)
+            .Where(curCool => 0 < curCool && model.CooldownTIme - curCool < 1)
+            .Select(curcool => model.CooldownTIme - curcool)
+            .Subscribe(curCool => cooldownTimeNumText.text = (Mathf.Floor((curCool) * 10) * 0.1f).ToString());
+
+        if (fillImg == null) return;
+
+        model
+           .ObserveEveryValueChanged(model => 1 - model.CurCooldownTIme / model.CooldownTIme)
+           .Where(_ => model.CurCooldownTIme <= 0)
+           .Subscribe(fillVal => fillImg.fillAmount = 0);
+
+        model
+            .ObserveEveryValueChanged(model => 1 - model.CurCooldownTIme / model.CooldownTIme)
+            .Where(_ => model.CurCooldownTIme > 0)
+            .Subscribe(fillVal => fillImg.fillAmount = fillVal);
+    }
 }
