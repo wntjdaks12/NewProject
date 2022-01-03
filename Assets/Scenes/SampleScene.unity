@@ -518,7 +518,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicAttackBtn
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1812851213354808281, guid: 7205c520926257c4d96f677209970d1d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7205c520926257c4d96f677209970d1d, type: 3}
 --- !u!1 &851369900
 GameObject:
