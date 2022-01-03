@@ -11,6 +11,10 @@ public class MonsterHeadBarModel : IObjectHeadBarModel
 
     public MonsterData MonsterData { set => monsterData = value; }
 
+    /// <summary>
+    /// 오브젝트의 체력입니다.
+    /// </summary>
+    /// <returns>체력을 리턴합니다.</returns>
     public int getHp()
     {
         if(monsterData != null && monsterData.Data != null)
@@ -18,6 +22,10 @@ public class MonsterHeadBarModel : IObjectHeadBarModel
         return 0;
     }
 
+    /// <summary>
+    /// 오브젝트의 레벨입니다.
+    /// </summary>
+    /// <returns>레벨을 리턴합니다.</returns>
     public int getLv()
     {
         if (monsterData != null && monsterData.Data != null)
@@ -25,6 +33,10 @@ public class MonsterHeadBarModel : IObjectHeadBarModel
         return 0;
     }
 
+    /// <summary>
+    /// 오브젝트 최대 체력입니다.
+    /// </summary>
+    /// <returns>현재 체력을 리턴합니다.</returns>
     public int getMaaxHp()
     {
         if (monsterData != null && monsterData.Data != null)
