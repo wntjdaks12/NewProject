@@ -15,4 +15,5 @@ MonoBehaviour:
   weaponInfo:
     id: weapon_001
     keyName: Pistol
-    cooldownTime: 1
+    basicAttackImg: BasicAttack_PistolShot
+    cooldownTime: 0.3
