@@ -1,44 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using UnityEngine.UI;
+using UniRx.Triggers;
 
-/// <summary>
-/// UI와 데이터를 연결 해주는 매개자입니다. 
-/// </summary>
-public class ObjectHeadBarPresenter
+public class ObjectHeadBarPresenter : MonoBehaviour
 {
-    // UI를 받기 위해 연관 관계를 가집니다.
-    private ObjectHeadBarView objectHeadBarView;
-    // 다양한 데이터를 받기 위해 캡슐화시키고 연관 관계를 가집니다.
-    private IObjectHeadBarModel objectHeadBarModel;
+    // 레벨, 체력을 나타내기 위한 텍스트입니다.
+    [SerializeField]
+    private Text lvText, hpText;
 
-    public ObjectHeadBarPresenter(ObjectHeadBarView objectHeadBarView, IObjectHeadBarModel objectHeadBarModel)
+    // 체력의 필 이미지와 러프 필 이미지입니다.
+    [SerializeField]
+    private Image hpImg, lerpHpImg;
+
+    // 다양한 데이터를 받기 위해 캡슐화시킵니다.
+    private IObjectHeadBarModel model;
+
+    private void Start()
     {
-        this.objectHeadBarView = objectHeadBarView;
-        this.objectHeadBarModel = objectHeadBarModel;
+        // 현재 체력이 변할 경우 텍스트와 Fill 이미지를 갱신하는 스트림입니다. ----------------------------
+        model
+            .ObserveEveryValueChanged(_ => model.getHp())
+            .Subscribe(curHp => 
+            {
+                if (hpText != null) hpText.text = curHp + " / " + model.getMaaxHp();
+
+                if (hpImg != null)  hpImg.fillAmount = (float)curHp / model.getMaaxHp();
+            });
+        // ------------------------------------------------------------------------------------------------
+
+        // 러프 필 이미지 변경을 위한 업데이트 스트림입니다.
+        this.UpdateAsObservable()
+            .Subscribe(_ => { if (hpImg != null && lerpHpImg != null) lerpHpImg.fillAmount = Mathf.Lerp(lerpHpImg.fillAmount, hpImg.fillAmount, Time.deltaTime * 5f); });
     }
 
-    public IObjectHeadBarModel ObjectHeadBarModel { get => objectHeadBarModel; set => objectHeadBarModel = value; }
-
-    public int Hp {
-        get {
-            if (objectHeadBarModel != null)
-                return objectHeadBarModel.getHp();
-            return 0;
-        }
-    }
-    public int MaxHp {
-        get{
-            if (objectHeadBarModel != null)
-                return objectHeadBarModel.getMaaxHp();
-            return 0;
-        }
-    }
-    public int Lv {
-        get{
-            if (objectHeadBarModel != null)
-                return objectHeadBarModel.getLv();
-            return 0;
-        }
-    }
+    /// <summary>
+    /// 데이터 부분입니다.
+    /// </summary>
+    public IObjectHeadBarModel Model { set => model = value; }
 }
