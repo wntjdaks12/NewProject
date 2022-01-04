@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
+using TMPro;
 
 /// <summary>
 /// 쿨타임 슬롯의 UGUI와 데이터를 연결해 주는 매개자입니다. 
@@ -11,7 +12,7 @@ public class CooldownTimePresenter : MonoBehaviour
 {
     // 쿨타임을 나타내는 텍스트입니다. 
     [SerializeField]
-    private Text cooldownTimeNumText;
+    private TextMeshProUGUI cooldownTimeNumText;
 
     // 쿨타임 진행 상황을 보여주기 위해 FIll을 사용합니다.
     [SerializeField]
