@@ -4,12 +4,13 @@ using UnityEngine;
 using UniRx;
 using UnityEngine.UI;
 using UniRx.Triggers;
+using TMPro;
 
 public class ObjectHeadBarPresenter : MonoBehaviour
 {
     // 레벨, 체력을 나타내기 위한 텍스트입니다.
     [SerializeField]
-    private Text lvText, hpText;
+    private TextMeshProUGUI lvText, hpText;
 
     // 체력의 필 이미지와 러프 필 이미지입니다.
     [SerializeField]
