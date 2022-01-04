@@ -518,6 +518,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicAttackBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 6509485105308810527, guid: 7205c520926257c4d96f677209970d1d, type: 3}
+      propertyPath: m_fontSize
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509485105308810527, guid: 7205c520926257c4d96f677209970d1d, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509485105308810527, guid: 7205c520926257c4d96f677209970d1d, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509485105308810527, guid: 7205c520926257c4d96f677209970d1d, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509485105308810527, guid: 7205c520926257c4d96f677209970d1d, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509485105308810527, guid: 7205c520926257c4d96f677209970d1d, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1812851213354808281, guid: 7205c520926257c4d96f677209970d1d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7205c520926257c4d96f677209970d1d, type: 3}
@@ -679,7 +703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f836d1a106d284ebef850437310757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 620423929554264510, guid: 3b5f3a251c415b844b2cc071d77c4ab8, type: 3}
+  target: {fileID: 5219477659608872047, guid: 3b5f3a251c415b844b2cc071d77c4ab8, type: 3}
   poolCount: 15
 --- !u!224 &1032979451 stripped
 RectTransform:
@@ -1333,7 +1357,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
