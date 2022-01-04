@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using UniRx.Triggers;
 
 /// <summary>
 /// 전리품입니다.
@@ -32,6 +34,18 @@ public class Loot : MonoBehaviour
         Throw();
 
         StartCoroutine(DestroyAsync());
+    }
+
+    private void Start()
+    {
+        this.OnCollisionEnterAsObservable()
+            .Select(collision => collision.other.tag)
+            .Where(tag => tag == "Player")
+            .Subscribe(_ => 
+            {
+                if (poolableObject != null) poolableObject.EnQueue();
+            });
+
     }
 
     /// <summary>

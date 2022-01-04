@@ -29,6 +29,8 @@ public class MonsterHeadBarController : MonoBehaviour
 
         if (objectHeadBar == null) return;
 
+        if (GameObject.Find("Canvas") == null) return;
+
         // 해당 상단 바를 생성하고 UI 요소이므로 캔버스 하위로 지정합니다.
         var obj = Instantiate(objectHeadBar.gameObject, GameObject.Find("Canvas").transform);
 
