@@ -8,12 +8,11 @@ public class DamagePopupView : MonoBehaviour
     // 풀링 할 오브젝트입니다.
     private PoolableObject poolableObject;
 
+    [SerializeField]
     private TextMeshProUGUI tmp;
 
     private void Awake()
     {
-        tmp = GetComponent<TextMeshProUGUI>();
-
         poolableObject = GetComponent<PoolableObject>();
     }
 
