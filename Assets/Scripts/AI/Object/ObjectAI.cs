@@ -78,10 +78,7 @@ public class ObjectAI : MonoBehaviour
         if ((val1 - val2).sqrMagnitude < 0.1f) curPartIndex++;
         // --------------------------------------------------------------------------------------
 
-        // 다음 정점이 없을 경우 초기화시킵니다. 
-        if (curPartIndex >= points.Count) return true;
-
-        return false;
+        return curPartIndex >= points.Count ? true : false;
     }
 
     /// <summary>
@@ -124,7 +121,7 @@ public class ObjectAI : MonoBehaviour
     /// <summary>
     /// 베지어 곡선을 나눈 정점입니다.
     /// </summary>
-    public List<Vector3> Points { get => points.Count == 0?  null:points; }
+    public List<Vector3> Points { get => points.Count == 0 ? null : points; }
 
     public List<Vector3> Pointss { get =>  points; }
     /// <summary>
