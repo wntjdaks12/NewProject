@@ -7,7 +7,7 @@ using UniRx;
 /// <summary>
 /// 타격 이펙트를 제어자입니다.
 /// </summary>
-public class ParticleColllector : MonoBehaviour
+public class ParticleCollector : MonoBehaviour
 {
     // 해당 파티클의 지속시간입니다.
     [SerializeField]
