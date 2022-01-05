@@ -19,14 +19,10 @@ public class WeaponController : MonoBehaviour
     /// </summary>
     public Player target;
 
-    private void Awake()
+    private void Start()
     {
-        // 대상이 존재할 경우 무기를 장착합니다. ----------
-        if (!target)
-            return;
-
-        EquipWeapon();
-        // ----------------------------------------------
+        // 대상이 존재할 경우 무기를 장착합니다.
+        if (target) EquipWeapon();
     }
 
     /// <summary>
