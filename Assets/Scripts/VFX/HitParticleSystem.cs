@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using UniRx;
 
 /// <summary>
 /// 타격 이펙트를 제어자입니다.
@@ -22,7 +24,7 @@ public class HitParticleSystem : MonoBehaviour
     {
         parent = transform.root;
 
-        ps = GetComponent<ParticleSystem>() ?? GetComponent<ParticleSystem>();
+        ps = GetComponent<ParticleSystem>();
     }
 
     /// <summary>
@@ -31,8 +33,7 @@ public class HitParticleSystem : MonoBehaviour
     /// <param name="other">충돌 대상</param>
     public void Active(Collider other)
     {
-        if (!ps)
-            return;
+        if (!ps) return;
      
         // 충돌된 대상 중점에 타격 이펙트를 입힙니다. ----------------------
         transform.parent = other.transform;
@@ -42,8 +43,10 @@ public class HitParticleSystem : MonoBehaviour
         // 파티클을 실행합니다.
         ps.Play();
 
-        // 지속시간에 맞춰 파티클을 비활성화시킵니다.
-        Invoke("Deactive", lifeTime);
+        // 해당 지속시간 이후에 비활성화시키는 스트림입니다.
+        Observable
+            .Timer(System.TimeSpan.FromSeconds(lifeTime))
+            .Subscribe(_ => Deactive());
     }
 
     /// <summary>
