@@ -28,7 +28,8 @@ public class BasicAttackButtonPresenter : MonoBehaviour
         if (model == null) return;
 
         // 모델에서 데이터 변경을 감지하면 뷰를 업데이트합니다.
-        model.basicAttackImageRP.Subscribe(imgName => basicAttackImg.sprite = Resources.Load<Sprite>("Images/BasicAttacks/" + imgName));
+        model.ObserveEveryValueChanged(model => model.BasicAttackImage)
+            .Subscribe(imgName => basicAttackImg.sprite = Resources.Load<Sprite>("Images/BasicAttacks/" + imgName));
 
         // 모델의 RP 데이터를 초기화시킵니다.
         model.basicAttackImageRP.Value = model.BasicAttackImage;
