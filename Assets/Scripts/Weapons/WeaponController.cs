@@ -33,8 +33,7 @@ public class WeaponController : MonoBehaviour
         // 자신 무기 데이터에서 해당 아이디의 무기를 찾습니다. ---------------
         var data =  MyWeaponDatabase.SearchData("weapon_001");
 
-        if (data == null)
-            return;
+        if (data == null) return;
 
         weaponData.weaponInfo = data;
         // ----------------------------------------------------------------
@@ -50,8 +49,7 @@ public class WeaponController : MonoBehaviour
         weapon.WeaponData = weaponData;
         target.Weapon = weapon;
 
-        if(weapon.CooldownTime != null)
-            cooldownTimeData.CooldownTimeInfo = weapon.CooldownTime.CooldownTimeInfo;
+        if(weapon.CooldownTime != null) cooldownTimeData.CooldownTimeInfo = weapon.CooldownTime.CooldownTimeInfo;
         // ---------------------------------------------------------------
     }
 }
