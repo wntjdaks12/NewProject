@@ -16,13 +16,15 @@ public class WeaponInfo
     [HideInInspector]
     public string basicAttackImg;
     public float cooldownTime;
+    public float range;
 
-    public WeaponInfo(string id, string keyName,string basicAttackImg,  float cooldownTime)
+    public WeaponInfo(string id, string keyName,string basicAttackImg,  float cooldownTime,float range)
     {
         this.id = id;
         this.keyName = keyName;
         this.basicAttackImg = basicAttackImg;
         this.cooldownTime = cooldownTime;
+        this.range = range;
     }
 }
 
@@ -81,7 +83,8 @@ public class WeaponDatabase : MonoBehaviour
             data.id,
             data.keyName,
             data.basicAttackImg,
-            data.cooldownTime
+            data.cooldownTime,
+            data.range
         );
         return weaponInfo;
     }
