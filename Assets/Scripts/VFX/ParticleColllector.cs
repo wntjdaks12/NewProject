@@ -7,12 +7,11 @@ using UniRx;
 /// <summary>
 /// 타격 이펙트를 제어자입니다.
 /// </summary>
-public class HitParticleSystem : MonoBehaviour
+public class ParticleColllector : MonoBehaviour
 {
-    /// <summary>
-    /// 해당 파티클의 지속시간입니다.
-    /// </summary>
-    public float lifeTime;
+    // 해당 파티클의 지속시간입니다.
+    [SerializeField]
+    private float lifeTime;
 
     // 관계의 최상위 개체입니다.
     private Transform parent;
@@ -46,13 +45,13 @@ public class HitParticleSystem : MonoBehaviour
         // 해당 지속시간 이후에 비활성화시키는 스트림입니다.
         Observable
             .Timer(System.TimeSpan.FromSeconds(lifeTime))
-            .Subscribe(_ => Deactive());
+            .Subscribe(_ => Disable());
     }
 
     /// <summary>
     /// 타격 파티클 비활성화시킵니다.
     /// </summary>
-    public void Deactive()
+    public void Disable()
     {
         // 본래 개체의 상속관계를 유지합니다.
         transform.parent = parent;
