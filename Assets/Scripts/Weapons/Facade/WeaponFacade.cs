@@ -29,7 +29,8 @@ public class WeaponFacade
         if (attackRange == null) return;
 
         var atkRangeObj = MonoBehaviour.Instantiate(attackRange.gameObject);
-        atkRangeObj?.GetComponent<AttackRange>()?.Active(owner, 15) ;
+        attackRange = atkRangeObj?.GetComponent<AttackRange>();
+        attackRange?.Active(owner, 15);
         //---------------------------------------------------------------------------------------------------------------
     }
 
