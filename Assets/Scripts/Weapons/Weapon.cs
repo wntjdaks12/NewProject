@@ -18,11 +18,10 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField]
     private WeaponFacade facade;
 
-    protected void Start()
-    {
-        // 해당 무기를 셋업을 합니다.
-        facade.Setup(transform.root.gameObject);
-    }
+    /// <summary>
+    /// 해당 무기를 셋업을 합니다.
+    /// </summary>
+    protected void Setup() => facade.Setup(transform.root.gameObject);
 
     /// <summary>
     /// 공격합니다.
