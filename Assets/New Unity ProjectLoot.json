@@ -1,10 +1,8 @@
 {"ownerInfos":[
 	{"id":"monster001","lootInfos":[
-		{"id":"money001", "key":"Gold", "probability":100},
-		{"id":"item001", "key":"Goldas", "probability":50}
+		{"id":"money001", "keyName":"Gold(ObjectPooling)", "probability":100}
 	]},
 	{"id":"monster002","lootInfos":[
-		{"id":"money001", "key":"Gold", "probability":100},
-		{"id":"item001", "key":"Goldsd", "probability":50}
+		{"id":"money001", "keyName":"Gold(ObjectPooling)", "probability":100}
 	]}
 ]}
