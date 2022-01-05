@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx.Triggers;
+using UniRx;
 
 /// <summary>
 /// 개체 이동 인공지능입니다.
@@ -30,10 +32,7 @@ public class ObjectAI : MonoBehaviour
 
     private Transform ts;
 
-    private void OnEnable()
-    {
-        Init();
-    }
+    private void OnEnable() => Init();
 
     private void Awake()
     {
@@ -44,22 +43,23 @@ public class ObjectAI : MonoBehaviour
 
     private void Start()
     {
-        ts = GetComponent<Transform>() ?? GetComponent<Transform>();
+        ts = GetComponent<Transform>();
 
         // 베지어 곡선을 그립니다.
         DrawCurve();
+
+        this.UpdateAsObservable()
+            .Where(_ => ts && points.Count == 0)
+            .Subscribe(_ => DrawCurve());
+
+        this.UpdateAsObservable()
+            .Where(_ => ts)
+            .Subscribe(_ => CheckPoint());
     }
 
-    private void Update()
-    {
-        if (points.Count == 0)
-            // 베지어 곡선을 반복해서 그립니다.
-            DrawCurve();
-
-        CheckPoint();
-    }
-
-    // 초기화시킵니다.
+    /// <summary>
+    /// 초기화시킵니다.
+    /// </summary>
     private void Init()
     {
         curPartIndex = 0;
@@ -70,14 +70,11 @@ public class ObjectAI : MonoBehaviour
         directionBehaviour = new ObjectAIBezierCurveDirection(this);
     }
 
-    // 베지어 곡선을 반복해서 그립니다.
+    /// <summary>
+    /// 베지어 곡선을 반복해서 그립니다.
+    /// </summary>
     private void CheckPoint()
     {
-        // 트렌스폼이 없을 경우 실행하지 않습니다. ---------------
-        if (!ts)
-            return;
-        // -------------------------------------------------------
-
         // 현재 위치 값이 해당 정점까지 근접할 경우 다음 정점으로 변경합니다. -----------
         var val1 = Points[curPartIndex]; val1.y = 0;
         var val2 = ts.position; val2.y = 0;
@@ -97,11 +94,6 @@ public class ObjectAI : MonoBehaviour
     /// </summary>
     public void DrawCurve()
     {
-        // 트렌스폼이 없을 경우 실행하지 않습니다. ---------------
-        if (!ts)
-            return;
-        // -------------------------------------------------------
-
         // 베지어 곡선의 정점을 입력합니다. ----------------------------------------------------------------------------------------------------------------------
         bezierCurve.p0 = transform.position;
         bezierCurve.p1 = new Vector3(bezierCurve.p0.x + Random.Range(min, max), transform.position.y, bezierCurve.p0.z + Random.Range(min ,max));
@@ -113,7 +105,11 @@ public class ObjectAI : MonoBehaviour
         DivSection(0, 1f);
     }
 
-    // 보다 부드러운 이동을 위해 베지어 곡선을 분할합니다.
+    /// <summary>
+    /// 보다 부드러운 이동을 위해 베지어 곡선을 분할합니다.
+    /// </summary>
+    /// <param name="tStart">시작점</param>
+    /// <param name="tEnd">끝점</param>
     private void DivSection(float tStart, float tEnd)
     {
         // 나눈 개수만큼의 시간에 대한 정점 값을 가져옵니다. -----------------
@@ -133,12 +129,16 @@ public class ObjectAI : MonoBehaviour
     /// <summary>
     /// 베지어 곡선을 나눈 정점입니다.
     /// </summary>
-    public List<Vector3> Points { get { if (points.Count == 0) return null; return points; } }
+    public List<Vector3> Points { get => points.Count == 0?  null:points; }
 
+    public List<Vector3> Pointss { get =>  points; }
     /// <summary>
     /// 나눈 정점의 현재 인덱스입니다.
     /// </summary>
-    public int CurPartIndex { get { return curPartIndex; } }
+    public int CurPartIndex { get => curPartIndex; }
 
-    public ObjectAIDirectionBehaviour DirectionBehaviour { get { return directionBehaviour; } set { directionBehaviour = value; } }
+    /// <summary>
+    /// 방향을 정해주는 행위자입니다.
+    /// </summary>
+    public ObjectAIDirectionBehaviour DirectionBehaviour { get => directionBehaviour; set => directionBehaviour = value; } 
 }
