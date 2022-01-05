@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using UniRx.Triggers;
 
 /// <summary>
 /// 모든 무기의 최상위입니다.
@@ -21,7 +23,19 @@ public abstract class Weapon : MonoBehaviour
     /// <summary>
     /// 해당 무기를 셋업을 합니다.
     /// </summary>
-    protected void Setup() => facade.Setup(transform.root.gameObject);
+    protected void Setup() 
+    {
+        if (weaponData == null) return;
+
+        facade.Setup();
+
+        // 공격 범위를 활성화합니다.
+        AttackRange.Active(transform.root.gameObject, weaponData.weaponInfo.range);
+
+        // 공격 범위 값이 변경될 경우 값을 갱신해 주는 스트림입니다.
+        weaponData.ObserveEveryValueChanged(val => val.weaponInfo.range)
+            .Subscribe(radius => AttackRange.Radius = radius);
+    }
 
     /// <summary>
     /// 공격합니다.
