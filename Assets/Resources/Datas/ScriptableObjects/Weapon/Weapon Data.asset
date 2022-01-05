@@ -16,5 +16,5 @@ MonoBehaviour:
     id: weapon_001
     keyName: Pistol
     basicAttackImg: BasicAttack_PistolShot
-    cooldownTime: 0.3
-    range: 8.9
+    cooldownTime: 0.31
+    range: 43.2
