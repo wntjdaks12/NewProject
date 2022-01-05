@@ -6,7 +6,7 @@ using UniRx;
 
 /// <summary>
 /// 개체 이동 인공지능입니다.
-/// </summary>
+/// </summary>  
 public class ObjectAI : MonoBehaviour
 {
     /// <summary>
@@ -45,16 +45,10 @@ public class ObjectAI : MonoBehaviour
     {
         ts = GetComponent<Transform>();
 
-        // 베지어 곡선을 그립니다.
-        DrawCurve();
-
+        // 베지어 끝 점에 도달할 경우 베지어 곡선을 초기화 업데이트 스트림입니다.
         this.UpdateAsObservable()
-            .Where(_ => ts && points.Count == 0)
-            .Subscribe(_ => DrawCurve());
-
-        this.UpdateAsObservable()
-            .Where(_ => ts)
-            .Subscribe(_ => CheckPoint());
+            .Where(_ => ts && CheckPoint())
+            .Subscribe(_ => Init());
     }
 
     /// <summary>
@@ -68,25 +62,26 @@ public class ObjectAI : MonoBehaviour
 
         // 방향을 정해주는 행위자입니다. 
         directionBehaviour = new ObjectAIBezierCurveDirection(this);
+
+        DrawCurve();
     }
 
     /// <summary>
-    /// 베지어 곡선을 반복해서 그립니다.
+    /// 베지어 곡선의 끝 점을 체크합니다.
     /// </summary>
-    private void CheckPoint()
+    private bool CheckPoint()
     {
-        // 현재 위치 값이 해당 정점까지 근접할 경우 다음 정점으로 변경합니다. -----------
+        // 현재 위치 값이 해당 정점까지 근접할 경우 다음 정점으로 변경합니다. -----------------------
         var val1 = Points[curPartIndex]; val1.y = 0;
         var val2 = ts.position; val2.y = 0;
 
-        if ((val1 - val2).sqrMagnitude < 0.1f)
-            curPartIndex++;
-        // -------------------------------------------------------------------------
+        if ((val1 - val2).sqrMagnitude < 0.1f) curPartIndex++;
+        // --------------------------------------------------------------------------------------
 
-        // 다음 정점이 없을 경우 초기화시킵니다. -------------
-        if (curPartIndex >= points.Count)
-            Init();
-        // ---------------------------------------------------------------
+        // 다음 정점이 없을 경우 초기화시킵니다. 
+        if (curPartIndex >= points.Count) return true;
+
+        return false;
     }
 
     /// <summary>
