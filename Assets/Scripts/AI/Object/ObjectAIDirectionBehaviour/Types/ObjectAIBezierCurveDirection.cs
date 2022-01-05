@@ -10,10 +10,7 @@ public class ObjectAIBezierCurveDirection : ObjectAIDirectionBehaviour
     // 베지어 곡선의 정보를 알기 위해 인공 지능을 가져옵니다.
     private ObjectAI objectAI;
 
-    public ObjectAIBezierCurveDirection(ObjectAI objectAI)
-    {
-        this.objectAI = objectAI;
-    }
+    public ObjectAIBezierCurveDirection(ObjectAI objectAI) => this.objectAI = objectAI;
 
     /// <summary>
     /// 진행 할 방향을 가져옵니다.
