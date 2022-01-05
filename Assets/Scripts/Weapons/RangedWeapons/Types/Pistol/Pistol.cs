@@ -12,12 +12,10 @@ public class Pistol : RangedWeapon
     /// </summary>
     public override void Attack()
     {
-        if (CheckEmpty())
-            return;
+        if (CheckEmpty()) return;
 
         // 쿨타임이 쿨링이 아닐 시 투사체를 생성합니다. -------------------------
-        if(!CooldownTime.IsOperating)
-            CreateProjectile();
+        if(!CooldownTime.IsOperating) CreateProjectile();
         // -------------------------------------------------------------------
 
         // 쿨타임을 적용합니다.
