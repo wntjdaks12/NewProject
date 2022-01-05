@@ -17,10 +17,7 @@ public class WeaponFacade
     /// 해당 무기를 셋업을 합니다.
     /// </summary>
     /// <param name="owner">공격 범위 주체</param>
-    public void Setup(GameObject owner)
-    {
-        ActiveAttackRange(owner);
-    }
+    public void Setup(GameObject owner) => ActiveAttackRange(owner);
 
     /// <summary>
     /// 공격 범위를 활성화시킵니다.
@@ -29,12 +26,10 @@ public class WeaponFacade
     private void ActiveAttackRange(GameObject owner)
     {
         // 공격 범위를 활성화시킵니다.------------------------------------------------------------------------------------
-        if (attackRange == null)
-            return;
+        if (attackRange == null) return;
 
         var atkRangeObj = MonoBehaviour.Instantiate(attackRange.gameObject);
-        attackRange = atkRangeObj?.GetComponent<AttackRange>() ?? atkRangeObj.GetComponent<AttackRange>();
-        attackRange?.Active(owner, 15);
+        atkRangeObj?.GetComponent<AttackRange>()?.Active(owner, 15) ;
         //---------------------------------------------------------------------------------------------------------------
     }
 
