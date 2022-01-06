@@ -20,10 +20,7 @@ public class Pool : MonoBehaviour
     /// </summary>
     public int poolCount;
 
-    private void Awake()
-    {
-        objectPool = new Queue<GameObject>();
-    }
+    private void Awake() => objectPool = new Queue<GameObject>();
 
     /// <summary>
     /// 풀링을 초기화 시킵니다.
@@ -32,8 +29,7 @@ public class Pool : MonoBehaviour
     {
         objectPool.Clear();
 
-        if (!target)
-            return;
+        if (!target) return;
 
         // 풀링할 개수만큼 풀링할 오브젝트 리스트에 담습니다.
         for (int i = 0; i < poolCount; i++)
@@ -50,8 +46,7 @@ public class Pool : MonoBehaviour
             }
 
             // 연관관계로 자신의 인스턴스를 넘겨줍니다.
-            if(target.GetComponent<PoolableObject>())
-                target.GetComponent<PoolableObject>().Pool = this;
+            if(target.GetComponent<PoolableObject>()) target.GetComponent<PoolableObject>().Pool = this;
 
             // 대상을 비활성화 시킵니다.
             EnQueue(target);
@@ -61,10 +56,7 @@ public class Pool : MonoBehaviour
     /// <summary>
     /// 풀링을 초기화 시킵니다.
     /// </summary>
-    public void Init()
-    {
-        Init(null);
-    }
+    public void Init() => Init(null);
 
     /// <summary>
     /// 풀링 대상을 활성화시킵니다.
@@ -73,8 +65,7 @@ public class Pool : MonoBehaviour
     public GameObject DeQueue()
     {
         //  풀링 오브젝트 리스트에 풀링 대상을 빼고 활성화 시킵니다. ----------
-        if (objectPool.Count == 0)
-            return null;
+        if (objectPool.Count == 0) return null;
 
         var obj = objectPool.Dequeue();
         obj.SetActive(true);
@@ -99,5 +90,5 @@ public class Pool : MonoBehaviour
     /// <summary>
     /// 풀링할 오브젝트 리스트입니다.
     /// </summary>
-    public Queue<GameObject> ObjectPool { get { return objectPool; } }
+    public Queue<GameObject> ObjectPool { get => objectPool; }
 }
