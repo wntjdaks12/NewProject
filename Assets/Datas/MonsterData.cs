@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class MonsterData : MonoBehaviour
 {
+    [SerializeField]
     private CharacterInfo data;
 
     /// <summary>
