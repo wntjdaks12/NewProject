@@ -40,20 +40,20 @@ public class CooldownTimePresenter : MonoBehaviour
         if (cooldownTimeNumText == null) return;
 
         // 현재 쿨타임이 0일 경우 공백을 기록합니다.
-        model.ObserveEveryValueChanged(model => model.CurCooldownTIme)
+        model.ObserveEveryValueChanged(_ => model.CurCooldownTIme)
             .Where(curCool => curCool <= 0)
             .Subscribe(curCool => cooldownTimeNumText.text = "");
 
         // 현재 쿨타임이 1초 이상 남을 경우 초 단위로 기록합니다.
         model
-            .ObserveEveryValueChanged(model => model.CurCooldownTIme)
+            .ObserveEveryValueChanged(_ => model.CurCooldownTIme)
             .Where(curCool => 0 < curCool && model.CooldownTIme - curCool >= 1)
             .Select(curcool => model.CooldownTIme - curcool)
             .Subscribe(curCool => cooldownTimeNumText.text = Mathf.Floor(curCool).ToString());
 
         // 현재 쿨타임이 1초 미만으로 남을 경우 소수점 첫째 자리로 기록합니다.
         model
-            .ObserveEveryValueChanged(model => model.CurCooldownTIme)
+            .ObserveEveryValueChanged(_ => model.CurCooldownTIme)
             .Where(curCool => 0 < curCool && model.CooldownTIme - curCool < 1)
             .Select(curcool => model.CooldownTIme - curcool)
             .Subscribe(curCool => cooldownTimeNumText.text = (Mathf.Floor((curCool) * 10) * 0.1f).ToString());
