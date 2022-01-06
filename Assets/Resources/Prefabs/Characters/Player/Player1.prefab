@@ -80,6 +80,7 @@ Transform:
   - {fileID: 332124445698379679}
   - {fileID: 332124445453234335}
   - {fileID: 4186477159500760653}
+  - {fileID: 8673009986929546504}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -139,6 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41cbd4aa41fa9241936e7fa2f791512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DieEvent:
+    m_PersistentCalls:
+      m_Calls: []
   stateType: 0
 --- !u!1 &332124445698378853
 GameObject:
@@ -303,3 +307,49 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8749731874926972217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8673009986929546504}
+  - component: {fileID: 3277292547875786473}
+  m_Layer: 6
+  m_Name: ObjectHeadBarController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8673009986929546504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8749731874926972217}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.612, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 332124445606842385}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3277292547875786473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8749731874926972217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e062d9ad4049f4ab05587e3dcb01ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectHeadBar: {fileID: 3092852649717966689, guid: bd972d0d59891894d9e6fb2dd6130160, type: 3}
+  targetTs: {fileID: 8673009986929546504}
+  playerData: {fileID: 11400000, guid: 799cd774ac93f7240884c79fda475c7f, type: 2}
