@@ -11,15 +11,9 @@ public class CharacterGenerator : MonoBehaviour
     [SerializeField]
     private CharacterGeneratorFactory.Types type;
 
-    private void Start()
-    {
-        // 해당 캐릭터를 생성합니다.
-        Create();
-    }   
+    // 해당 캐릭터를 생성합니다.
+    private void Start() => Create();
 
     // 해당 캐릭터를 생성합니다.
-    private void Create()
-    {
-        new CharacterGeneratorFactory().Create(type)?.Generate();
-    }
+    private void Create() => new CharacterGeneratorFactory().Create(type)?.Generate();
 }
