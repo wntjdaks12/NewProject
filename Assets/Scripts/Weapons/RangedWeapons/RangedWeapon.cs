@@ -39,7 +39,7 @@ public abstract class RangedWeapon : Weapon
     /// <summary>
     /// 투사체를 생성합니다.
     /// </summary>
-    /// <param name="owner">소유지</param>
+    /// <param name="owner">소유자</param>
     /// <param name="target">대상</param>
     protected void CreateProjectile(GameObject owner, GameObject target)
     {
