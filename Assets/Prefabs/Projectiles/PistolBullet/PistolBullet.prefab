@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1127110968563296090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796525902104728005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d478cdfe834b5de43aa3755f6ad0b173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 0.3
 --- !u!1 &1232216067860104657
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +25,7 @@ GameObject:
   - component: {fileID: 9100397124111459042}
   - component: {fileID: 3338768278158793223}
   - component: {fileID: 4399085693760965799}
-  - component: {fileID: 7557518860644764418}
+  - component: {fileID: 6744969976574675727}
   m_Layer: 0
   m_Name: PistolBullet
   m_TagString: Untagged
@@ -29,7 +42,7 @@ Transform:
   m_GameObject: {fileID: 1232216067860104657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.9139936, y: -1.604742, z: 7.351316}
-  m_LocalScale: {x: 1, y: 1, z: 0.98841}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8324992133162953084}
   - {fileID: 248166475}
@@ -78,7 +91,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.13, z: 0.40277633}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7557518860644764418
+--- !u!114 &6744969976574675727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,10 +100,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1232216067860104657}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aacf0e46f7e2d347ae6563144199dc4, type: 3}
+  m_Script: {fileID: 11500000, guid: 973fe010cdd641b49b2ceb3974248e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   triggerEvent:
     m_PersistentCalls:
       m_Calls:
@@ -107,7 +119,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1127110968563296090}
-        m_TargetAssemblyTypeName: ParticleColllector, Assembly-CSharp
+        m_TargetAssemblyTypeName: ParticleCollector, Assembly-CSharp
         m_MethodName: Active
         m_Mode: 0
         m_Arguments:
@@ -200,19 +212,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1127110968563296090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 796525902104728005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d478cdfe834b5de43aa3755f6ad0b173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeTime: 0.3
 --- !u!1 &8585019656466487847
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +347,10 @@ PrefabInstance:
     - target: {fileID: 4673016456700749401, guid: 5f4e4076812489a4f9197ce07c734870, type: 3}
       propertyPath: m_Name
       value: PistolBulletTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673016456700749401, guid: 5f4e4076812489a4f9197ce07c734870, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f4e4076812489a4f9197ce07c734870, type: 3}
