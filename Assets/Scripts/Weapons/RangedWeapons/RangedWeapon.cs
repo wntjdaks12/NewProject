@@ -59,7 +59,7 @@ public abstract class RangedWeapon : Weapon
             var projectile = obj.GetComponent<Projectile>();
 
             projectile.Owner = owner;
-            projectile.target = target;
+            projectile.Target = target;
             // -------------------------------------------------------------------------
 
             // 위치를 초기화 시킵니다. ---------------------------------------------------
