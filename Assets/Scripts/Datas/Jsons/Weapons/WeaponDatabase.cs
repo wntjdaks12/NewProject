@@ -15,14 +15,17 @@ public class WeaponInfo
     public string keyName;
     [HideInInspector]
     public string basicAttackImg;
+    [HideInInspector]
+    public string image;
     public float cooldownTime;
     public float range;
 
-    public WeaponInfo(string id, string keyName,string basicAttackImg,  float cooldownTime,float range)
+    public WeaponInfo(string id, string keyName,string basicAttackImg, string image,  float cooldownTime,float range)
     {
         this.id = id;
         this.keyName = keyName;
         this.basicAttackImg = basicAttackImg;
+        this.image = image;
         this.cooldownTime = cooldownTime;
         this.range = range;
     }
@@ -83,6 +86,7 @@ public class WeaponDatabase : MonoBehaviour
             data.id,
             data.keyName,
             data.basicAttackImg,
+            data.image,
             data.cooldownTime,
             data.range
         );
