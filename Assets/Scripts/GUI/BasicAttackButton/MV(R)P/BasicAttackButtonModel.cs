@@ -8,9 +8,6 @@ using UniRx;
 /// </summary>
 public class BasicAttackButtonModel
 {
-    // 기본 공격 이미지의 반응성 프로퍼티입니다.
-    public StringReactiveProperty basicAttackImageRP = new StringReactiveProperty();
-
     // 무기 데이터입니다.
     private WeaponData weaponData;
 

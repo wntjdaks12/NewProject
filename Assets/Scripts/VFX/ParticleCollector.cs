@@ -54,6 +54,6 @@ public class ParticleCollector : MonoBehaviour
     public void Disable()
     {
         // 본래 개체의 상속관계를 유지합니다.
-        transform.parent = parent;
+        if (parent != null) transform.parent = parent;
     }
 }

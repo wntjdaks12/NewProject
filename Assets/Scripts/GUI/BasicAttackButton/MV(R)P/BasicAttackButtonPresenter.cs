@@ -16,10 +16,7 @@ public class BasicAttackButtonPresenter : MonoBehaviour
     // 기본 공격 이미지의 데이터입니다.
     private BasicAttackButtonModel model;
 
-    private void Awake()
-    {
-        model = new BasicAttackButtonModel();
-    }
+    private void Awake() => model = new BasicAttackButtonModel();
 
     private void Start()
     {
@@ -30,8 +27,5 @@ public class BasicAttackButtonPresenter : MonoBehaviour
         // 모델에서 데이터 변경을 감지하면 뷰를 업데이트합니다.
         model.ObserveEveryValueChanged(model => model.BasicAttackImage)
             .Subscribe(imgName => basicAttackImg.sprite = Resources.Load<Sprite>("Images/BasicAttacks/" + imgName));
-
-        // 모델의 RP 데이터를 초기화시킵니다.
-        model.basicAttackImageRP.Value = model.BasicAttackImage;
     }
 }

@@ -44,5 +44,8 @@ public class MyWeaponDatabase : MonoBehaviour
 
         return null;
     }
+
+    // 해당 데이터를 가져옵니다.
+    public static WeaponInfo getData(int index) => datas.weaponInfos[index];
 }
 
