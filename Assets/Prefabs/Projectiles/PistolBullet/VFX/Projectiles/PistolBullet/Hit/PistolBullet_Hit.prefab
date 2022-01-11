@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5884569938065604616}
   - component: {fileID: 229998020025804836}
   - component: {fileID: 760276139769519559}
-  - component: {fileID: 8036682509562844677}
+  - component: {fileID: 9138785836602576683}
+  - component: {fileID: 3417703204417725768}
   m_Layer: 0
   m_Name: PistolBullet_Hit
   m_TagString: Untagged
@@ -4863,7 +4864,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &8036682509562844677
+--- !u!114 &9138785836602576683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4872,7 +4873,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 5175004612247692234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8d176c1a886ef74d9a2f7128d755c30, type: 3}
+  m_Script: {fileID: 11500000, guid: 9395cbfa6949f8b49a57e81df56438a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keepTime: 0.5
+--- !u!114 &3417703204417725768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175004612247692234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d478cdfe834b5de43aa3755f6ad0b173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 0.3
+  poolableObject: {fileID: 9138785836602576683}
