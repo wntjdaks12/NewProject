@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39adde9ef6c1b41489bd2a3a164936bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile:
+    speed: 700
   triggerEvent:
     m_PersistentCalls:
       m_Calls:

@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
+public class ProjectileInfo
+{
+    public int speed;
+}
+
 /// <summary>
 /// 모든 투사체의 최상위입니다.
 /// </summary>
 public class Projectile : MonoBehaviour
 {
+    [SerializeField]
+    protected ProjectileInfo projectile;
+
     // 물리 제어입니다.
     private Rigidbody rigid;
 
