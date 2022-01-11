@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class zxc : MonoBehaviour
 {
-    [SerializeField] private Pool pool;
+    [SerializeField] public Pool pool;
 
     private void Start()
     {

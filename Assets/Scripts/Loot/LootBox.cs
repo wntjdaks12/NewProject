@@ -13,6 +13,7 @@ public class LootBox : MonoBehaviour
     private OwnerInfo ownerInfo;
 
     // 소유자 ID 값입니다.
+    [SerializeField]
     private ownerIds ownerId;
 
     // 해당 ID 값을 가진 전리품을 풀링 시키기 위한 딕셔너리입니다.
@@ -45,6 +46,8 @@ public class LootBox : MonoBehaviour
     /// </summary>
     public void Open()
     {
+        if (ownerInfo == null || ownerInfo.lootInfos == null) return;
+
         // 확률에 따른 전리품을 풀링합니다. ---------------------------------
         foreach (LootInfo data in ownerInfo.lootInfos)
         {
@@ -52,7 +55,7 @@ public class LootBox : MonoBehaviour
 
             if (rand <= data.probability)
             {
-                var obj =  poolDict[data.keyName].DeQueue();
+                var obj =  poolDict[data.keyName].DeQueue();Debug.Log(obj);
                 obj.transform.position = transform.position;
             }
         }

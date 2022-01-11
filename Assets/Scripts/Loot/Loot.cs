@@ -32,7 +32,7 @@ public class Loot : MonoBehaviour
     private void OnEnable()
     {
         Throw();
-
+        Debug.Log(transform.name);
         StartCoroutine(DestroyAsync());
     }
 
