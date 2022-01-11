@@ -330,6 +330,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8cc3fd9fd4013478001425abe27c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data:
+    id: 
+    keyName: 
+    speed: 0
+    hp: 0
+    maxHp: 0
+    lv: 0
+    weaponInfo:
+      id: 
+      keyName: 
+      basicAttackImg: 
+      image: 
+      cooldownTime: 0
+      range: 0
 --- !u!1 &8831190284533791996
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,8 +382,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8831190284533791996}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fad34e3c82f9c4d43bc7477f9044fc8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
