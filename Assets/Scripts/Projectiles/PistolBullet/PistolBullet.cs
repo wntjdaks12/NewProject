@@ -8,9 +8,9 @@ public class PistolBullet : Projectile
 {
     private void Start()
     {
-        projectileBehaviour = this.gameObject.AddComponent<ProjectileBasicAttack>();
+        projectileAttackBehaviour = this.gameObject.AddComponent<ProjectileBasicAttack>();
 
-        projectileBehaviour.Projectile = this;
+        projectileAttackBehaviour.Projectile = this;
 
         // 타겟을 추적하는 스트림입니다.
         this.FixedUpdateAsObservable()

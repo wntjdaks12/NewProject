@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
     public UnityEvent<Collider> triggerEvent;
 
     // 투사체의 공격 행위자입니다.
-    protected ProjectileAttackBehaviour projectileBehaviour;
+    protected ProjectileAttackBehaviour projectileAttackBehaviour;
 
     private void Awake()
     {
