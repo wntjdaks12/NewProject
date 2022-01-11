@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 5175004612247692234, guid: 870e6351ad7cb5e4ba0e02aaf619373f, type: 3}
-  poolCount: 3
+  poolCount: 10
 --- !u!114 &9000491117983895845
 MonoBehaviour:
   m_ObjectHideFlags: 0
