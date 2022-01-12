@@ -63,22 +63,6 @@ public class Projectile : MonoBehaviour
         rigid.velocity = transform.forward * speed * Time.deltaTime;
     }
 
-   /* private void OnTriggerEnter(Collider other)
-    {
-        if (target != null)
-            // 충돌 대상이 추적하고 있는 대상인지 판단합니다.
-            if (other.tag != target.tag)
-                return;
-        Debug.Log("!!!!!");
-
-
-
-
-        // 삭제합니다. (풀링 비활성화)
-        // Destroy();
-        target = null;
-    }*/
-
     public void asd(GameObject other)
     {        // 대상에게 데미지를 입힙니다.
         Hit(other);
