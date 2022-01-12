@@ -26,7 +26,7 @@ public class HitParticle : MonoBehaviour
     /// 타격 이펙트를 활성화시킵니다.
     /// </summary>
     /// <param name="other">충돌 대상</param>
-    public void Active(Collider other)
+    public void Active(GameObject other)
     {
         if (!ps) return;
         if (poolableObject == null) return;
