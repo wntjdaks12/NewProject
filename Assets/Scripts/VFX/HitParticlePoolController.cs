@@ -20,5 +20,5 @@ public class HitParticlePoolController : MonoBehaviour
     }
 
     // 해당 풀링 오브젝트를 활성화시킵니다.
-    public void Active(Collider other) => pool.DeQueue()?.GetComponent<HitParticle>()?.Active(other);
+    public void Active(GameObject other) => pool.DeQueue()?.GetComponent<HitParticle>()?.Active(other);
 }
