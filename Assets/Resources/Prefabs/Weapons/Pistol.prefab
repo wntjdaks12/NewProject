@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facade:
     cooldownTime: {fileID: 5076410268306122236}
-    attackRange: {fileID: 6242308198439775377, guid: bfafc726bcf82cc4ca8a9f22af8d33d2, type: 3}
+    attackRange: {fileID: 798408901527660823, guid: 809ca142ed85a2142b96de4f91e8c418, type: 3}
   pool: {fileID: 1804206568711155908}
 --- !u!114 &5076410268306122236
 MonoBehaviour:

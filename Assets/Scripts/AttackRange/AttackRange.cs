@@ -101,7 +101,7 @@ public class AttackRange : MonoBehaviour
     /// <summary>
     /// 공격 범위의 반경입니다.
     /// </summary>
-    public float Radius { set { transform.localScale = new Vector3(value, 0.5f, value); } }
+    public float Radius { set { transform.localScale = Vector3.one * value; } }
 
     /// <summary>
     /// 공격 범위의 행위자입니다.
