@@ -21,13 +21,13 @@ public class Projectile : MonoBehaviour
     private Rigidbody rigid;
 
     // 투사체를 사용한 소유자와 향하는 대상입니다.
-    private GameObject owner, target;
+    protected GameObject owner, target;
 
     // 풀링할 오브젝트입니다.
     private PoolableObject poolableObject;
 
     // 충돌 시 이벤트입니다.
-    public UnityEvent<Collider> triggerEvent;
+    public UnityEvent<GameObject> triggerEvent;
 
     // 투사체의 공격 행위자입니다.
     protected ProjectileAttackBehaviour projectileAttackBehaviour;
@@ -53,6 +53,8 @@ public class Projectile : MonoBehaviour
 
             Move(speed);
         }
+        else
+            asd(target);
     }
 
     public void Move(float speed)
@@ -61,21 +63,28 @@ public class Projectile : MonoBehaviour
         rigid.velocity = transform.forward * speed * Time.deltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
+   /* private void OnTriggerEnter(Collider other)
     {
         if (target != null)
             // 충돌 대상이 추적하고 있는 대상인지 판단합니다.
             if (other.tag != target.tag)
                 return;
+        Debug.Log("!!!!!");
 
-        // 대상에게 데미지를 입힙니다.
-        Hit(other);
 
-        // 풀링 개체이므로 비활성화시킵니다.
-        triggerEvent?.Invoke(other);
+
 
         // 삭제합니다. (풀링 비활성화)
         // Destroy();
+        target = null;
+    }*/
+
+    public void asd(GameObject other)
+    {        // 대상에게 데미지를 입힙니다.
+        Hit(other);
+
+        triggerEvent?.Invoke(other);
+
         target = null;
     }
 
@@ -88,7 +97,7 @@ public class Projectile : MonoBehaviour
     }
 
     // 데미지를 입힙니다.
-    private void Hit(Collider other)
+    private void Hit(GameObject other)
     {
         // 헬스 인터페이스가 구현된 대상일 경우만 적용합니다.
         other.GetComponent<IDamageable>()?.Damage(owner, 1);
