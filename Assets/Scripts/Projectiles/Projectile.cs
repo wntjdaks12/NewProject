@@ -51,20 +51,24 @@ public class Projectile : MonoBehaviour
         {
             transform.LookAt(target.transform);
 
-            Move(speed);
+            Move();
         }
         else
-            asd(target);
+            TriggerEventHandler(target);
     }
 
-    public void Move(float speed)
+    public void Move()
     {
         // 앞으로 직진합니다.
-        rigid.velocity = transform.forward * speed * Time.deltaTime;
+        rigid.velocity = transform.forward * projectile.speed * Time.deltaTime;
     }
 
-    public void asd(GameObject other)
-    {        // 대상에게 데미지를 입힙니다.
+    /// <summary>
+    /// 충돌 이벤트핸들러입니다.
+    /// </summary>
+    /// <param name="other">충돌 대상</param>
+    public void TriggerEventHandler(GameObject other)
+    {        
         Hit(other);
 
         triggerEvent?.Invoke(other);
@@ -72,20 +76,16 @@ public class Projectile : MonoBehaviour
         target = null;
     }
 
-    // 삭제합니다. (풀링 비활성화)
-    public void Destroy()
-    {
-        // 풀링 개체이므로 비활성화시킵니다. ---------------------------------------------------
-        poolableObject?.EnQueue();
-        // ---------------------------------------------------------------------
-    }
+    /// <summary>
+    /// 풀링 개체이므로 비활성화시킵니다.
+    /// </summary>
+    public void Disable() => poolableObject?.EnQueue();
 
-    // 데미지를 입힙니다.
-    private void Hit(GameObject other)
-    {
-        // 헬스 인터페이스가 구현된 대상일 경우만 적용합니다.
-        other.GetComponent<IDamageable>()?.Damage(owner, 1);
-    }
+    /// <summary>
+    /// 데미지를 입힙니다.
+    /// </summary>
+    /// <param name="other"></param>
+    private void Hit(GameObject other) => other.GetComponent<IDamageable>()?.Damage(owner, 1);
 
     /// <summary>
     /// 투사체를 사용한 소유자입니다.
