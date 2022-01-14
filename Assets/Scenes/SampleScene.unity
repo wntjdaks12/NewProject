@@ -916,6 +916,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicAttackBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 1495800373996428673, guid: 7205c520926257c4d96f677209970d1d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6509485105308810527, guid: 7205c520926257c4d96f677209970d1d, type: 3}
       propertyPath: m_fontSize
       value: 65
@@ -1197,7 +1201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1020696930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2203,6 +2207,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minimap
       objectReference: {fileID: 0}
+    - target: {fileID: 715172903850117494, guid: 0cece84b8c097a445a8c4427510b8e41, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 715172903850117495, guid: 0cece84b8c097a445a8c4427510b8e41, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2299,6 +2307,10 @@ PrefabInstance:
     - target: {fileID: 4024214087885265372, guid: d3669a23f8fc349409ad891229951ba5, type: 3}
       propertyPath: m_Name
       value: JoystickPnl
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024214087885265372, guid: d3669a23f8fc349409ad891229951ba5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4024214087885265373, guid: d3669a23f8fc349409ad891229951ba5, type: 3}
       propertyPath: m_Pivot.x
