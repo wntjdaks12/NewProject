@@ -1,4 +1,5 @@
 {"weaponInfos":[
-{"id":"weapon_001", "keyName":"Pistol", "basicAttackImg":"BasicAttack_PistolShot", "cooldownTime":0.3, "range":15}, 
-{"id":"weapon_002", "keyName":"a", "basicAttackImg":"BasicAttack_PistolShot", "cooldownTime":0.3, "range":15}
-]}
+{"id":"weapon_001", "keyName":"Pistol", "basicAttackImg":"BasicAttack_PistolShot", "image":"Pistol", "cooldownTime":0.3, "range":15}, 
+{"id":"weapon_002", "keyName":"Buster", "basicAttackImg":"BasicAttack_Beam", "image":"Buster", "cooldownTime":0.3, "range":20},
+{"id":"weapon_003", "keyName":"Cannon", "basicAttackImg":"BasicAttack_Cannon", "image":"Cannon", "cooldownTime":0.3, "range":15}
+]} 
