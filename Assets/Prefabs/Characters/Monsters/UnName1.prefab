@@ -302,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 5603543885200775842}
   data: {fileID: 5402199422743617640}
+  autoHuntingData: {fileID: 11400000, guid: b62b2717f70d0464b8dec9ee8546c2dd, type: 2}
   objectAI: {fileID: 2173878622706765964}
 --- !u!114 &2173878622706765964
 MonoBehaviour:

@@ -128,6 +128,7 @@ MonoBehaviour:
   target: {fileID: 1732807020621059671}
   playerData: {fileID: 11400000, guid: 799cd774ac93f7240884c79fda475c7f, type: 2}
   jStickData: {fileID: 11400000, guid: d17af1802618f5a43ab4a9357256fbdd, type: 2}
+  autoHuntingData: {fileID: 11400000, guid: b62b2717f70d0464b8dec9ee8546c2dd, type: 2}
 --- !u!114 &1732807020621059671
 MonoBehaviour:
   m_ObjectHideFlags: 0
