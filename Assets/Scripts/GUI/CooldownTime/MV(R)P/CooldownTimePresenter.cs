@@ -67,14 +67,12 @@ public class CooldownTimePresenter : MonoBehaviour
         if (fillImg == null) return;
 
         // 현재 쿨타임이 0일 경우 이미지를 채우지 않습니다.
-        model
-           .ObserveEveryValueChanged(model => 1 - model.CurCooldownTIme / model.CooldownTIme)
+        model.ObserveEveryValueChanged(model => 1 - model.CurCooldownTIme / model.CooldownTIme)
            .Where(_ => model.CurCooldownTIme <= 0)
            .Subscribe(fillVal => fillImg.fillAmount = 0);
 
         // 현재 쿨타임이 0을 초과일 경우 이미지를 채웁니다.
-        model
-            .ObserveEveryValueChanged(model => 1 - model.CurCooldownTIme / model.CooldownTIme)
+        model.ObserveEveryValueChanged(model => 1 - model.CurCooldownTIme / model.CooldownTIme)
             .Where(_ => model.CurCooldownTIme > 0)
             .Subscribe(fillVal => fillImg.fillAmount = fillVal);
     }
