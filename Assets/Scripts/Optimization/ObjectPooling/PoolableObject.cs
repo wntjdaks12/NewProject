@@ -18,8 +18,7 @@ public class PoolableObject : MonoBehaviour
         // 풀 대상이 존재할 경우 오브젝트를 비활성화 시키며 아닐 경우 삭제합니다.
         if (pool != null)
             pool.EnQueue(gameObject);
-        else
-            Destroy(this.gameObject);
+
     }
     // 풀 대상입니다.
     public Pool Pool { set { pool = value; } }
