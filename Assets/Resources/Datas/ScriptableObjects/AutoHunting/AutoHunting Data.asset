@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a6caea3ebdeab4d99546181708d9b4, type: 3}
   m_Name: AutoHunting Data
   m_EditorClassIdentifier: 
-  isAuto: 0
+  isAuto: 1
