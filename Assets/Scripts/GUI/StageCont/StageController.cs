@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageController : MonoBehaviour
 {
     [SerializeField]
-    private StageData data;
+    private StageData stageData;
+
 
     private void Start()
     {
-        var data = StageDataBase.SearchData("stage1_001");
+        var data = StageDataBase.SearchData("Forest");
 
-        this.data.stageInfo = data;
+        stageData.stageInfo = data;
     }
 }

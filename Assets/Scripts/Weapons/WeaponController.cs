@@ -37,7 +37,7 @@ public class WeaponController : MonoBehaviour
         if (weaponObj != null) Destroy(weaponObj);
 
         // 자신 무기 데이터에서 해당 아이디의 무기를 찾습니다. ---------------
-        var data =  MyWeaponDatabase.SearchData(weaponData.weaponInfo.id);
+        var data =  MyWeaponDatabase.SearchData("weapon_003");
 
         if (data == null) return;
 

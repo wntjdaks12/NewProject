@@ -4,20 +4,21 @@ using UnityEngine;
 using System.IO;
 
 [System.Serializable]
-public class Stage2Info
+public class SubStageInfo
 {
     [HideInInspector]
     public string id;
+
     [HideInInspector]
     public string image;
-    [HideInInspector]
-    public string keyName;
 
-    public Stage2Info(string id, string image, string keyName)
+    public string name;
+
+    public SubStageInfo(string id, string image, string name)
     {
         this.id = id;
         this.image = image;
-        this.keyName = keyName;
+        this.name = name;
     }
 }
 
@@ -26,12 +27,16 @@ public class StageInfo
 {
     [HideInInspector]
     public string id;
-    public List<Stage2Info> stage2Info = new List<Stage2Info>();
 
-    public StageInfo(string id, List<Stage2Info> stage2Info)
+    public string name;
+
+    public List<SubStageInfo> stage2Info = new List<SubStageInfo>();
+
+    public StageInfo(string id, string name, List<SubStageInfo> stage2Info)
     {
         this.id = id;
-        this.stage2Info = stage2Info;   
+        this.name = name;
+        this.stage2Info = stage2Info;
     }
 }
 
@@ -70,10 +75,19 @@ public class StageDataBase : MonoBehaviour
         if (datas == null) return null;
 
         foreach (StageInfo data in datas.stageInfos)
-        {
-            if (id == data.id)
-                return data;
-        }
+            if (id == data.id) return data;
+
+        return null;
+    }
+
+    public static SubStageInfo SearchSubStageData(string stageId, string subStageId)
+    {
+        if (datas == null) return null;
+
+        var stageData = SearchData(stageId);
+
+        foreach (SubStageInfo data in stageData.stage2Info)
+            if (subStageId == data.id) return data;
 
         return null;
     }

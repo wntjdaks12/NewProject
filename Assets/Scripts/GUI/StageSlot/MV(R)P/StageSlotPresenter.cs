@@ -37,6 +37,6 @@ public class StageSlotPresenter : MonoBehaviour
 
         // 버튼 클릭 시 씬 이동하는 스트림입니다.
         if(btn != null)
-           btn.OnClickAsObservable().Subscribe(_ => SceneManager.LoadScene(model.Data.stageInfo.stage2Info[index].keyName));
+           btn.OnClickAsObservable().Subscribe(_ => SceneManager.LoadScene(model.Data.stageInfo.stage2Info[index].id));
     }
 }
