@@ -1,5 +1,7 @@
-{"id" : "stage1_001", "stageInfos":[
-{"id":"stage1_1_001", "image":"Stage_Forest_1"},
-{"id":"stage1_2_002", "image":"Stage_Forest_2"},
-{"id":"stage1_3_003", "image":"Stage_Forest_3"}
+{"stageInfos":[
+	{"id":"stage1_001","stage2Info":[
+			{"id":"stage1_1_001","image":"Stage_Forest_1", "keyName" : "Stage1_1_001"},
+			{"id":"stage1_1_002","image":"Stage_Forest_2", "keyName" : "Stage1_1_002"},
+			{"id":"stage1_1_003","image":"Stage_Forest_3", "keyName" : "Stage1_1_003"}
+		]}
 ]}
