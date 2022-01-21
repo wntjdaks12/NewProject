@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ground_Forest
+  m_Shader: {fileID: -6465566751694194690, guid: e25bc742145d59b49a76be27d848bbd0, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2100
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_1c43c9997fe349cd852b462c38a75805:
+        m_Texture: {fileID: 2800000, guid: 4d8b38333b440164d9c89def37f9f587, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_1ee4ef8244524ccaab02791c96ca585d:
+        m_Texture: {fileID: 2800000, guid: a64d340f3f57ca441ace4bde57f8cc72, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_2b0c63519b1e40da98c1908793f5973e:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_ef40874c78f346d693337c81eb1d9dbf:
+        m_Texture: {fileID: 2800000, guid: a64d340f3f57ca441ace4bde57f8cc72, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_fdff21059f984dca8fdaca8dd5106994_Texture_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_d607eb7867f444ff9ff83ee4008b42e4: 32.98
+    m_Colors:
+    - Color_458ede3c8a0c4990a5e813ed1b928cce: {r: 0.53604484, g: 0.73154914, b: 0.8962264, a: 0}
+    - Color_4ca85c482d9c4e84928ed12d4bc76291: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
+    - Color_ca9dc24f82db4f9d9c5b85120b279a56: {r: 0.18056247, g: 0.3018868, b: 0.19369082, a: 1}
+    - Color_e799efea129a47a08c6ef7a48c0b51e4: {r: 0.33962262, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
