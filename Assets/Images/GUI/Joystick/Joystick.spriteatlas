@@ -50,8 +50,8 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: ed9d94e0f52180d41aad929879041696, type: 3}
-  - {fileID: 21300000, guid: 2b509294f0d05094388b4369614a95fd, type: 3}
+  - {fileID: 21300000, guid: 76278af7c1da16f4a8aef5102b17fef1, type: 3}
+  - {fileID: 21300000, guid: e3dfd01fba66d3541b5535ad9fb469a7, type: 3}
   m_PackedSpriteNamesToIndex:
   - Joystick_Handle
   - Joystick_Bg
