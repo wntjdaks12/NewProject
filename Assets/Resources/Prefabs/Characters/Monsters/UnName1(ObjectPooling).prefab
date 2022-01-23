@@ -61,5 +61,5 @@ MonoBehaviour:
   pool: {fileID: 8973352893694351180}
   generatorInfo:
     respawnTime: 3
-    position: {x: 0, y: 0.5, z: 5}
-    size: 2
+    position: {x: -28.77784, y: 1, z: -27.80043}
+    size: 1
