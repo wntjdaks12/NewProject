@@ -36,6 +36,7 @@ public class Pool : MonoBehaviour
         {
             // 풀링할 오브젝트를 생성합니다.
             var target = Instantiate(this.target, ts);
+            target.transform.position = new Vector3(100, 100, 100);
 
             // 대상이 해당 컴포넌트를 소유를 하지 않을 경우 풀링을 하지 않습니다.
             if (!target.GetComponent<PoolableObject>())
