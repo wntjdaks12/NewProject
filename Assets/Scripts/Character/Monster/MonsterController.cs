@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UniRx;
-using UniRx.Triggers;
 
 /// <summary>
 /// 몬스터를 제어하는 컨트롤러입니다.
@@ -18,23 +16,11 @@ public class MonsterController : MonoBehaviour, IDamageable
     [SerializeField]
     private MonsterData data;
 
-    // 자동 사냥 데이터입니다.
-    [SerializeField]
-    private AutoHuntingData autoHuntingData;
-
     [SerializeField]
     private ObjectAI objectAI;
-    private void OnEnable()
-    {
-        // 데이터를 읽습니다.
-        DataLoad();
-        
-        // 자동 사냥일 경우 추적하는 스트림입니다.
-        this.UpdateAsObservable()
-            .Where(_ => autoHuntingData.isAuto)
-            .DistinctUntilChanged()
-            .Subscribe(_ => objectAI.DirectionBehaviour = new ObjectAITraceDirection(GameObject.FindWithTag("Player").gameObject));
-    }
+
+    // 데이터를 읽습니다.
+    private void OnEnable() => DataLoad();       
 
     private void Start()
     {
