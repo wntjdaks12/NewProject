@@ -40,13 +40,11 @@ public class MonsterController : MonoBehaviour, IDamageable
         if (data == null || data.Data == null)
             return;
 
-        if (!objectAI)
-            return;
+        if (!objectAI) return;
 
         // 이동할 위치과 현재 위치을 이용하여 방향을 구하고 이동을 시킵니다.
         var dir = objectAI.DirectionBehaviour.getDirection(transform.position); dir.y = 0f;
         target.Move(dir, data.Data.speed);
-
     }
 
     private void Update()
