@@ -76,7 +76,7 @@ public class ObjectAI : MonoBehaviour
     private bool CheckPoint()
     {
         if (directionBehaviour == null) return false;
-        Debug.Log(directionBehaviour);
+    
         // 현재 위치 값이 해당 정점까지 근접할 경우 다음 정점으로 변경합니다. -----------------------
         var val1 = Points[curPartIndex]; val1.y = 0;
         var val2 = ts.position; val2.y = 0;
