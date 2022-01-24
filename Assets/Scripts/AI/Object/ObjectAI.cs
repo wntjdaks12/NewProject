@@ -32,8 +32,6 @@ public class ObjectAI : MonoBehaviour
 
     private Transform ts;
 
-    private void OnEnable() => Init();
-
     private void Awake()
     {
         curPartIndex = 0;
@@ -49,7 +47,13 @@ public class ObjectAI : MonoBehaviour
         this.UpdateAsObservable()
             .Where(_ => ts && CheckPoint())
             .Subscribe(_ => Init());
+
+        this.ObserveEveryValueChanged(_ => directionBehaviour)
+            .Where(val => val == null)
+            .Subscribe(_ => Init());
     }
+
+    private void OnDisable() => directionBehaviour = null;
 
     /// <summary>
     /// 초기화시킵니다.
@@ -71,6 +75,8 @@ public class ObjectAI : MonoBehaviour
     /// </summary>
     private bool CheckPoint()
     {
+        if (directionBehaviour == null) return false;
+        Debug.Log(directionBehaviour);
         // 현재 위치 값이 해당 정점까지 근접할 경우 다음 정점으로 변경합니다. -----------------------
         var val1 = Points[curPartIndex]; val1.y = 0;
         var val2 = ts.position; val2.y = 0;
@@ -112,7 +118,6 @@ public class ObjectAI : MonoBehaviour
             float t = tStart + tDelta * i;
 
             Vector3 pos = bezierCurve.getValueOfTime(t);
-
             points.Add(pos);
         }
         // ---------------------------------------------------------------
