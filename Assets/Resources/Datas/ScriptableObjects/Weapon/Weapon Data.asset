@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Weapon Data
   m_EditorClassIdentifier: 
   weaponInfo:
-    id: weapon_001
-    keyName: Pistol
-    basicAttackImg: BasicAttack_PistolShot
-    cooldownTime: 0.3
-    range: 15
+    id: 
+    keyName: 
+    basicAttackImg: BasicAttack_Null
+    image: 
+    cooldownTime: 0
+    range: 0
