@@ -10,7 +10,7 @@ public class CharacterGeneratorFactory
     /// <summary>
     /// 생성하려는 개체의 종류입니다.
     /// </summary>
-    public enum Types {None, Player, UnName1}
+    public enum Types {None, Champion1, UnName1}
 
     /// <summary>
     /// 생성합니다.
@@ -22,7 +22,7 @@ public class CharacterGeneratorFactory
         // 생성하려는 개체와 맞는 인스턴스를 리턴합니다. ------------------------
         switch (type)
         {
-            case Types.Player: return new Player1Generator();
+            case Types.Champion1: return new Player1Generator();
             case Types.UnName1: return new UnName1Generator();
         }
 
