@@ -16,10 +16,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField]
     private PlayerData playerData;
 
-    // 조이스틱 데이터 값입니다.
-    [SerializeField]
-    private JoystickData jStickData;
-
     private void Start()
     {
         // 데이터를 읽습니다.
@@ -39,10 +35,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        // 조이스틱 클릭 시 모든 조건은 실행하지 않습니다.
-        if (jStickData.IsTouching)
-            return;
-
         // 플레이어는 공격이 가능할 시 공격합니다.
         if (target.CheckAttack())
             target.Attack(true);
@@ -66,13 +58,13 @@ public class PlayerController : MonoBehaviour, IDamageable
             return;
 
         // 조이스틱, 플레이어 데이터 값에 대한 널 체크를 합니다.
-        if (!jStickData || (!playerData || playerData.CharacterInfo == null))
+        if (!playerData || playerData.CharacterInfo == null)
             return;
         // ------------------------------------------------------------
 
         // 조이스틱 클릭 후 드래그 시 해당 플레이어는 움직입니다.
-        if (jStickData.IsTouching && jStickData.PointerPosition != Vector2.zero)
-            target.Move(new Vector3(jStickData.PointerPosition.x, 0, jStickData.PointerPosition.y), playerData.CharacterInfo.speed);
+     //   if (jStickData.IsTouching && jStickData.PointerPosition != Vector2.zero)
+        //    target.Move(new Vector3(jStickData.PointerPosition.x, 0, jStickData.PointerPosition.y), playerData.CharacterInfo.speed);
     }
 
     /// <summary>
