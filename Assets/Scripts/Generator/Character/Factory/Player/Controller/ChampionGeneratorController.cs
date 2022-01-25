@@ -14,7 +14,7 @@ public class ChampionGeneratorController : MonoBehaviour
 
         pool.Init();
 
-        var obj = pool.DeQueue(); Debug.Log(obj);
+        var obj = pool.DeQueue();
         obj.transform.position = transform.position;
     }
 }
