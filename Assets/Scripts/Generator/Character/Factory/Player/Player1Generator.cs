@@ -10,5 +10,5 @@ public class Player1Generator : PlayerGenerator
     /// <summary>
     /// 생성합니다.
     /// </summary>
-    public override void Generate() => MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Player/Player1"));
+    public override void Generate() => MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Player/Champion1(ObjectPooling)"));
 }
