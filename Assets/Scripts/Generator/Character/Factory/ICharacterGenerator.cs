@@ -10,5 +10,5 @@ public interface ICharacterGenerator
     /// <summary>
     /// 생성합니다.
     /// </summary>
-    public void Generate();
+    public void Generate(Vector3 pos);
 }

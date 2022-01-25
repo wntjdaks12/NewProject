@@ -10,5 +10,5 @@ public class UnName1Generator : MonsterGenerator
     /// <summary>
     /// 생성합니다.
     /// </summary>
-    public override void Generate() => MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Monsters/UnName1(ObjectPooling)"));
+    public override void Generate(Vector3 pos) => MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Monsters/UnName1(ObjectPooling)"));
 }

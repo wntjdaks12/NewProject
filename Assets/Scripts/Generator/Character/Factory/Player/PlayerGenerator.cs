@@ -10,5 +10,5 @@ public abstract class PlayerGenerator : ICharacterGenerator
     /// <summary>
     /// 생성합니다.
     /// </summary>
-    public abstract void Generate();
+    public abstract void Generate(Vector3 pos);
 }

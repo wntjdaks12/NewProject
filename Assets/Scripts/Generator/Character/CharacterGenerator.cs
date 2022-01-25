@@ -11,10 +11,13 @@ public class CharacterGenerator : MonoBehaviour
     [SerializeField]
     private CharacterGeneratorFactory.Types type;
 
+    // 생성 위치입니다.
+    public Vector3 genPos;
+
     private void Start() => Create();
 
     /// <summary>
     /// 해당 캐릭터를 생성합니다.
     /// </summary>
-    private void Create() => new CharacterGeneratorFactory().Create(type)?.Generate();
+    private void Create() => new CharacterGeneratorFactory().Create(type)?.Generate(genPos);
 }
