@@ -24,7 +24,7 @@ public abstract class RangedWeapon : Weapon
     /// <returns>널이 있으면 True 없으면 False를 리턴합니다.</returns>
     private bool CheckEmpty()
     {
-        if (weaponData == null || weaponData.weaponInfo == null)
+        if (data == null)
             return true;
 
         if (CooldownTime == null || AttackRange == null)

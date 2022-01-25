@@ -16,6 +16,6 @@ public class Pistol : RangedWeapon
         CreateProjectile(transform.root.gameObject, AttackRange.GetColliders()[0].gameObject);
 
         // 쿨타임을 적용합니다.
-        CooldownTime.StartCooldownTime(weaponData.weaponInfo.cooldownTime);
+        CooldownTime.StartCooldownTime(data.cooldownTime);
     }
 }

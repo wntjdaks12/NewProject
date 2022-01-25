@@ -12,7 +12,9 @@ public abstract class Weapon : MonoBehaviour
     /// <summary>
     /// 무기 데이터입니다.
     /// </summary>
-    protected WeaponData weaponData;
+    /// 
+    [SerializeField]
+    protected WeaponInfo data;
 
     /// <summary>
     /// 해당 무기의 시스템을 하나로 구조화시킵니다.
@@ -25,15 +27,15 @@ public abstract class Weapon : MonoBehaviour
     /// </summary>
     protected void Setup() 
     {
-        if (weaponData == null) return;
+        if (data == null) return;
 
         facade.Setup();
 
         // 공격 범위를 활성화합니다.
-        AttackRange.Active(transform.root.gameObject, weaponData.weaponInfo.range);
+        AttackRange.Active(transform.root.gameObject, data.range);
 
         // 공격 범위 값이 변경될 경우 값을 갱신해 주는 스트림입니다.
-        weaponData.ObserveEveryValueChanged(val => val.weaponInfo.range)
+        data.ObserveEveryValueChanged(val => val.range)
             .Subscribe(radius => AttackRange.Radius = radius);
     }
 
@@ -45,7 +47,7 @@ public abstract class Weapon : MonoBehaviour
     /// <summary>
     /// 해당 무기 데이터 정보입니다.
     /// </summary>
-    public WeaponData WeaponData { set => weaponData = value; }
+    public WeaponInfo Data { set => data = value; }
 
     /// <summary>
     /// 해당 무기의 쿨타임 부분입니다.
