@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4518809460240048867}
   - component: {fileID: 3407111526595336854}
+  - component: {fileID: 8887947780309258006}
   m_Layer: 0
   m_Name: Champion1(ObjectPooling)
   m_TagString: Untagged
@@ -45,3 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 332124445606842389, guid: aa257c3223139be4689323aa99b9c8d0, type: 3}
   poolCount: 10
+--- !u!114 &8887947780309258006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5710176423684196052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d9c3f2cb4e33741b8bb025ccd57fb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool: {fileID: 3407111526595336854}
