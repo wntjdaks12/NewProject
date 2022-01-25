@@ -19,7 +19,7 @@ public class OverlapMonsterCollider : OverlapColliderBehaviour
 
         // 공격 범위를 설정합니다.
         var colls = Physics.OverlapSphere(position, radius);
-        Debug.Log(colls.Length);
+
         // 몬스터인 콜라이더만 판별합니다.
         if (colls.Length > 0)
         {
