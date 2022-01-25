@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: DragPnl Data
   m_EditorClassIdentifier: 
   dragPosition: {x: 0, y: 0}
+  dragMin: {x: -1979.766, y: -3361.867}
+  dragMax: {x: 2013.386, y: 1546.46}
   speed: 100
