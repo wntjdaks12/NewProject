@@ -1,30 +1,32 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
 
 /// <summary>
-/// ÇÃ·¹ÀÌ¾îÀÇ Ä³¸¯ÅÍ¸¦ Á¦¾îÇÏ´Â ÄÁÆ®·Ñ·¯ÀÔ´Ï´Ù.
+/// í”Œë ˆì´ì–´ì˜ ìºë¦­í„°ë¥¼ ì œì–´í•˜ëŠ” ì»¨íŠ¸ë¡¤ëŸ¬ì…ë‹ˆë‹¤.
 /// </summary>
 public class PlayerController : MonoBehaviour, IDamageable
 {
     /// <summary>
-    /// ÇØ´ç ÇÃ·¹ÀÌ¾îÀÔ´Ï´Ù.
+    /// í•´ë‹¹ í”Œë ˆì´ì–´ì…ë‹ˆë‹¤.
     /// </summary>
     public Player target;
 
-    // ÇÃ·¹ÀÌ¾î µ¥ÀÌÅÍ °ªÀÔ´Ï´Ù.   
+    // í”Œë ˆì´ì–´ ë°ì´í„° ê°’ì…ë‹ˆë‹¤.   
     [SerializeField]
     private PlayerData playerData;
 
-    // Ä³½ºÆÃ µ¥ÀÌÅÍ °ªÀÔ´Ï´Ù.
+    // ìºìŠ¤íŒ… ë°ì´í„° ê°’ì…ë‹ˆë‹¤.
     [SerializeField]
     private CastingData castingData;
 
     private void Start()
     {
-        // ÇÃ·¹ÀÌ¾îÀÇ Çàµ¿À» ÄÁÆ®·ÑÇÕ´Ï´Ù.
+        if (target == null || castingData == null) return;
+
+        // í”Œë ˆì´ì–´ì˜ í–‰ë™ì„ ì»¨íŠ¸ë¡¤í•©ë‹ˆë‹¤.
         var updateStream = this.UpdateAsObservable();
 
         updateStream
@@ -32,14 +34,19 @@ public class PlayerController : MonoBehaviour, IDamageable
             .Subscribe(_ => target.Attack(true));
 
         updateStream
-            .Where(_ => !target.CheckAttack())
+            .Select(_ => target.transform.position - castingData.pos)
+            .Select(pos => new Vector3(pos.x, 0, pos.z))
+            .Where(pos => Vector3.SqrMagnitude(pos) <= 0.1f)
             .Subscribe(_ => target.Idle());
 
         this.FixedUpdateAsObservable()
-            .Subscribe(_ => Control());
+            .Select(_ => target.transform.position - castingData.pos)
+            .Select(pos => new Vector3(pos.x, 0, pos.z))
+            .Where(pos => Vector3.SqrMagnitude(pos) > 0.1f)
+            .Subscribe(rot => Move(rot * -1));
     }
 
-    // µ¥ÀÌÅÍ¸¦ ÀĞ½À´Ï´Ù.
+    // ë°ì´í„°ë¥¼ ì½ìŠµë‹ˆë‹¤.
     private void DataLoad()
     {
         if (!target) return;
@@ -49,30 +56,19 @@ public class PlayerController : MonoBehaviour, IDamageable
         playerData.CharacterInfo = data;
     }
 
-    // ÇØ´ç ÇÃ·¹ÀÌ¾î¸¦ Á¦¾îÇÕ´Ï´Ù.
-    private void Control()
-    {
-        // ¹æÇâÀ» ±¸ÇÕ´Ï´Ù.
-        if (target == null || castingData == null) return;
-
-        var toPos = target.transform.position; toPos.y = 0;
-        var fromPos = castingData.pos; fromPos.y = 0;
-        var resultPos = toPos - fromPos;
-
-        // ÇØ´ç ¹æÇâ°ú À§Ä¡·Î ÀÌµ¿ÇÕ´Ï´Ù.
-        if (castingData.target != gameObject) return;
-        if (!playerData || playerData.CharacterInfo == null) return;
-
-        if (Vector2.SqrMagnitude(resultPos) > 0.1f)
-            target.Move(resultPos.normalized * -1, playerData.CharacterInfo.speed);
-    }
-
     /// <summary>
-    /// µ¥¹ÌÁö¸¦ ÀÔ½À´Ï´Ù.
+    /// ë°ë¯¸ì§€ë¥¼ ì…ìŠµë‹ˆë‹¤.
     /// </summary>
-    /// <param name="damage">µ¥¹ÌÁö °ª</param>
+    /// <param name="damage">ë°ë¯¸ì§€ ê°’</param>
     public void Damage(GameObject other, int damage)
     {
         if (playerData) playerData.CharacterInfo.hp = HealthSystem.Damage(playerData.CharacterInfo.hp, playerData.CharacterInfo.maxHp, damage);
+    }
+
+    // ì´ë™ì‹œí‚µë‹ˆë‹¤.
+    private void Move(Vector3 rotation)
+    {
+        if (castingData.target == gameObject)
+            target.Move(rotation, playerData.CharacterInfo.speed);
     }
 }
