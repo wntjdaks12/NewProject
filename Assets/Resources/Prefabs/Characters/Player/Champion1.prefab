@@ -43,7 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2d8c6e10648fd45b510a26f5ddaee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 05a30dc3bb0bebe4da8972a4f082bc73, type: 2}
   cooldownTimeData: {fileID: 11400000, guid: d32342d451aefd74cbbc1136b2e8be71, type: 2}
   target: {fileID: 1732807020621059671}
 --- !u!1 &332124445606842389
@@ -128,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1732807020621059671}
   playerData: {fileID: 11400000, guid: 799cd774ac93f7240884c79fda475c7f, type: 2}
+  asdData: {fileID: 11400000, guid: 3a8a8ddb4aaf9a840b4871f0d1e7e9f2, type: 2}
 --- !u!114 &1732807020621059671
 MonoBehaviour:
   m_ObjectHideFlags: 0

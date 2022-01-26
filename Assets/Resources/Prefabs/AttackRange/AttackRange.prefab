@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 8032366903461557520}
   - component: {fileID: 3921909091411785844}
   - component: {fileID: 3472848830217026623}
-  - component: {fileID: 3376425356472917903}
   - component: {fileID: 798408901527660823}
   m_Layer: 10
-  m_Name: Quad
+  m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,20 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3376425356472917903
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6699983542007651742}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &798408901527660823
 MonoBehaviour:
   m_ObjectHideFlags: 0

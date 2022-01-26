@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Weapon Data
   m_EditorClassIdentifier: 
   weaponInfo:
-    id: 
-    keyName: 
-    basicAttackImg: BasicAttack_Null
-    image: 
-    cooldownTime: 0
-    range: 0
+    id: weapon_003
+    keyName: Cannon
+    basicAttackImg: BasicAttack_Cannon
+    image: Cannon
+    cooldownTime: 0.3
+    range: 15
