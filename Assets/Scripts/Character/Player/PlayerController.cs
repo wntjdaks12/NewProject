@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using UniRx.Triggers;
 
 /// <summary>
 /// 플레이어의 캐릭터를 제어하는 컨트롤러입니다.
@@ -12,59 +14,57 @@ public class PlayerController : MonoBehaviour, IDamageable
     /// </summary>
     public Player target;
 
-    // 플레이어 데이터 값입니다.
+    // 플레이어 데이터 값입니다.   
     [SerializeField]
     private PlayerData playerData;
 
+    // 캐스팅 데이터 값입니다.
+    [SerializeField]
+    private CastingData castingData;
+
     private void Start()
     {
-        // 데이터를 읽습니다.
-        DataLoad();
+        // 플레이어의 행동을 컨트롤합니다.
+        var updateStream = this.UpdateAsObservable();
+
+        updateStream
+            .Where(_ => target.CheckAttack())
+            .Subscribe(_ => target.Attack(true));
+
+        updateStream
+            .Where(_ => !target.CheckAttack())
+            .Subscribe(_ => target.Idle());
+
+        this.FixedUpdateAsObservable()
+            .Subscribe(_ => Control());
     }
 
     // 데이터를 읽습니다.
     private void DataLoad()
     {
-        if (!target)
-            return;
+        if (!target) return;
 
         var data = PlayerDatabase.SearchData(target.Id);
 
         playerData.CharacterInfo = data;
     }
 
-    private void Update()
-    {
-        // 플레이어는 공격이 가능할 시 공격합니다.
-        if (target.CheckAttack())
-            target.Attack(true);
-        // 모든 조건이 만족하지 않을 경우 가만히 있습니다.
-        else
-            target.Idle();
-    }
-
-    private void FixedUpdate()
-    {
-        Control();
-    }
-
     // 해당 플레이어를 제어합니다.
     private void Control()
     {
-        // 널체크 -----------------------------------------------------
+        // 방향을 구합니다.
+        if (target == null || castingData == null) return;
 
-        // 대상에 대한 널 체크를 합니다.
-        if (!target)
-            return;
+        var toPos = target.transform.position; toPos.y = 0;
+        var fromPos = castingData.pos; fromPos.y = 0;
+        var resultPos = toPos - fromPos;
 
-        // 조이스틱, 플레이어 데이터 값에 대한 널 체크를 합니다.
-        if (!playerData || playerData.CharacterInfo == null)
-            return;
-        // ------------------------------------------------------------
+        // 해당 방향과 위치로 이동합니다.
+        if (castingData.target != gameObject) return;
+        if (!playerData || playerData.CharacterInfo == null) return;
 
-        // 조이스틱 클릭 후 드래그 시 해당 플레이어는 움직입니다.
-     //   if (jStickData.IsTouching && jStickData.PointerPosition != Vector2.zero)
-        //    target.Move(new Vector3(jStickData.PointerPosition.x, 0, jStickData.PointerPosition.y), playerData.CharacterInfo.speed);
+        if (Vector2.SqrMagnitude(resultPos) > 0.1f)
+            target.Move(resultPos.normalized * -1, playerData.CharacterInfo.speed);
     }
 
     /// <summary>
@@ -73,7 +73,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     /// <param name="damage">데미지 값</param>
     public void Damage(GameObject other, int damage)
     {
-        if (playerData)
-            playerData.CharacterInfo.hp = HealthSystem.Damage(playerData.CharacterInfo.hp, playerData.CharacterInfo.maxHp, damage);
+        if (playerData) playerData.CharacterInfo.hp = HealthSystem.Damage(playerData.CharacterInfo.hp, playerData.CharacterInfo.maxHp, damage);
     }
 }
