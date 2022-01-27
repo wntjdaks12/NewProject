@@ -1622,6 +1622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 05a30dc3bb0bebe4da8972a4f082bc73, type: 2}
   castingData: {fileID: 11400000, guid: 1435893a5374d4d488d59cb71045bb1c, type: 2}
+  castingSignObj: {fileID: 384369667338794769, guid: a1065baf14703f446877e05dc8d5ea77, type: 3}
 --- !u!222 &675177938
 CanvasRenderer:
   m_ObjectHideFlags: 0
