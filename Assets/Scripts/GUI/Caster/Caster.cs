@@ -16,8 +16,14 @@ public class Caster : MonoBehaviour
     [SerializeField]
     private CastingData castingData;
 
+    [SerializeField]
+    private GameObject castingSignObj;
+
     private void Start()
     {
+        castingSignObj = Instantiate(castingSignObj);
+        castingSignObj.SetActive(false);
+
         var clickStream = this.UpdateAsObservable().Where(_ => Input.GetMouseButtonDown(0));
 
         clickStream
@@ -47,6 +53,11 @@ public class Caster : MonoBehaviour
                 {
                     castingData.pos = hit.transform.position;
                     castingData.target = hit.transform.gameObject;
+
+                    if (!castingSignObj.activeSelf) castingSignObj.SetActive(true);
+
+                    castingSignObj.transform.parent = hit.transform;
+                    castingSignObj.transform.localPosition = new Vector3(0, 0, 0);
                 }
             }
 
