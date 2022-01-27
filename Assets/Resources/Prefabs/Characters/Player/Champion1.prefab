@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1732807020621059671}
   playerData: {fileID: 11400000, guid: 799cd774ac93f7240884c79fda475c7f, type: 2}
-  asdData: {fileID: 11400000, guid: 3a8a8ddb4aaf9a840b4871f0d1e7e9f2, type: 2}
+  castingData: {fileID: 11400000, guid: 1435893a5374d4d488d59cb71045bb1c, type: 2}
 --- !u!114 &1732807020621059671
 MonoBehaviour:
   m_ObjectHideFlags: 0
