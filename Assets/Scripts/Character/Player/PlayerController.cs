@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         updateStream
             .Where(_ => target.CheckAttack())
+            .Select(_ => target.transform.position - castingData.pos)
+            .Select(pos => new Vector3(pos.x, 0, pos.z))
+            .Where(pos => Vector3.SqrMagnitude(pos) <= 0.1f)
             .Subscribe(_ => target.Attack(true));
 
         updateStream
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             .Select(pos => new Vector3(pos.x, 0, pos.z))
             .Where(pos => Vector3.SqrMagnitude(pos) > 0.1f)
             .Subscribe(rot => Move(rot * -1));
-
+            
         DataLoad();
     }
 
