@@ -27,24 +27,20 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (target == null || castingData == null) return;
 
         // 플레이어의 행동을 컨트롤합니다.
-        var updateStream = this.UpdateAsObservable();
+        var updateStream = this.UpdateAsObservable()
+            .Select(_ => target.transform.position - castingData.pos)
+            .Select(pos => new Vector3(pos.x, 0, pos.z));
 
         updateStream
-            .Where(_ => target.CheckAttack())
-            .Select(_ => target.transform.position - castingData.pos)
-            .Select(pos => new Vector3(pos.x, 0, pos.z))
             .Where(pos => Vector3.SqrMagnitude(pos) <= 0.1f)
+            .Where(_ => target.CheckAttack())
             .Subscribe(_ => target.Attack(true));
 
         updateStream
-            .Select(_ => target.transform.position - castingData.pos)
-            .Select(pos => new Vector3(pos.x, 0, pos.z))
             .Where(pos => Vector3.SqrMagnitude(pos) <= 0.1f)
             .Subscribe(_ => target.Idle());
 
-        this.FixedUpdateAsObservable()
-            .Select(_ => target.transform.position - castingData.pos)
-            .Select(pos => new Vector3(pos.x, 0, pos.z))
+        updateStream
             .Where(pos => Vector3.SqrMagnitude(pos) > 0.1f)
             .Subscribe(rot => Move(rot * -1));
             
