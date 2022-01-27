@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour, IDamageable
             .Select(pos => new Vector3(pos.x, 0, pos.z))
             .Where(pos => Vector3.SqrMagnitude(pos) > 0.1f)
             .Subscribe(rot => Move(rot * -1));
+
+        DataLoad();
     }
 
     // 데이터를 읽습니다.
@@ -52,7 +54,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (!target) return;
 
         var data = PlayerDatabase.SearchData(target.Id);
-
+        Debug.Log(data);
         playerData.CharacterInfo = data;
     }
 
