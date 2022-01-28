@@ -15,14 +15,14 @@ MonoBehaviour:
   characterInfo:
     id: player_001
     keyName: unName1
-    speed: 0
-    hp: 0
-    maxHp: 0
-    lv: 0
+    speed: 100
+    hp: 1
+    maxHp: 1
+    lv: 1
     weaponInfo:
       id: 
       keyName: 
       basicAttackImg: 
       image: 
-      cooldownTime: 0
+      cooldownTime: 1
       range: 0
