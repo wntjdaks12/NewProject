@@ -11,6 +11,6 @@ public class Player1 : Player
     {
         base.Awake();
 
-        id = "player_001";
+        id = "champion_001";
     }
 }

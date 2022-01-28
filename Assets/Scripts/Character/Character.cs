@@ -32,9 +32,9 @@ public class Character : MonoBehaviour
 
     protected void Awake()
     {
-        rigid = GetComponent<Rigidbody>() ?? GetComponent<Rigidbody>();
+        rigid = GetComponent<Rigidbody>();
 
-        poolableObject = GetComponent<PoolableObject>() ?? GetComponent<PoolableObject>();
+        poolableObject = GetComponent<PoolableObject>();
     }
 
     private void OnEnable()

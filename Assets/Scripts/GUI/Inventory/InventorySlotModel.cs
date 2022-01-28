@@ -12,13 +12,12 @@ public class InventorySlotModel
     private CharacterGenerator characterGenerator;
 
     // 해당 인덱스의 무기입니다.
-    public WeaponInfo getWeaponInfo(int index) => MyWeaponDatabase.getData(index);
+    public CharacterInfo getCharacterInfo(int index) => PlayerDatabase.Data(index);
 
     public void Create(string keyName)
     {
-        Debug.Log(characterGenerator);
         if (characterGenerator == null) return;
-        Debug.Log(keyName);
+
         switch (keyName)
         {
             case "Gunslinger": characterGenerator.type = CharacterGeneratorFactory.Types.Gunslinger;break;

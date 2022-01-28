@@ -67,4 +67,7 @@ public class PlayerDatabase : CharacterDatabase
 
         return null;
     }
+
+    // 해당 데이터를 가져옵니다.
+    public static CharacterInfo Data(int index) => datas.characterInfos[index];
 }
