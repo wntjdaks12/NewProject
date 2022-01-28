@@ -8,8 +8,7 @@ using UnityEngine;
 public class CharacterGenerator : MonoBehaviour
 {
     // 캐릭터의 종류입니다.
-    [SerializeField]
-    private CharacterGeneratorFactory.Types type;
+    public CharacterGeneratorFactory.Types type;
 
     // 생성 위치입니다.
     public Vector3 genPos;
@@ -19,5 +18,5 @@ public class CharacterGenerator : MonoBehaviour
     /// <summary>
     /// 해당 캐릭터를 생성합니다.
     /// </summary>
-    private void Create() => new CharacterGeneratorFactory().Create(type)?.Generate(genPos);
+    public void Create() => new CharacterGeneratorFactory().Create(type)?.Generate(genPos);
 }
