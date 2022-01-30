@@ -33,10 +33,8 @@ public class CooldownTime : MonoBehaviour
     /// 쿨타임을 시작합니다.
     /// </summary>
     /// <param name="cooldownTime">쿨타임 값</param>
-    public void StartCooldownTime(float cooldownTime)
+    public void StartCooldownTime()
     {
-        cooldownTimeInfo.cooldownTime = cooldownTime;
-
         state.Cooling(this);
     }
 

@@ -7,7 +7,7 @@ using UniRx.Triggers;
 /// <summary>
 /// 플레이어의 캐릭터를 제어하는 컨트롤러입니다.
 /// </summary>
-public class PlayerController : MonoBehaviour, IDamageable
+public class PlayerController : MonoBehaviour, IDamageable, ICastingPosition
 {
     /// <summary>
     /// 해당 플레이어입니다.
@@ -22,13 +22,17 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField]
     private CastingData castingData;
 
+    private Vector3 pos;
+
     private void Start()
     {
-        if (target == null || castingData == null) return;
+        pos = transform.position;
+
+        if (target == null) return;
 
         // 플레이어의 행동을 컨트롤합니다.
         var updateStream = this.UpdateAsObservable()
-            .Select(_ => target.transform.position - castingData.pos)
+            .Select(_ => target.transform.position - pos)
             .Select(pos => new Vector3(pos.x, 0, pos.z));
 
         updateStream
@@ -53,7 +57,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (!target) return;
 
         var data = PlayerDatabase.SearchData(target.Id);
-        Debug.Log(data);
         playerData.CharacterInfo = data;
     }
 
@@ -72,4 +75,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (castingData.target == gameObject)
             target.Move(rotation, playerData.CharacterInfo.speed);
     }
+
+    public void setPos(Vector3 pos) => this.pos = pos;
 }

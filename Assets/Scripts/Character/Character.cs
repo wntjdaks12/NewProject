@@ -6,7 +6,7 @@ using UnityEngine.Events;
 /// <summary>
 /// 모든 캐릭터의 최상위입니다.
 /// </summary>
-public class Character : MonoBehaviour
+public class Character : MonoBehaviour, IEquipWeapon
 {
     public UnityEvent DieEvent;
 
@@ -122,6 +122,8 @@ public class Character : MonoBehaviour
         // 사망으로 변경합니다.
         state.Die(this);
     }
+
+    public void Equip(Weapon weapon) => this.weapon = weapon;
 
     /// <summary>
     /// id값입니다.

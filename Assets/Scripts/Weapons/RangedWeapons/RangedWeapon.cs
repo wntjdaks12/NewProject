@@ -13,8 +13,6 @@ public abstract class RangedWeapon : Weapon
 
     private void Start()
     {
-        Setup();
-
         if (pool != null) pool.Init();
     }
 
@@ -24,9 +22,6 @@ public abstract class RangedWeapon : Weapon
     /// <returns>널이 있으면 True 없으면 False를 리턴합니다.</returns>
     private bool CheckEmpty()
     {
-        if (data == null)
-            return true;
-
         if (CooldownTime == null || AttackRange == null)
             return true;
 

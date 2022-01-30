@@ -9,18 +9,36 @@ public class WeaponController : MonoBehaviour
 {
     private WeaponInfo data;
 
-    private GameObject weaponObj;
+    /* private GameObject weaponObj;
 
-    [SerializeField]
-    private CooldownTimeData cooldownTimeData;
+     [SerializeField]
+     private CooldownTimeData cooldownTimeData;
+
+     [SerializeField]
+     private WeaponGenerator weaponGenerator;*/
 
     /// <summary>
     /// 해당 플레이어입니다.
     /// </summary>
-    public Player target;
+    public Weapon target;
 
-    private void Start() => EquipWeapon();
+    private void Start() => DataLoad();
 
+    private void DataLoad()
+    {
+        if (!target) return;
+
+        var data = MyWeaponDatabase.SearchData(target.Id);
+        this.data = data;
+
+        target.Setup(data);
+    }
+
+    public WeaponInfo Data{get => data;}
+
+    // private void Start() => EquipWeapon();
+
+    /*
     /// <summary>
     /// 무기를 장착합니다.
     /// </summary>
@@ -34,12 +52,6 @@ public class WeaponController : MonoBehaviour
         if (data == null) return;
 
         this.data = data;
-        // ----------------------------------------------------------------
-
-        // 해당 무기를 생성하고 위치를 초기화시킵니다. -----------------------------------------------------------------------------------------
-        weaponObj = Instantiate(Resources.Load("Prefabs/Weapons/" + this.data.keyName), target.transform) as GameObject;
-        weaponObj.transform.localPosition = new Vector3(0, 0, 0);
-        // -----------------------------------------------------------------------------------------------------------------------------------
 
         // 무기 데이터 정보를 넘겨주고 대상의 무기를 교체합니다. -------------
         var weapon = weaponObj.GetComponent<Weapon>();
@@ -49,7 +61,9 @@ public class WeaponController : MonoBehaviour
 
         if(weapon.CooldownTime != null) cooldownTimeData.CooldownTimeInfo = weapon.CooldownTime.CooldownTimeInfo;
         // ---------------------------------------------------------------
-    }
+    }*/
 
-    public WeaponInfo Data { get => data; }
+    
+
+    // public WeaponInfo Data { get => data; }
 }

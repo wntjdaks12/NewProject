@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Cannon : RangedWeapon
 {
+    private void Awake() => id = "weapon_003";
+
     /// <summary>
     /// 공격합니다.
     /// </summary>
@@ -13,6 +15,6 @@ public class Cannon : RangedWeapon
         CreateProjectile(transform.root.gameObject, AttackRange.GetColliders()[0].gameObject);
 
         // 쿨타임을 적용합니다.
-        CooldownTime.StartCooldownTime(data.cooldownTime);
+        CooldownTime.StartCooldownTime();
     }
 }

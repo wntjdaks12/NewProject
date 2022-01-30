@@ -51,7 +51,6 @@ public class Caster : MonoBehaviour
 
                 if (castingData != null)
                 {
-                    castingData.pos = hit.transform.position;
                     castingData.target = hit.transform.gameObject;
 
                     if (!castingSignObj.activeSelf) castingSignObj.SetActive(true);
@@ -61,7 +60,7 @@ public class Caster : MonoBehaviour
                 }
             }
 
-            if (castingData.target) castingData.pos = hit.point;
+            if (castingData.target) castingData.target.GetComponent<ICastingPosition>().setPos(hit.point);
         }
     }
 

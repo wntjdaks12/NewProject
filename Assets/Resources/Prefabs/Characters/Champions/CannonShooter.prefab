@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 332124445453234335}
-  - component: {fileID: 332124445453234332}
+  - component: {fileID: 6189727577858806085}
   m_Layer: 7
   m_Name: WeaponController
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 332124445606842385}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &332124445453234332
+--- !u!114 &6189727577858806085
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,11 +40,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 332124445453234334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af2d8c6e10648fd45b510a26f5ddaee0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b0854aa50b65174b9386d1f4c58c27a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTimeData: {fileID: 11400000, guid: d32342d451aefd74cbbc1136b2e8be71, type: 2}
-  target: {fileID: 1732807020621059671}
+  type: 3
+  genPos: {x: 0, y: 0, z: 0}
+  parent: {fileID: 332124445606842385}
 --- !u!1 &332124445606842389
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,10 +58,10 @@ GameObject:
   - component: {fileID: 332124445606842384}
   - component: {fileID: 332124445606842387}
   - component: {fileID: 1649712210207636168}
-  - component: {fileID: 1732807020621059671}
+  - component: {fileID: 3753817558404411769}
   - component: {fileID: 6805978566512591300}
   m_Layer: 7
-  m_Name: Champion1
+  m_Name: CannonShooter
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,10 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80d6742c58f549459015b7ab9ff53fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1732807020621059671}
+  target: {fileID: 3753817558404411769}
   playerData: {fileID: 11400000, guid: 799cd774ac93f7240884c79fda475c7f, type: 2}
   castingData: {fileID: 11400000, guid: 1435893a5374d4d488d59cb71045bb1c, type: 2}
---- !u!114 &1732807020621059671
+--- !u!114 &3753817558404411769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 332124445606842389}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f41cbd4aa41fa9241936e7fa2f791512, type: 3}
+  m_Script: {fileID: 11500000, guid: a0be7eebf3d79de4f9e7642b9249d90a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DieEvent:
