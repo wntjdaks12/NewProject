@@ -1,4 +1,6 @@
 {"characterInfos":[
-{"id":"player_001", "keyName":"unName1", "speed":100, "hp":1, "maxHp":1, "lv":1, "weaponInfo":{"cooldownTime":1}}, 
-{"id":"player_002", "keyName":"unName2", "speed":100, "hp":1, "maxHp":1, "lv":1, "weaponInfo":{"cooldownTime":1}}
+{"id":"champion_001", "keyName":"Gunslinger", "speed":100, "hp":1, "maxHp":1, "lv":1, "image":"Gunslinger", "weaponId":"null"}, 
+{"id":"champion_002", "keyName":"Buster", "speed":100, "hp":1, "maxHp":1, "lv":1, "image":"Buster", "weaponId":"null"},
+{"id":"champion_003", "keyName":"CannonShooter", "speed":100, "hp":1, "maxHp":1, "lv":1, "image":"CannonShooter", "weaponId":"null"},
+{"id":"monster_001", "keyName":"unName1", "speed":100, "hp":1, "maxHp":1, "lv":1, "image":"CannonShooter", "weaponId":"null"}
 ]}
