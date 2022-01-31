@@ -8,7 +8,6 @@ using TMPro;
 
 public class InventorySlotPresenter : MonoBehaviour
 {
-
     // 메인 이미지입니다.
     [SerializeField]
     private Image mainImg;
@@ -17,6 +16,7 @@ public class InventorySlotPresenter : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI nameTMP;
 
+    // 슬롯 버튼입니다.
     [SerializeField]
     private Button btn;
 
