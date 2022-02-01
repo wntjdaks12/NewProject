@@ -5,6 +5,6 @@ using UnityEngine;
 /// <summary>
 /// 플레이어입니다.
 /// </summary>
-public class Player : Character
+public class Champion : Character
 {
 }
