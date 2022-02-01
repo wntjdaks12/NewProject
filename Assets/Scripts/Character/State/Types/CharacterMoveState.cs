@@ -31,17 +31,13 @@ public class CharacterMoveState : CharacterState
     /// 상태는 가만히 있는 것으로 합니다.
     /// </summary>
     /// <param name="character">캐릭터 주솟값</param>
-    public void Idle(Character character)
-    {
-    }
+    public void Idle(Character character) { }
 
     /// <summary>
     /// 상태는 이동으로 합니다.
     /// </summary>
     /// <param name="character">캐릭터 주솟값</param>
-    public void Move(Character character)
-    {
-    }
+    public void Move(Character character) { }
 
     /// <summary>
     /// 상태는 죽는 것으로 합니다.
