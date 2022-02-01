@@ -24,15 +24,9 @@ public class Character : MonoBehaviour, IEquipWeapon
     // 물리 제어를 위해 가져옵니다.
     protected Rigidbody rigid;
 
-    protected void Awake()
-    {
-        rigid = GetComponent<Rigidbody>();
-    }
+    protected void Awake() => rigid = GetComponent<Rigidbody>();
 
-    private void OnEnable()
-    {
-        state = CharacterIdleState.Instance;
-    }
+    private void OnEnable() => state = CharacterIdleState.Instance;
 
     /// <summary>
     /// 플레이어의 공격 여부를 판단합니다.
@@ -65,11 +59,7 @@ public class Character : MonoBehaviour, IEquipWeapon
     /// <summary>
     /// 플레이어를 가만히 있게 합니다.
     /// </summary>
-    public void Idle()
-    {
-        // 가만히 있는 상태로 변경합니다.
-        state.Idle(this);
-    }
+    public void Idle() => state.Idle(this);
 
     /// <summary>
     /// 플레이어를 이동시킵니다.
@@ -86,12 +76,6 @@ public class Character : MonoBehaviour, IEquipWeapon
         Move(speed);
     }
 
-    // 이동 방향을 정해줍니다.
-    private void Direction(Vector3 dir)
-    {
-        transform.rotation = Quaternion.LookRotation(dir);
-    }
-
     /// <summary>
     /// 직선 이동을 합니다.
     /// </summary>
@@ -106,14 +90,13 @@ public class Character : MonoBehaviour, IEquipWeapon
         rigid.velocity = vec3;
     }
 
+    // 이동 방향을 정해줍니다.
+    private void Direction(Vector3 dir) => transform.rotation = Quaternion.LookRotation(dir);
+
     /// <summary>
     /// 사망합니다.
     /// </summary>
-    public void Die()
-    {
-        // 사망으로 변경합니다.
-        state.Die(this);
-    }
+    public void Die() => state.Die(this);
 
     public void Equip(Weapon weapon) => this.weapon = weapon;
 
