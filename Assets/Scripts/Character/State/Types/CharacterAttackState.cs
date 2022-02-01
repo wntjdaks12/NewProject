@@ -54,9 +54,6 @@ public class CharacterAttackState : CharacterState
 
         // 사망에 관련된 이벤트를 호출합니다.
         character.DieEvent?.Invoke();
-
-        // 풀링 개체이므로 비활성화 시킵니다.
-        character.PoolableObject?.EnQueue();
     }
 
     /// <summary>
