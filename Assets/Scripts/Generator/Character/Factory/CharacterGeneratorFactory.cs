@@ -19,7 +19,7 @@ public class CharacterGeneratorFactory
     /// <returns>생성하려는 개체의 인스턴스를 리턴합니다.</returns>
     public ICharacterGenerator Create(Types type)
     {
-        // 생성하려는 개체와 맞는 인스턴스를 리턴합니다. ------------------------
+        // 생성하려는 개체와 맞는 인스턴스를 리턴합니다.
         switch (type)
         {
             case Types.Gunslinger: return new GunslingerChampGenerator();
@@ -29,6 +29,5 @@ public class CharacterGeneratorFactory
         }
 
         return null;
-        // -------------------------------------------------------------------
     }
 }
