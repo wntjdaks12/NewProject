@@ -22,7 +22,7 @@ public class Character : MonoBehaviour, IEquipWeapon
     private Weapon weapon;
 
     // 물리 제어를 위해 가져옵니다.
-    protected Rigidbody rigid;
+    private Rigidbody rigid;
 
     protected void Awake() => rigid = GetComponent<Rigidbody>();
 
