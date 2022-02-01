@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour, IDamageable, ICastingPosition
     /// <summary>
     /// 해당 플레이어입니다.
     /// </summary>
-    public Player target;
+    public Champion target;
 
     // 플레이어 데이터 값입니다.   
     [SerializeField]
