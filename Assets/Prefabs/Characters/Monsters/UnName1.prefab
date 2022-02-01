@@ -287,7 +287,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  stateType: 0
+      - m_Target: {fileID: 2822284402641406308}
+        m_TargetAssemblyTypeName: PoolableObject, Assembly-CSharp
+        m_MethodName: EnQueue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  poolableObject: {fileID: 2822284402641406308}
 --- !u!114 &1788681946553452044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +314,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 5603543885200775842}
   data: {fileID: 5402199422743617640}
-  autoHuntingData: {fileID: 11400000, guid: b62b2717f70d0464b8dec9ee8546c2dd, type: 2}
   objectAI: {fileID: 2173878622706765964}
 --- !u!114 &2173878622706765964
 MonoBehaviour:
@@ -338,13 +349,8 @@ MonoBehaviour:
     hp: 0
     maxHp: 0
     lv: 0
-    weaponInfo:
-      id: 
-      keyName: 
-      basicAttackImg: 
-      image: 
-      cooldownTime: 0
-      range: 0
+    image: 
+    weaponId: 
 --- !u!1 &8831190284533791996
 GameObject:
   m_ObjectHideFlags: 0
