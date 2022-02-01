@@ -16,21 +16,17 @@ public class Character : MonoBehaviour, IEquipWeapon
     protected string id;
 
     // 현재 상태를 나타냅니다.
-    protected CharacterState state;
+    private CharacterState state;
+
     // 현재 무기를 나타냅니다.
     private Weapon weapon;
 
     // 물리 제어를 위해 가져옵니다.
     protected Rigidbody rigid;
 
-    // 풀링할 오브젝트입니다.
-    private PoolableObject poolableObject;
-
     protected void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-
-        poolableObject = GetComponent<PoolableObject>();
     }
 
     private void OnEnable()
@@ -135,7 +131,4 @@ public class Character : MonoBehaviour, IEquipWeapon
     /// 현재 상태입니다.
     /// </summary>
     public CharacterState State { set { state = value; } }
-
-    //
-    public PoolableObject PoolableObject { get { return poolableObject; } }
 }
