@@ -10,13 +10,9 @@ public class MainCameraController : MonoBehaviour
 
     private void Start()
     {
+        // 카메라 이동 스트림입니다.
         this.LateUpdateAsObservable()
-            .Subscribe(_ => OnDrag());
-    }
-
-    private void OnDrag()
-    {
-        var val = data.dragPosition / data.speed;
-        transform.position = new Vector3(val.x, transform.position.y, val.y);
+            .Select(_ => data.dragValue / data.speed)
+            .Subscribe(val => transform.position = new Vector3(val.x, transform.position.y, val.y));
     }
 }
