@@ -33,9 +33,6 @@ public class CharacterAttackState : CharacterState
     /// <param name="character">캐릭터 주솟값</param>
     public void Idle(Character character)
     {
-        // 상태를 가만히 있는 것으로 변경합니다.
-        character.State = CharacterIdleState.Instance;
-        character.stateType = Character.StateTypes.Idle;
     }
 
     /// <summary>
@@ -44,9 +41,6 @@ public class CharacterAttackState : CharacterState
     /// <param name="character">캐릭터 주솟값</param>
     public void Move(Character character)
     {
-        // 상태를 이동으로 변경합니다.
-        character.State = CharacterMoveState.Instance;
-        character.stateType = Character.StateTypes.Move;
     }
 
     /// <summary>

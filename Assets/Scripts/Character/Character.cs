@@ -17,10 +17,6 @@ public class Character : MonoBehaviour, IEquipWeapon
 
     // 현재 상태를 나타냅니다.
     protected CharacterState state;
-    public enum StateTypes { Idle, Move, Attack }
-    [HideInInspector]
-    public StateTypes stateType = StateTypes.Idle;
-
     // 현재 무기를 나타냅니다.
     private Weapon weapon;
 
