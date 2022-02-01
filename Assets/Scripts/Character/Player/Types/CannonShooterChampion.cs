@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonShooterChampion : Player
+public class CannonShooterChampion : Champion
 {
     private new void Awake()
     {
