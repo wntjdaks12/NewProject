@@ -14,6 +14,6 @@ public class PistolBullet : Projectile
 
         // 타겟을 추적하는 스트림입니다.
         this.FixedUpdateAsObservable()
-            .Subscribe(_ => Trace(projectile.speed));
+            .Subscribe(_ => Trace(data.speed));
     }
 }
