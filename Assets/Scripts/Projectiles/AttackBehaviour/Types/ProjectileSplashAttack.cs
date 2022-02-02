@@ -30,7 +30,7 @@ public class ProjectileSplashAttack : ProjectileAttackBehaviour
     private void CheckSplash()
     {
         // 해당 반경 안의 충돌체를 검사합니다.
-        Collider[] colls = Physics.OverlapSphere(transform.position, 1, 1 << 6);
+        Collider[] colls = Physics.OverlapSphere(transform.position, 5, 1 << 6);
 
         foreach (Collider coll in colls)
         {
