@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 플레이어의 생성자입니다.
 /// </summary>
-public abstract class PlayerGenerator : ICharacterGenerator
+public abstract class ChampionGenerator : ICharacterGenerator
 {
     /// <summary>
     /// 생성합니다.
