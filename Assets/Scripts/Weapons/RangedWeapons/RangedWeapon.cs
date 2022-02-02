@@ -9,7 +9,7 @@ public abstract class RangedWeapon : Weapon
 {
     // 투사체를 필요로 하기 때문에 오브젝트 풀링을 사용합니다.
     [SerializeField]
-    protected Pool pool;
+    private Pool pool;
 
     private void Start()
     {
