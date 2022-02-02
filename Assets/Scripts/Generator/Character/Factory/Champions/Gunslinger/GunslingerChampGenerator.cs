@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 플레이어의 생성자입니다.
 /// </summary>
-public class GunslingerChampGenerator : PlayerGenerator
+public class GunslingerChampGenerator : ChampionGenerator
 {
     /// <summary>
     /// 생성합니다.

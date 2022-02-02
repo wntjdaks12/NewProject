@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BusterChampGenerator : PlayerGenerator
+public class BusterChampGenerator : ChampionGenerator
 {
     /// <summary>
     /// 생성합니다.

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonShooterChampGenerator : PlayerGenerator
+public class CannonShooterChampGenerator : ChampionGenerator
 {
     /// <summary>
     /// 생성합니다.
