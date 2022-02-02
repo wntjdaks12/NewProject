@@ -15,13 +15,13 @@ public class ProjectileInfo
 public class Projectile : MonoBehaviour
 {
     [SerializeField]
-    protected ProjectileInfo projectile;
+    protected ProjectileInfo data;
 
     // 물리 제어입니다.
     private Rigidbody rigid;
 
     // 투사체를 사용한 소유자와 향하는 대상입니다.
-    protected GameObject owner, target;
+    private GameObject owner, target;
 
     // 풀링할 오브젝트입니다.
     private PoolableObject poolableObject;
@@ -60,7 +60,7 @@ public class Projectile : MonoBehaviour
     public void Move()
     {
         // 앞으로 직진합니다.
-        rigid.velocity = transform.forward * projectile.speed * Time.deltaTime;
+        rigid.velocity = transform.forward * data.speed * Time.deltaTime;
     }
 
     /// <summary>
