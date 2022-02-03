@@ -12,10 +12,11 @@ public class Caster : MonoBehaviour
     [SerializeField]
     private WeaponData weaponData;
 
-    //캐스터 데이터입니다.
+    //캐스팅 데이터입니다.
     [SerializeField]
     private CastingData castingData;
 
+    // 캐스팅을 표시할 오브젝트입니다.
     [SerializeField]
     private GameObject castingSignObj;
 
@@ -24,12 +25,14 @@ public class Caster : MonoBehaviour
         castingSignObj = Instantiate(castingSignObj);
         castingSignObj.SetActive(false);
 
+        // 0.2초 내로 더블클릭을 할 시 캐스팅을 합니다.
         var clickStream = this.UpdateAsObservable().Where(_ => Input.GetMouseButtonDown(0));
 
         clickStream
-            .Buffer(clickStream.Throttle(TimeSpan.FromMilliseconds(300)))
-            .Where(x => x.Count >= 2)
-            .Subscribe(_ => Casting());
+            .Timestamp()
+            .Pairwise((prev, current) => (current. Timestamp - prev.Timestamp).TotalMilliseconds <= 300)
+            .Where(fastEnough => fastEnough)
+            .Subscribe(x => Casting());
     }
 
     /// <summary>
