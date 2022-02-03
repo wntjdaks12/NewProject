@@ -72,7 +72,8 @@ public class PlayerController : MonoBehaviour, IDamageable, ICastingPosition
     // 이동시킵니다.
     private void Move(Vector3 rotation)
     {
-        target.Move(rotation, playerData.CharacterInfo.speed);
+        if (playerData != null && playerData.CharacterInfo != null)
+            target.Move(rotation, playerData.CharacterInfo.speed);
     }
 
     public void setPos(Vector3 pos) => this.pos = pos;
