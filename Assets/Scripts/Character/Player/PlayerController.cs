@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour, IDamageable, ICastingPosition
 
         updateStream
             .Where(pos => Vector3.SqrMagnitude(pos) > 0.1f)
-            .Subscribe(rot => Move(rot * -1));
+            .Subscribe(rot => { Debug.Log(transform.root); Move(rot * -1); });
             
         DataLoad();
     }
@@ -72,8 +72,7 @@ public class PlayerController : MonoBehaviour, IDamageable, ICastingPosition
     // 이동시킵니다.
     private void Move(Vector3 rotation)
     {
-        if (castingData.target == gameObject)
-            target.Move(rotation, playerData.CharacterInfo.speed);
+        target.Move(rotation, playerData.CharacterInfo.speed);
     }
 
     public void setPos(Vector3 pos) => this.pos = pos;
