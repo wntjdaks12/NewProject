@@ -25,12 +25,12 @@ public class Caster : MonoBehaviour
         castingSignObj = Instantiate(castingSignObj);
         castingSignObj.SetActive(false);
 
-        // 0.2초 내로 더블클릭을 할 시 캐스팅을 합니다.
+        // 0.3초 내로 더블클릭을 할 시 캐스팅을 합니다.
         var clickStream = this.UpdateAsObservable().Where(_ => Input.GetMouseButtonDown(0));
 
         clickStream
             .Timestamp()
-            .Pairwise((prev, current) => (current. Timestamp - prev.Timestamp).TotalMilliseconds <= 300)
+            .Pairwise((prev, cur) => (cur. Timestamp - prev.Timestamp).TotalMilliseconds <= 300)
             .Where(fastEnough => fastEnough)
             .Subscribe(x => Casting());
     }
@@ -47,11 +47,14 @@ public class Caster : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+            // 타겟이 플레이어만 캐스팅합니다.
             if (hit.transform.tag == "Player")
             {
+                // 무기 데이터를 가져옵니다.
                 if (weaponData != null && weaponData.weaponInfo != null)
                     weaponData.weaponInfo = hit.transform.GetComponentInChildren<WeaponController>()?.Data;
 
+                // 캐스팅 데이터에 타겟을 저장하고 타겟을 표시합니다.
                 if (castingData != null)
                 {
                     castingData.target = hit.transform.gameObject;
@@ -63,6 +66,7 @@ public class Caster : MonoBehaviour
                 }
             }
 
+            // 캐스팅 타겟이 존재하면 이동할 포지션을 정합니다.
             if (castingData.target) castingData.target.GetComponent<ICastingPosition>().setPos(hit.point);
         }
     }
