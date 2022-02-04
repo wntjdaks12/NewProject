@@ -11,8 +11,8 @@ public class GeneratorInfo
     // 리스폰 기준점입니다.
     public Vector3 position;
 
-    // 리스폰 사이즈입니다.
-    public float size;
+    // 리스폰 반경입니다.
+    public float radius;
 }
 
 /// <summary>
@@ -43,7 +43,7 @@ public class MonsterGeneratorController : MonoBehaviour
         curPoolCount = 0;
         resurveCount = 0;
 
-        generateBehaviour = new SquareGenerate();
+        generateBehaviour = new RadiusGenerate();
     }
 
     private void Start()
@@ -57,7 +57,7 @@ public class MonsterGeneratorController : MonoBehaviour
         for (int i = 0; i < pool.poolCount; i++)
         {
             var obj = pool.DeQueue();
-            obj.transform.position = generateBehaviour.getGenerate(generatorInfo.position, generatorInfo.size);
+            obj.transform.position = generateBehaviour.getGenerate(generatorInfo.position, generatorInfo.radius);
         }
         // -----------------------------------------------------------------------------------
 
@@ -87,7 +87,7 @@ public class MonsterGeneratorController : MonoBehaviour
 
         // 풀링을 활성화시킵니다.
         var obj = pool.DeQueue();
-        obj.transform.position = generateBehaviour.getGenerate(generatorInfo.position, generatorInfo.size);
+        obj.transform.position = generateBehaviour.getGenerate(generatorInfo.position, generatorInfo.radius);
 
         // 예약 몬스터 개수 감소
         resurveCount--;
