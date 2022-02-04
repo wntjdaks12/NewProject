@@ -7,7 +7,4 @@ using UnityEngine;
 /// </summary>
 public class Monster : Character
 {
-    // 풀링할 오브젝트입니다.
-    [SerializeField]
-    private PoolableObject poolableObject;
 }
