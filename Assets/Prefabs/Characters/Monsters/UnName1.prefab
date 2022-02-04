@@ -299,7 +299,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  poolableObject: {fileID: 2822284402641406308}
 --- !u!114 &1788681946553452044
 MonoBehaviour:
   m_ObjectHideFlags: 0
