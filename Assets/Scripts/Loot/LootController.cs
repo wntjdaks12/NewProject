@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class zxc : MonoBehaviour
+public class LootController : MonoBehaviour
 {
-    [SerializeField] public Pool pool;
+    [SerializeField] private Pool pool;
 
     private void Start()
     {
