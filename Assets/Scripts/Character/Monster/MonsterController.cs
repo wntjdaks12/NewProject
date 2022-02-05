@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using UniRx.Triggers;
 
 /// <summary>
 /// 몬스터를 제어하는 컨트롤러입니다.
@@ -22,11 +24,6 @@ public class MonsterController : MonoBehaviour, IDamageable
     // 데이터를 읽습니다.
     private void OnEnable() => DataLoad();       
 
-    private void Start()
-    {
-      //  this.UpdateAsObservable()
-    }
-
     // 데이터를 읽습니다.
     private void DataLoad()
     {
@@ -42,7 +39,7 @@ public class MonsterController : MonoBehaviour, IDamageable
 
         if (!objectAI) return;
 
-        // 이동할 위치과 현재 위치을 이용하여 방향을 구하고 이동을 시킵니다.
+        // 이동할 위치와 현재 위치을 이용하여 방향을 구하고 이동을 시킵니다.
         var dir = objectAI.DirectionBehaviour.getDirection(transform.position); dir.y = 0f;
         target.Move(dir, data.Data.speed);
     }
@@ -75,11 +72,6 @@ public class MonsterController : MonoBehaviour, IDamageable
             objectAI.DirectionBehaviour = new ObjectAITraceDirection(other);
 
         DamagePopup.Popup(damage, Camera.main.WorldToScreenPoint(target.transform.position));
-    }
-
-    private void asd()
-    {
-        
     }
 
     public MonsterData Data { get { return data; } }
