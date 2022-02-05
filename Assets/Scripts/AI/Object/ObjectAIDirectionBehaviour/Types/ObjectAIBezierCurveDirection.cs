@@ -19,7 +19,7 @@ public class ObjectAIBezierCurveDirection : ObjectAIDirectionBehaviour
     /// <returns>진행 방향을 리턴합니다.</returns>
     public Vector3 getDirection(Vector3 position)
     {
-        // 이동할 위치과 기준 위치을 이용하여 방향을 구합니다. -------------------------
+        // 이동할 위치와 기준 위치을 이용하여 방향을 구합니다. -------------------------
         if (objectAI)
             if (objectAI.Points != null)
                 return objectAI.Points[objectAI.CurPartIndex] - position;
