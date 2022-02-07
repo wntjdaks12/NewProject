@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model:
     data: {fileID: 11400000, guid: b7168aba72941f1499232fab87bd6aad, type: 2}
-  goldText: {fileID: 85542833}
+  goldTmp: {fileID: 85542833}
 --- !u!114 &85542833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1298,7 +1298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model:
     data: {fileID: 11400000, guid: b7168aba72941f1499232fab87bd6aad, type: 2}
-  goldText: {fileID: 400563554}
+  goldTmp: {fileID: 0}
 --- !u!114 &400563554
 MonoBehaviour:
   m_ObjectHideFlags: 0
