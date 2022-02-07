@@ -24,10 +24,11 @@ public class Loot : MonoBehaviour
     [SerializeField]
     private PoolableObject poolableObject;
 
-    private void Awake()
-    {
-        rigid = GetComponent<Rigidbody>();
-    }
+    private LootInfo lootInfo;
+
+    protected DropBehaviour dropBehaviour;
+
+    protected void Awake() => rigid = GetComponent<Rigidbody>();
 
     private void OnEnable()
     {
@@ -41,9 +42,11 @@ public class Loot : MonoBehaviour
         this.OnCollisionEnterAsObservable()
             .Select(collision => collision.other.tag)
             .Where(tag => tag == "Player")
-            .Subscribe(_ => 
+            .Subscribe(_ =>
             {
+                Debug.Log(lootInfo);
                 if (poolableObject != null) poolableObject.EnQueue();
+                dropBehaviour.Drop(lootInfo.amount);
             });
 
     }
@@ -67,8 +70,10 @@ public class Loot : MonoBehaviour
     {
         // 생존 시간이 달할 시 삭제시킵니다. -------------------------------
         yield return new WaitForSeconds(lifeTime);
-        if(poolableObject != null)
+        if (poolableObject != null)
             poolableObject.EnQueue();
         // ---------------------------------------------------------------
     }
+
+    public LootInfo LootInfo { set => lootInfo = value; }
 }

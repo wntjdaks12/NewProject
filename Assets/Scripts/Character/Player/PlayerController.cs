@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour, IDamageable, ICastingPosition
 
         updateStream
             .Where(pos => Vector3.SqrMagnitude(pos) > 0.1f)
-            .Subscribe(rot => { Debug.Log(transform.root); Move(rot * -1); });
+            .Subscribe(rot => Move(rot * -1));
             
         DataLoad();
     }

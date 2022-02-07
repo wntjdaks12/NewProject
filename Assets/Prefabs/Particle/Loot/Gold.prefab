@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2443583658844514366}
   - component: {fileID: 2322313699869518697}
   - component: {fileID: 4793147679527852043}
-  - component: {fileID: -4693846066923464236}
+  - component: {fileID: 1441390591199945079}
   m_Layer: 9
   m_Name: Gold
   m_TagString: Untagged
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9395cbfa6949f8b49a57e81df56438a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4693846066923464236
+--- !u!114 &1441390591199945079
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5093387809273955873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adc6cc7b19faa2142a4b4ae0afad8b1c, type: 3}
+  m_Script: {fileID: 11500000, guid: bac16ec458ed04f4f9b14f5df3579f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   throwingPower: 5

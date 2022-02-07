@@ -56,6 +56,7 @@ public class LootBox : MonoBehaviour
             if (rand <= data.probability)
             {
                 var obj =  poolDict[data.keyName].DeQueue();
+                if(obj.GetComponent<Loot>()) obj.GetComponent<Loot>().LootInfo = data;
 
                 if(obj != null) obj.transform.position = transform.position;
             }

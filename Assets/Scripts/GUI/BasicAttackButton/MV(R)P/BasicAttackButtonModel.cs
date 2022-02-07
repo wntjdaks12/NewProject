@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UniRx;
 
 /// <summary>
 /// 기본 공격 슬롯의 데이터 부분입니다.
