@@ -12,5 +12,8 @@ public class MoneySlotModel
     [SerializeField]
     private MoneyData data;
 
-    public MoneyData Data { get => data; }
+    public void AddJem(int amount) => data.jewel += amount;
+
+    public int Gold { get => data ? data.gold : 0; }
+    public int Jem { get => data ? data.jewel : 0; }
 }
