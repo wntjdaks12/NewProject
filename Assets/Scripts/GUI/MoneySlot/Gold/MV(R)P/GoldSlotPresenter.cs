@@ -17,7 +17,10 @@ public class GoldSlotPresenter : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI goldTmp;
 
-    private void Start() =>
-        model.ObserveEveryValueChanged(model => model.Data.gold)
-            .Subscribe(gold => goldTmp.text = gold.ToString());
+    private void Start()
+    {
+        if(goldTmp != null)
+            model.ObserveEveryValueChanged(model => model.Data.gold)
+                .Subscribe(gold => goldTmp.text = gold.ToString());
+    }
 }
