@@ -146,7 +146,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.JSMT5.NewUnityProject
+    Android: com.JSMT7.NewUnityProject
   buildNumber:
     Standalone: 0
     iPhone: 0
