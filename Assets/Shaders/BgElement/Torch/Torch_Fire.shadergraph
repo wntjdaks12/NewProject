@@ -10,9 +10,6 @@
             "m_Id": "e57f5e6f09c649fc923ccac5084d9b11"
         },
         {
-            "m_Id": "2888b1a684114e0b913c9a2610062c0f"
-        },
-        {
             "m_Id": "b07e8c97ccaf4cfbb53cffa7414314df"
         },
         {
@@ -788,29 +785,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
-    "m_ObjectId": "2888b1a684114e0b913c9a2610062c0f",
-    "m_Guid": {
-        "m_GuidSerialized": "5bfacadb-1e78-4604-a4de-d9897f5ca64b"
-    },
-    "m_Name": "Texture2D (1)22",
-    "m_DefaultReferenceName": "Texture2D_2888b1a684114e0b913c9a2610062c0f",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"70776b9a81fd5714caa9c79f27f60fd8\",\"type\":3}}",
-        "m_Guid": ""
-    },
-    "m_Modifiable": true,
-    "m_DefaultType": 0
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "299cc4186222426cb3556795df949bf4",
     "m_Id": 2,
@@ -1007,7 +981,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "36bf30254a854b808c8d52f38d863536",
     "m_Id": 0,
-    "m_DisplayName": "Float",
+    "m_DisplayName": "VoronoiNoiseSpd",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1451,7 +1425,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
     "m_ObjectId": "60612a63c07c462fa97155a7ddc8e6cf",
     "m_Id": 0,
-    "m_DisplayName": "Color",
+    "m_DisplayName": "Col",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -2440,7 +2414,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "bf1e04771157455f96d55b3b8df7fda2",
     "m_Id": 0,
-    "m_DisplayName": "Texture2D",
+    "m_DisplayName": "FireTex",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -2858,7 +2832,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "dc6750a175b247bcb468026f9e905bd9",
     "m_Id": 0,
-    "m_DisplayName": "Float (1)",
+    "m_DisplayName": "GradientNoiseSpd",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
