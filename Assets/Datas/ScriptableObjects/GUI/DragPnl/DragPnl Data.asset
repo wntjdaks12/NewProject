@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f95d0d9c8ebea949bcfa7b90c72aa27, type: 3}
   m_Name: DragPnl Data
   m_EditorClassIdentifier: 
-  dragPosition: {x: 0, y: 0}
-  dragMin: {x: -1979.766, y: -3361.867}
-  dragMax: {x: 2013.386, y: 1546.46}
-  speed: 100
+  dragValue: {x: 2540.555, y: -759.4386}
+  dragMin: {x: -224.7767, y: -2000}
+  dragMax: {x: 2540.555, y: 2000}
+  speed: 50
