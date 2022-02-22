@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
+using UnityEngine.AI;
 
 /// <summary>
 /// 플레이어의 캐릭터를 제어하는 컨트롤러입니다.
@@ -18,11 +19,12 @@ public class PlayerController : MonoBehaviour, IDamageable, ICastingPosition
     [SerializeField]
     private PlayerData playerData;
 
-    // 캐스팅 데이터 값입니다.
-    [SerializeField]
-    private CastingData castingData;
+    private NavMeshAgent agent;
 
     private Vector3 pos;
+
+    void Awake() =>
+    agent = GetComponent<NavMeshAgent>();
 
     private void Start()
     {
@@ -46,8 +48,12 @@ public class PlayerController : MonoBehaviour, IDamageable, ICastingPosition
 
         updateStream
             .Where(pos => Vector3.SqrMagnitude(pos) > 0.1f)
-            .Subscribe(rot => Move(rot * -1));
-            
+            .Subscribe(_ => agent.SetDestination(pos));
+
+        //updateStream
+        //   .Where(pos => Vector3.SqrMagnitude(pos) > 0.1f)
+        // .Subscribe(rot => Move(rot * -1));
+
         DataLoad();
     }
 
