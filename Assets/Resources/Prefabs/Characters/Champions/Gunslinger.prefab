@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 1649712210207636168}
   - component: {fileID: 4363887784694963740}
   - component: {fileID: 6805978566512591300}
+  - component: {fileID: 7130395676028105460}
   m_Layer: 7
   m_Name: Gunslinger
   m_TagString: Player
@@ -128,7 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 4363887784694963740}
   playerData: {fileID: 11400000, guid: 799cd774ac93f7240884c79fda475c7f, type: 2}
-  castingData: {fileID: 11400000, guid: 1435893a5374d4d488d59cb71045bb1c, type: 2}
 --- !u!114 &4363887784694963740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +144,6 @@ MonoBehaviour:
   DieEvent:
     m_PersistentCalls:
       m_Calls: []
-  stateType: 0
 --- !u!114 &6805978566512591300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +156,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9395cbfa6949f8b49a57e81df56438a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!195 &7130395676028105460
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332124445606842389}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.39
+  m_Speed: 5
+  m_Acceleration: 100
+  avoidancePriority: 50
+  m_AngularSpeed: 360
+  m_StoppingDistance: 0.1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.5
+  m_BaseOffset: 0.25
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &332124445698378853
 GameObject:
   m_ObjectHideFlags: 0
