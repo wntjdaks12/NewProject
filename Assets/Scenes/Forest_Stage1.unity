@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 0.56
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 72fe311fd1aeec943a2334252e4e9c5d, type: 2}
 --- !u!1001 &20861657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -861,6 +861,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1233929340}
+    - target: {fileID: 5041987569141110518, guid: 4be61a465943a4a46990f791dc635dd3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1422feca9c5705c439b69163cf103d24, type: 3}
     - target: {fileID: 5041987570792097181, guid: 4be61a465943a4a46990f791dc635dd3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
