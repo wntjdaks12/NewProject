@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UniRx;
-using UniRx.Triggers;
+using UnityEngine.AI;
 
 /// <summary>
 /// 몬스터를 제어하는 컨트롤러입니다.
@@ -18,11 +17,20 @@ public class MonsterController : MonoBehaviour, IDamageable
     [SerializeField]
     private MonsterData data;
 
+  //  [SerializeField]
+ //   private ObjectAI objectAI;
     [SerializeField]
-    private ObjectAI objectAI;
+    private MonsterAI monsterAI;
+
+    private NavMeshAgent agent;
 
     // 데이터를 읽습니다.
-    private void OnEnable() => DataLoad();       
+    private void OnEnable() => DataLoad();
+
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
 
     // 데이터를 읽습니다.
     private void DataLoad()
@@ -37,11 +45,13 @@ public class MonsterController : MonoBehaviour, IDamageable
         if (data == null || data.Data == null)
             return;
 
-        if (!objectAI) return;
+       // if (!objectAI) return;
 
         // 이동할 위치와 현재 위치을 이용하여 방향을 구하고 이동을 시킵니다.
-        var dir = objectAI.DirectionBehaviour.getDirection(transform.position); dir.y = 0f;
-        target.Move(dir, data.Data.speed);
+        //  var dir = objectAI.DirectionBehaviour.getDirection(transform.position); dir.y = 0f;
+        // target.Move(dir, data.Data.speed);
+
+        agent.enabled = true;
     }
 
     private void Update()
@@ -51,6 +61,8 @@ public class MonsterController : MonoBehaviour, IDamageable
 
         if (data.Data.hp <= 0)
             target.Die();
+
+        if(agent.isActiveAndEnabled && monsterAI) agent.SetDestination(monsterAI.ArrivalPoint);
     }
 
     private void FixedUpdate()
@@ -68,8 +80,8 @@ public class MonsterController : MonoBehaviour, IDamageable
         if (data != null && data.Data != null)
             data.Data.hp = HealthSystem.Damage(data.Data.hp, data.Data.maxHp, damage);
 
-        if (objectAI)
-            objectAI.DirectionBehaviour = new ObjectAITraceDirection(other);
+    //    if (objectAI)
+        //    objectAI.DirectionBehaviour = new ObjectAITraceDirection(other);
 
         DamagePopup.Popup(damage, Camera.main.WorldToScreenPoint(target.transform.position));
     }
