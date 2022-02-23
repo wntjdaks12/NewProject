@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f836d1a106d284ebef850437310757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6691616620417679969, guid: d80d6807b8dcb154299eb2d21e05ed7a, type: 3}
-  poolCount: 10
+  target: {fileID: 8465182574410780034, guid: 62e4426aaef2515479152f2d27027220, type: 3}
+  poolCount: 50
 --- !u!114 &8278461453919939279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,5 +61,5 @@ MonoBehaviour:
   pool: {fileID: 8973352893694351180}
   generatorInfo:
     respawnTime: 3
-    position: {x: -28.77784, y: 1, z: -27.80043}
+    position: {x: -12.9, y: 1, z: 0.9995667}
     radius: 5
